@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-18T15:27:02.953Z</updated>
+  <updated>2017-07-18T15:32:48.178Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://yoursite.com/2017/07/18/%E5%A6%82%E4%BD%95%E5%90%91github%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%EF%BC%9F/"/>
     <id>http://yoursite.com/2017/07/18/如何向github提交代码？/</id>
     <published>2017-07-18T14:31:13.000Z</published>
-    <updated>2017-07-18T15:27:02.953Z</updated>
+    <updated>2017-07-18T15:32:48.178Z</updated>
     
     <content type="html"><![CDATA[<p>有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)<br>Github一般都是基于SSH授权的，本文针对 <strong>Windows</strong> 系统，记录了如何向Github提交代码。</p>
-<h4 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h4><p>下载地址：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">点我</a>下载后，一直默认 <strong>next</strong> 安装即可。<br>![Git工具][hexo/source/img/2017-07-18-001.png]</p>
+<h4 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h4><p>下载地址：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">点我</a>下载后，一直默认 <strong>next</strong> 安装即可。<br>![][hexo/source/img/2017-07-18-001.png]</p>
 <h4 id="创建新项目，copy地址"><a href="#创建新项目，copy地址" class="headerlink" title="创建新项目，copy地址"></a>创建新项目，copy地址</h4><p>进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 <strong>Clone or download</strong> 按钮，赋值出现的地址备之后用。<br>![copy地址][hexo/source/img/2017-07-18-002.png]</p>
 <h4 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h4><p>在本地电脑中找到之前安装的git工具，双击里面的 <strong>git-bash.exe</strong> ![git-bash][hexo/source/img/2017-07-18-003.png]<br>输入命令：<strong>ssh</strong>，如果出现如下界面，则表示本电脑已经安装了SSH。<br>![成功界面][hexo/source/img/2017-07-18-004.png]<br>接着输入命令 <strong>ssh-keygen -t rsa</strong>(指定rsa算法生成密钥)，连续敲三个回车，生成两个文件： <strong>id_rsa</strong>(密钥)和 <strong>id_rsa.pub</strong>(公钥)，这两个文件都在c/Users/Administrator/.ssh目录下，可以用Sublime打开(其他也可以，这里请自行百度)。</p>
 <h4 id="在Github上添加SSH-key"><a href="#在Github上添加SSH-key" class="headerlink" title="在Github上添加SSH key"></a>在Github上添加SSH key</h4><p>进入Github的设置页面，点击左侧选项栏中的 <strong>SSH and GPG keys</strong>，再点击 <strong>new SSH key</strong>，把上一步中的 <strong>id_rsa.pub</strong>(公钥)中的内容粘贴到 <strong>Key</strong> 那一栏， <strong>Title</strong> 栏不需要填写，直接点击 <strong>Add SSH key</strong> 即可。<br>![添加SSH key][hexo/source/img/2017-07-18-005.png]<br>这样，本地的id_rsa密钥和Github上的id_rsa.pub公钥就可以进行配对，授权成功才可以提交代码。<br>SSH key添加成功之后，输入命令： <strong>ssh -T git@github.com</strong> 进行测试，如果出现如下提示，则表示添加成功。<br>![提示][hexo/source/img/2017-07-18-006.png]</p>
