@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-17T15:16:10.647Z</updated>
+  <updated>2017-07-18T03:31:05.138Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/07/17/%E5%85%B3%E4%BA%8EHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7/"/>
     <id>http://yoursite.com/2017/07/17/关于Hexo搭建博客的一些工具/</id>
     <published>2017-07-17T14:18:35.000Z</published>
-    <updated>2017-07-17T15:16:10.647Z</updated>
+    <updated>2017-07-18T03:31:05.138Z</updated>
     
     <content type="html"><![CDATA[<h4 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h4><p>Hexo是一个快速、简洁且高效的博客框架。Hexo使用<a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="external">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 <h4 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h4><h4 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h4><p>Git是目前世界上最先进的分布式版本控制系统。</p>
@@ -38,6 +38,14 @@
     
       <category term="前端工具" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"/>
     
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="Markdown" scheme="http://yoursite.com/tags/Markdown/"/>
+    
+      <category term="Atom" scheme="http://yoursite.com/tags/Atom/"/>
     
   </entry>
   
