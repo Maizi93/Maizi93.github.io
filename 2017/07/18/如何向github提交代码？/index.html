@@ -95,17 +95,29 @@
 
 
 
-<meta name="description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。![][/img/2017-07-18-001.png] 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read th">
+<meta name="description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 Clone or downloa">
 <meta name="keywords" content="github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何向github提交代码？">
 <meta property="og:url" content="http://yoursite.com/2017/07/18/如何向github提交代码？/index.html">
 <meta property="og:site_name" content="麦 子">
-<meta property="og:description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。![][/img/2017-07-18-001.png] 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read th">
-<meta property="og:updated_time" content="2017-07-18T15:35:28.230Z">
+<meta property="og:description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 Clone or downloa">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-001.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-002.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-003.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-004.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-005.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-006.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-007.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-008.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-009.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-010.png">
+<meta property="og:image" content="http://yoursite.com/img/2017-07-18-011.png">
+<meta property="og:updated_time" content="2017-07-18T15:41:53.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何向github提交代码？">
-<meta name="twitter:description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。![][/img/2017-07-18-001.png] 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read th">
+<meta name="twitter:description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 Clone or downloa">
+<meta name="twitter:image" content="http://yoursite.com/img/2017-07-18-001.png">
 
 
 
@@ -396,14 +408,14 @@
 
       
         <p>有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)<br>Github一般都是基于SSH授权的，本文针对 <strong>Windows</strong> 系统，记录了如何向Github提交代码。</p>
-<h4 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h4><p>下载地址：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">点我</a>下载后，一直默认 <strong>next</strong> 安装即可。<br>![][/img/2017-07-18-001.png]</p>
-<h4 id="创建新项目，copy地址"><a href="#创建新项目，copy地址" class="headerlink" title="创建新项目，copy地址"></a>创建新项目，copy地址</h4><p>进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 <strong>Clone or download</strong> 按钮，赋值出现的地址备之后用。<br>![][hexo/source/img/2017-07-18-002.png]</p>
-<h4 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h4><p>在本地电脑中找到之前安装的git工具，双击里面的 <strong>git-bash.exe</strong> ![git-bash][hexo/source/img/2017-07-18-003.png]<br>输入命令：<strong>ssh</strong>，如果出现如下界面，则表示本电脑已经安装了SSH。<br>![成功界面][hexo/source/img/2017-07-18-004.png]<br>接着输入命令 <strong>ssh-keygen -t rsa</strong>(指定rsa算法生成密钥)，连续敲三个回车，生成两个文件： <strong>id_rsa</strong>(密钥)和 <strong>id_rsa.pub</strong>(公钥)，这两个文件都在c/Users/Administrator/.ssh目录下，可以用Sublime打开(其他也可以，这里请自行百度)。</p>
-<h4 id="在Github上添加SSH-key"><a href="#在Github上添加SSH-key" class="headerlink" title="在Github上添加SSH key"></a>在Github上添加SSH key</h4><p>进入Github的设置页面，点击左侧选项栏中的 <strong>SSH and GPG keys</strong>，再点击 <strong>new SSH key</strong>，把上一步中的 <strong>id_rsa.pub</strong>(公钥)中的内容粘贴到 <strong>Key</strong> 那一栏， <strong>Title</strong> 栏不需要填写，直接点击 <strong>Add SSH key</strong> 即可。<br>![添加SSH key][hexo/source/img/2017-07-18-005.png]<br>这样，本地的id_rsa密钥和Github上的id_rsa.pub公钥就可以进行配对，授权成功才可以提交代码。<br>SSH key添加成功之后，输入命令： <strong>ssh -T git@github.com</strong> 进行测试，如果出现如下提示，则表示添加成功。<br>![提示][hexo/source/img/2017-07-18-006.png]</p>
-<h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><p>首先，右键你要上传的项目，会出现两个选项：Git Gui Here和Git Bash Here，选择 <strong>Git Bash Here</strong> ，进入如下界面：这里Lottery就是我要上传的项目。<br>![Git Bash Here][hexo/source/img/2017-07-18-007.png]</p>
-<h5 id="把Github上面的仓库clone到本地"><a href="#把Github上面的仓库clone到本地" class="headerlink" title="把Github上面的仓库clone到本地"></a>把Github上面的仓库clone到本地</h5><p>输入命令： <strong>git clone <a href="https://github.com/Maizi93/test.git" target="_blank" rel="external">https://github.com/Maizi93/test.git</a></strong> (这个地址就是之前复制备用的地址)，此时你会发现本地文件夹中会多出一个文件夹(test)，把项目文件夹中的其余所有，都赋值到这个多出来的文件夹(test)中。<br>![clone到本地][hexo/source/img/2017-07-18-008.png]  ![本地文件夹][/img/2017-07-18-009.png]</p>
-<h5 id="提交并push到github上"><a href="#提交并push到github上" class="headerlink" title="提交并push到github上"></a>提交并push到github上</h5><p>依次输入以下命令：<br><strong>cd test</strong> ———— 进入test文件夹<br><strong>git add .</strong> ———— 把test文件夹下面的文件都添加进来， <em>注意：add后面还有一个点（.），千万别忘记了！</em><br><strong>git commit -m “提交信息”</strong> ———— “提交信息”里面换成你需要的，如”first commit”<br><strong>git push -u origin master</strong> ———— 把本地仓库push到github上面， <em>注意：这里需要你输入Github的账号和密码</em><br>![相关命令行][hexo/source/img/2017-07-18-010.png]</p>
-<h5 id="完成代码提交"><a href="#完成代码提交" class="headerlink" title="完成代码提交"></a>完成代码提交</h5><p>到Github上test这个repository下面，就可以看到已经提交了你的项目相关内容。<br>![完成提交][hexo/source/img/2017-07-18-011.png]</p>
+<h4 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h4><p>下载地址：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">点我</a>下载后，一直默认 <strong>next</strong> 安装即可。<br><img src="/img/2017-07-18-001.png" alt=""></p>
+<h4 id="创建新项目，copy地址"><a href="#创建新项目，copy地址" class="headerlink" title="创建新项目，copy地址"></a>创建新项目，copy地址</h4><p>进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 <strong>Clone or download</strong> 按钮，赋值出现的地址备之后用。<br><img src="/img/2017-07-18-002.png" alt=""></p>
+<h4 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h4><p>在本地电脑中找到之前安装的git工具，双击里面的 <strong>git-bash.exe</strong> <img src="/img/2017-07-18-003.png" alt="git-bash"><br>输入命令：<strong>ssh</strong>，如果出现如下界面，则表示本电脑已经安装了SSH。<br><img src="/img/2017-07-18-004.png" alt="成功界面"><br>接着输入命令 <strong>ssh-keygen -t rsa</strong>(指定rsa算法生成密钥)，连续敲三个回车，生成两个文件： <strong>id_rsa</strong>(密钥)和 <strong>id_rsa.pub</strong>(公钥)，这两个文件都在c/Users/Administrator/.ssh目录下，可以用Sublime打开(其他也可以，这里请自行百度)。</p>
+<h4 id="在Github上添加SSH-key"><a href="#在Github上添加SSH-key" class="headerlink" title="在Github上添加SSH key"></a>在Github上添加SSH key</h4><p>进入Github的设置页面，点击左侧选项栏中的 <strong>SSH and GPG keys</strong>，再点击 <strong>new SSH key</strong>，把上一步中的 <strong>id_rsa.pub</strong>(公钥)中的内容粘贴到 <strong>Key</strong> 那一栏， <strong>Title</strong> 栏不需要填写，直接点击 <strong>Add SSH key</strong> 即可。<br><img src="/img/2017-07-18-005.png" alt="添加SSH key"><br>这样，本地的id_rsa密钥和Github上的id_rsa.pub公钥就可以进行配对，授权成功才可以提交代码。<br>SSH key添加成功之后，输入命令： <strong>ssh -T git@github.com</strong> 进行测试，如果出现如下提示，则表示添加成功。<br><img src="/img/2017-07-18-006.png" alt="提示"></p>
+<h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><p>首先，右键你要上传的项目，会出现两个选项：Git Gui Here和Git Bash Here，选择 <strong>Git Bash Here</strong> ，进入如下界面：这里Lottery就是我要上传的项目。<br><img src="/img/2017-07-18-007.png" alt="Git Bash Here"></p>
+<h5 id="把Github上面的仓库clone到本地"><a href="#把Github上面的仓库clone到本地" class="headerlink" title="把Github上面的仓库clone到本地"></a>把Github上面的仓库clone到本地</h5><p>输入命令： <strong>git clone <a href="https://github.com/Maizi93/test.git" target="_blank" rel="external">https://github.com/Maizi93/test.git</a></strong> (这个地址就是之前复制备用的地址)，此时你会发现本地文件夹中会多出一个文件夹(test)，把项目文件夹中的其余所有，都赋值到这个多出来的文件夹(test)中。<br><img src="/img/2017-07-18-008.png" alt="clone到本地">  <img src="/img/2017-07-18-009.png" alt="本地文件夹"></p>
+<h5 id="提交并push到github上"><a href="#提交并push到github上" class="headerlink" title="提交并push到github上"></a>提交并push到github上</h5><p>依次输入以下命令：<br><strong>cd test</strong> ———— 进入test文件夹<br><strong>git add .</strong> ———— 把test文件夹下面的文件都添加进来， <em>注意：add后面还有一个点（.），千万别忘记了！</em><br><strong>git commit -m “提交信息”</strong> ———— “提交信息”里面换成你需要的，如”first commit”<br><strong>git push -u origin master</strong> ———— 把本地仓库push到github上面， <em>注意：这里需要你输入Github的账号和密码</em><br><img src="/img/2017-07-18-010.png" alt="相关命令行"></p>
+<h5 id="完成代码提交"><a href="#完成代码提交" class="headerlink" title="完成代码提交"></a>完成代码提交</h5><p>到Github上test这个repository下面，就可以看到已经提交了你的项目相关内容。<br><img src="/img/2017-07-18-011.png" alt="完成提交"></p>
 
       
     </div>
