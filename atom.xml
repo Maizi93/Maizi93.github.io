@@ -454,7 +454,7 @@
     <link href="http://yoursite.com/2017/07/19/position%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%B1%9E%E6%80%A7/"/>
     <id>http://yoursite.com/2017/07/19/position的四个属性/</id>
     <published>2017-07-19T02:18:31.000Z</published>
-    <updated>2017-07-19T02:29:10.473Z</updated>
+    <updated>2017-07-19T10:00:16.799Z</updated>
     
     <content type="html"><![CDATA[<h4 id="position的四个属性"><a href="#position的四个属性" class="headerlink" title="position的四个属性"></a>position的四个属性</h4><h5 id="static"><a href="#static" class="headerlink" title="static"></a>static</h5><p>默认值，没有定位，元素出现在正常文档流当中；</p>
 <h5 id="absolute"><a href="#absolute" class="headerlink" title="absolute:"></a>absolute:</h5><p>绝对定位，相对于其最近一个具有定位属性的父包含块进行定位，如果不存在这样的包含块，则相对于body元素；<br>可以用left、right、top、bottom来确定元素的位置；<br>不在z-index保留占位符，脱离文档流；<br>会隐性改变display属性值为inline-block；</p>
@@ -471,7 +471,9 @@
       <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
     
     
-      <category term="CSS, position" scheme="http://yoursite.com/tags/CSS-position/"/>
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+      <category term="position" scheme="http://yoursite.com/tags/position/"/>
     
   </entry>
   
