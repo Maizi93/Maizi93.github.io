@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T07:30:36.166Z</updated>
+  <updated>2017-07-19T08:18:42.846Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WampServer的安装和配置</title>
+    <link href="http://yoursite.com/2017/07/19/Wampserver%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2017/07/19/Wampserver的安装和配置/</id>
+    <published>2017-07-19T07:43:24.000Z</published>
+    <updated>2017-07-19T08:18:42.846Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="WampServer介绍"><a href="#WampServer介绍" class="headerlink" title="WampServer介绍"></a>WampServer介绍</h4><p>首先解读一下Wamp这四个字母分别代表什么：</p>
+<ul>
+<li>w: Windows</li>
+<li>a: Apache</li>
+<li>m: Mysql</li>
+<li>p: PHP<br>Wamp就是WindowsApacheMyqlPHP集成安装环境，即在windows下的apache、php和mysql的服务器软件；而WampServer呢就是Apache Web服务器、PHP解释器以及MySQL数据库的整合软件包。这样一来，开发人员就不必花大量时间在繁琐的环境配置中，可腾出更多精力去做开发。<h5 id="WampServer的特点"><a href="#WampServer的特点" class="headerlink" title="WampServer的特点"></a>WampServer的特点</h5>1.支持中文，一键安装，省时省力，任何人都可以轻松搭建；<br>2.集成Apache/MySQL/PHP/PhpMyadmin；支持PHP扩展，Apache的mod_rewrite；<br>3.一键启动、重启、停止所有服务，一键切换到离线状态等等。</li>
+</ul>
+<h4 id="WampServer的安装和配置"><a href="#WampServer的安装和配置" class="headerlink" title="WampServer的安装和配置"></a>WampServer的安装和配置</h4><p>本文中记录了我在安装使用WampServer过程中遇到的一些问题，在网上查阅了很多资料，在这里稍作整理。（主要针对Window7）</p>
+<h5 id="WampServer的安装"><a href="#WampServer的安装" class="headerlink" title="WampServer的安装"></a>WampServer的安装</h5><p>自行百度进行安装，根据自己的电脑选择合适的版本（x86/x64）；安装过程很简单，基本就是直接点击下一步去就可以，有两点需要注意一下：<br>1.选择默认浏览工具，默认为explorer.exe，直接点击打开杰克，如下图所示：<br><img src="/img/2017-07-19_201.jpg" alt="默认浏览工具"><br>2.输入管理员邮箱以及邮箱SMTP的服务器（这个窗口有的版本会出现，有的不会出现），如果你愿意填写就写一下，一般直接点击next也不会影响安装。</p>
+<h5 id="安装结束，打开WampServer"><a href="#安装结束，打开WampServer" class="headerlink" title="安装结束，打开WampServer"></a>安装结束，打开WampServer</h5><p>1.打开WampServer时需要注意的是，尽量把电脑上的浏览器和一些媒体播放器先关闭，以免占用 <strong>80端口</strong>；<br>2.在保证80端口没有被占用的情况下打开WampServer，可能会出现提示窗口： <strong>提示MSVCR110.dll丢失</strong>；<br>解决办法：首先卸载已经安装好的WampServer，对于 <strong>32位</strong> 的系统，安装 <strong>vcredist_x86.exe</strong> 之后，重新安装Wampserver；而对于 <strong>64位</strong> 的系统，则安装 <strong>vcredist_x64.exe</strong>，再重新安装Wampserver即可。<br><strong>vcredist_x86.exe</strong> 和 <strong>vcredist_x64.exe</strong> 的下载地址：<a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=30679" target="_blank" rel="external">http://www.microsoft.com/zh-cn/download/details.aspx?id=30679</a></p>
+<h5 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h5><p>安装完并成功启动后，突变显示为绿色，右击突变，然后依次选择 <strong>Language</strong> —— <strong>chinese</strong> 进行语言设置；</p>
+<h5 id="访问WampServer页面"><a href="#访问WampServer页面" class="headerlink" title="访问WampServer页面"></a>访问WampServer页面</h5><p>鼠标左键点击绿色图标，再点击 <strong>localhost</strong> 即可访问该页面，默认为 <strong>Server Configuration</strong><br><img src="/img/2017-07-19_202.jpg" alt=""><br><img src="/img/2017-07-19_203.jpg" alt="Server Configuration页面"></p>
+<h5 id="进入phpmyadmin管理页面"><a href="#进入phpmyadmin管理页面" class="headerlink" title="进入phpmyadmin管理页面"></a>进入phpmyadmin管理页面</h5><p>点击Tools下的phpmyadmin，即可进入phpmyadmin管理页面，首先会出现一个登陆页面，一般用户名为root，密码为空，点击右下角的执行即可进入。<br><img src="/img/2017-07-19_204.jpg" alt="进入phpmyadmin管理页面"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;WampServer介绍&quot;&gt;&lt;a href=&quot;#WampServer介绍&quot; class=&quot;headerlink&quot; title=&quot;WampServer介绍&quot;&gt;&lt;/a&gt;WampServer介绍&lt;/h4&gt;&lt;p&gt;首先解读一下Wamp这四个字母分别代表什么：&lt;/p&gt;
+&lt;ul
+    
+    </summary>
+    
+      <category term="前端工具" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="集成环境" scheme="http://yoursite.com/tags/%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/"/>
+    
+  </entry>
   
   <entry>
     <title>关于MATLAB画图</title>
