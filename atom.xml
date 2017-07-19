@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T06:45:13.161Z</updated>
+  <updated>2017-07-19T07:13:22.641Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>三次握手和四次挥手</title>
+    <link href="http://yoursite.com/2017/07/19/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
+    <id>http://yoursite.com/2017/07/19/三次握手和四次挥手/</id>
+    <published>2017-07-19T06:48:31.000Z</published>
+    <updated>2017-07-19T07:13:22.641Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前在<a href="https://maizi93.github.io/2017/07/19/从地址栏输入URL到页面加载完成，发生了什么？/" target="_blank" rel="external">从地址栏输入URL到页面加载完成，发生了什么？</a>一文中提到了 <strong>三次握手</strong> 和 <strong>四次挥手</strong> ，本文将具体展开。</p>
+<h4 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h4><ul>
+<li>三次握手</li>
+<li>四次挥手</li>
+</ul>
+<h5 id="图形解析"><a href="#图形解析" class="headerlink" title="图形解析"></a>图形解析</h5><p>话不多说，直接上图<br><img src="/img/2017-07-19_001.jpg" alt="三次握手和四次挥手"></p>
+<h5 id="符号解释"><a href="#符号解释" class="headerlink" title="符号解释"></a>符号解释</h5><ul>
+<li>SYN：表示发起一个新的连接；（标志位）</li>
+<li>Seq序号：用来标识从TCP源端向目的端发送的字节流，发送方发送数据时对此进行过标记；</li>
+<li>ACK：确认序号有效，ACK = Seq + 1；（标志位）</li>
+<li>FIN：表示释放一个连接；（标志位）</li>
+</ul>
+<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><ul>
+<li>第一次握手<br>客户端（Client）发送SYN = 1， 随机产生Seq = X，将数据包发送给服务器（Server），并进入SYN_SEND状态，等待服务器确认；</li>
+<li>第二次握手<br>服务器接收到数据包后，由SYN = 1知道客户端请求建立连接，服务器将SYN和ACK都置为1，ack = X + 1，随机产生Seq = Y，将数据包放给客户端以确认连接请求，服务器进入SYN_RCVD状态；</li>
+<li>第三次握手<br>客户端收到确认后，检查ACK = 1？ack = X + 1？如果是，则将ACK置为1，ack = Y + 1, Seq = X + 1，并将数据包发送给服务器。服务器接收到数据包后，确认ACK = 1？ack = Y + 1？如果是，则连接建立成功，客户端和服务器端都进入ESTABLISHED状态，也即完成了三次握手。</li>
+</ul>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p>（由于TCP连接是全双工的，需要对每个方向单独进行关闭，也即需要客户端和服务器端分别发送FIN来关闭连接。首先进行关闭的一方将执行主动关闭，另一方将执行被动关闭。客户端和服务器端都可以是主动关闭的那一方）。</p>
+<ul>
+<li>第一次挥手<br>客户端发送FIN = 1（为了简便，图中其余标志位和符号在这里省略，和三次握手的原理是一样的），用来关闭客户端到服务器端的数据传达，客户端进入FIN-WAIT-1状态；</li>
+<li>第二次挥手<br>服务器接收到数据包后，由FIN = 1知道客户端请求断开连接，将ACK置为1，ack = X + 1，服务器端进入CLOSE-WAIT状态（注意：这里服务器但还是可以正常发送数据，只是客户端不再发送数据）；客户端收到确认后，检查ACK和ack，如果正确，则进入FIN-WAIT-2状态；</li>
+<li>第三次挥手<br>服务器端发送FIN = 1，用来关闭服务器端到客户端的数据传送，进入LAST-ACK状态；</li>
+<li>第四次挥手<br>客户端接收到数据包后，进入TIME-WAIT状态，然后发送数据包（ACK = 1，ack = Z + 1）给服务器，服务器进入CLOSED状态，即完成四次挥手。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前在&lt;a href=&quot;https://maizi93.github.io/2017/07/19/从地址栏输入URL到页面加载完成，发生了什么？/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;从地址栏输入URL到页面加载完成，发生了什么？&lt;/a&gt;一文中提
+    
+    </summary>
+    
+      <category term="网络" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="TCP连接" scheme="http://yoursite.com/tags/TCP%E8%BF%9E%E6%8E%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>从地址栏输入URL到页面加载完成，发生了什么？</title>
