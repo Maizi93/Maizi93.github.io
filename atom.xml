@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T05:12:05.361Z</updated>
+  <updated>2017-07-19T05:13:27.663Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,33 +20,33 @@
     <link href="http://yoursite.com/2017/07/19/%E8%A1%A8%E6%A0%BC%E6%8E%92%E5%BA%8F-JavaScript/"/>
     <id>http://yoursite.com/2017/07/19/表格排序-JavaScript/</id>
     <published>2017-07-19T03:50:45.000Z</published>
-    <updated>2017-07-19T05:12:05.361Z</updated>
+    <updated>2017-07-19T05:13:27.663Z</updated>
     
     <content type="html"><![CDATA[<p>笔试做到一个表格排序的题，当时没有完全实现，本文记录了用JavavScript进行表格排序的实现过程。</p>
 <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>在页面上有如下表格，当点击成绩的时候，所有行数据根据成绩从低到高排序，再点击时成绩则变为从高到低排序。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">姓名</th>
-<th style="text-align:left">性别</th>
-<th style="text-align:left">成绩</th>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">性别</th>
+<th style="text-align:center">成绩</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">张三</td>
-<td style="text-align:left">男</td>
-<td style="text-align:left">77</td>
+<td style="text-align:center">张三</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">77</td>
 </tr>
 <tr>
-<td style="text-align:left">李四</td>
-<td style="text-align:left">女</td>
-<td style="text-align:left">87</td>
+<td style="text-align:center">李四</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">87</td>
 </tr>
 <tr>
-<td style="text-align:left">王五</td>
-<td style="text-align:left">未知</td>
-<td style="text-align:left">50</td>
+<td style="text-align:center">王五</td>
+<td style="text-align:center">未知</td>
+<td style="text-align:center">50</td>
 </tr>
 </tbody>
 </table>
