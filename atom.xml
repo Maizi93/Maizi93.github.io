@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>麦 子</title>
+  <title>麦 田</title>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T05:14:12.169Z</updated>
+  <updated>2017-07-19T06:45:13.161Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从地址栏输入URL到页面加载完成，发生了什么？</title>
+    <link href="http://yoursite.com/2017/07/19/%E4%BB%8E%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%EF%BC%8C%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F/"/>
+    <id>http://yoursite.com/2017/07/19/从地址栏输入URL到页面加载完成，发生了什么？/</id>
+    <published>2017-07-19T06:37:09.000Z</published>
+    <updated>2017-07-19T06:45:13.161Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="从地址栏输入URL到页面加载完成，发生了什么？"><a href="#从地址栏输入URL到页面加载完成，发生了什么？" class="headerlink" title="从地址栏输入URL到页面加载完成，发生了什么？"></a>从地址栏输入URL到页面加载完成，发生了什么？</h4><p>参考别人的文章后，自己总结的，有写的不妥的，还请大家指正。</p>
+<p>整个过程大致分为以下几个步骤：<br>1.浏览器查看缓存，如果缓存中有，则直接在屏幕中显示内容；若没有，则执行以下步骤；<br>2.进行域名（DNS）解析，获取相应的IP地址；（域名解析的过程，实际上就是将域名还原为IP地址的过程）<br>3.浏览器向服务器发起TCP链接，与浏览器建立TCP三次握手；<br>4.握手成功后，浏览器发送HTTP请求；（HTTP请求主要包括：请求行、请求头、请求正文）<br>5.服务器接收并处理请求，并返回HTTP响应；<br>6.浏览器收到HTTP响应后，开始构建页面，解析html源码，对页面进行渲染；<br>7.生成DOM树，解析CSS样式、js交互；<br>8.（可选）浏览器发送静态资源请求；<br>9.（可选）浏览器发送Ajax请求；<br>10.页面构建完成，关闭连接。（TCP四次挥手）</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;从地址栏输入URL到页面加载完成，发生了什么？&quot;&gt;&lt;a href=&quot;#从地址栏输入URL到页面加载完成，发生了什么？&quot; class=&quot;headerlink&quot; title=&quot;从地址栏输入URL到页面加载完成，发生了什么？&quot;&gt;&lt;/a&gt;从地址栏输入URL到页面加载完成，
+    
+    </summary>
+    
+      <category term="网络" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="页面加载" scheme="http://yoursite.com/tags/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>表格排序-JavaScript</title>
