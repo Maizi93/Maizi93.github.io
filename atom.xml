@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T03:08:45.246Z</updated>
+  <updated>2017-07-19T03:44:12.059Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>两个数相乘(包括整数和小数)，精度问题</title>
+    <link href="http://yoursite.com/2017/07/19/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%9B%B8%E4%B9%98-%E5%8C%85%E6%8B%AC%E6%95%B4%E6%95%B0%E5%92%8C%E5%B0%8F%E6%95%B0-%EF%BC%8C%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2017/07/19/两个数相乘-包括整数和小数-，精度问题/</id>
+    <published>2017-07-19T03:15:36.000Z</published>
+    <updated>2017-07-19T03:44:12.059Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="在有精度要求的情况下，进行两数的乘法运算"><a href="#在有精度要求的情况下，进行两数的乘法运算" class="headerlink" title="在有精度要求的情况下，进行两数的乘法运算"></a>在有精度要求的情况下，进行两数的乘法运算</h4><p>假设a和b相乘，a、b都有可能是小数，返回相乘的结果(注意精度问题)<br>举个栗子：a = 4; b = 0.0002 ———— 结果：0.0008</p>
+<p>实现代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var a = 4;</div><div class="line">var b = 0.0002;</div><div class="line">var result = multiplication(a, b);</div><div class="line">console.log(result);     // 0.0008</div><div class="line"></div><div class="line">function multiplication(num1, num2)&#123;</div><div class="line">  // 首先把两个数转换成字符串(十进制)</div><div class="line">  var str1 = num1.toString();</div><div class="line">  var str2 = num2.toString();</div><div class="line"></div><div class="line">  // 分别获取两个数的小数位数(确定精度)</div><div class="line">  var l1 = (str1.indexOf(&apos;.&apos;) == -1) ? 0 : (str1.length - str1.indexOf(&apos;.&apos;) - 1);</div><div class="line">  var l2 = (str2.indexOf(&apos;.&apos;) == -1) ? 0 : (str2.length - str2.indexOf(&apos;.&apos;) - 1);</div><div class="line">  var l = Math.max(l1, l2);</div><div class="line"></div><div class="line">  // 根据精度计算结果</div><div class="line">  var sum = parseFloat(a * b).toFixed(l);</div><div class="line">  return sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上实现过程中用到的一些方法：</p>
+<h5 id="parseFloat-方法"><a href="#parseFloat-方法" class="headerlink" title="parseFloat()方法"></a>parseFloat()方法</h5><p>该方法可解析一个字符串，并返回一个浮点数；</p>
+<h5 id="toFixed-方法"><a href="#toFixed-方法" class="headerlink" title="toFixed()方法"></a>toFixed()方法</h5><p>该方法可把Number四舍五入为指定小数位数的数字；</p>
+<h5 id="indexOf-方法"><a href="#indexOf-方法" class="headerlink" title="indexOf()方法"></a>indexOf()方法</h5><p>该方法可返回某个指定的字符串值在字符串中首次出现的位置：这里，如果这个数不是小数，则str.indexOf(‘.’)返回-1，如果是小数，则返回小数点在字符串中第一次出现的位置；</p>
+<h5 id="获取小数位数"><a href="#获取小数位数" class="headerlink" title="获取小数位数"></a>获取小数位数</h5><p>str1.length - str1.indexOf(‘.’) - 1，小数的位数 = 字符串的长度 - 小数点第一次在字符串中出现的位置 - 1；举个栗子：123.56（小数位数 = 6 - 3 - 1 = 2）；</p>
+<h4 id="二进制字符串和十进制之间的转换"><a href="#二进制字符串和十进制之间的转换" class="headerlink" title="二进制字符串和十进制之间的转换"></a>二进制字符串和十进制之间的转换</h4><ul>
+<li>十进制转换成二进制字符串：toString()方法</li>
+<li>二进制字符串转换成十进制：parseInt()方法<br>相关代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var num = 8;                         // 定义一个十进制的整数</div><div class="line">var str = num.toString(2);           // 转换成二进制的字符串，2表示二进制:  &quot;1000&quot;</div><div class="line">var num1 = str.parseInt(str,2);      // 将二进制字符串转换成十进制的整数，2也表示二进制: 8</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h5><p>将给定数字转换成二进制字符串，如果字符串长度不足8位，则在前面补0到满8位。<br>相关代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var a = 8;</div><div class="line">var result = changeTo(a);</div><div class="line">console.log(result);        // &quot;00001000&quot;</div><div class="line"></div><div class="line">function changeTo(num)&#123;</div><div class="line">  var str = num.toString(2);</div><div class="line">  var l = str.length;</div><div class="line">  var s1 = &quot;00000000&quot;;          // 用于补齐，满8位</div><div class="line">  if(l &lt; 8)&#123;</div><div class="line">    var s2 = s1.slice(0, 8-l);  // 截取需要补齐的位数</div><div class="line">    str = s2 + str;  </div><div class="line">  &#125;</div><div class="line">  return str;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;在有精度要求的情况下，进行两数的乘法运算&quot;&gt;&lt;a href=&quot;#在有精度要求的情况下，进行两数的乘法运算&quot; class=&quot;headerlink&quot; title=&quot;在有精度要求的情况下，进行两数的乘法运算&quot;&gt;&lt;/a&gt;在有精度要求的情况下，进行两数的乘法运算&lt;/h4&gt;&lt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="精度" scheme="http://yoursite.com/tags/%E7%B2%BE%E5%BA%A6/"/>
+    
+      <category term="转换" scheme="http://yoursite.com/tags/%E8%BD%AC%E6%8D%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>浮动以及清楚浮动的方法</title>
