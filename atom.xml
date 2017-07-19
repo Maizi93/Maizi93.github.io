@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T05:10:51.256Z</updated>
+  <updated>2017-07-19T05:12:05.361Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/07/19/%E8%A1%A8%E6%A0%BC%E6%8E%92%E5%BA%8F-JavaScript/"/>
     <id>http://yoursite.com/2017/07/19/表格排序-JavaScript/</id>
     <published>2017-07-19T03:50:45.000Z</published>
-    <updated>2017-07-19T05:10:51.256Z</updated>
+    <updated>2017-07-19T05:12:05.361Z</updated>
     
     <content type="html"><![CDATA[<p>笔试做到一个表格排序的题，当时没有完全实现，本文记录了用JavavScript进行表格排序的实现过程。</p>
 <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>在页面上有如下表格，当点击成绩的时候，所有行数据根据成绩从低到高排序，再点击时成绩则变为从高到低排序。</p>
@@ -50,7 +50,60 @@
 </tr>
 </tbody>
 </table>
-<p>第一次点击成绩之后：<br>|姓名   |性别  |成绩  |<br>|:—-:|:—-:|:—-:|<br>|王五   |未知  |50    |<br>|张三   |男    |77    |<br>|李四   |女    |87    |<br>再次点击成绩之后：<br>|姓名   |性别  |成绩  |<br>|:—-:|:—-:|:—-:|<br>|李四   |女    |87    |<br>|张三   |男    |77    |<br>|王五   |未知  |50    |</p>
+<p>第一次点击成绩之后：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">性别</th>
+<th style="text-align:center">成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">王五</td>
+<td style="text-align:center">未知</td>
+<td style="text-align:center">50</td>
+</tr>
+<tr>
+<td style="text-align:center">张三</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">77</td>
+</tr>
+<tr>
+<td style="text-align:center">李四</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">87</td>
+</tr>
+</tbody>
+</table>
+<p>再次点击成绩之后：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">性别</th>
+<th style="text-align:center">成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">李四</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">87</td>
+</tr>
+<tr>
+<td style="text-align:center">张三</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">77</td>
+</tr>
+<tr>
+<td style="text-align:center">王五</td>
+<td style="text-align:center">未知</td>
+<td style="text-align:center">50</td>
+</tr>
+</tbody>
+</table>
 <h4 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h4><h5 id="html代码部分"><a href="#html代码部分" class="headerlink" title="html代码部分"></a>html代码部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">    &lt;thead&gt;</div><div class="line">        &lt;tr&gt;  </div><div class="line">            &lt;td&gt;姓名&lt;/td&gt;  </div><div class="line">            &lt;td&gt;性别&lt;/td&gt;  </div><div class="line">            &lt;td&gt;成绩&lt;/td&gt;  </div><div class="line">        &lt;/tr&gt;  </div><div class="line">    &lt;/thead&gt;</div><div class="line">    &lt;tbody&gt;</div><div class="line">        &lt;tr&gt;  </div><div class="line">            &lt;td&gt;张三&lt;/td&gt;  </div><div class="line">            &lt;td&gt;男&lt;/td&gt;  </div><div class="line">            &lt;td&gt;77&lt;/td&gt;  </div><div class="line">        &lt;/tr&gt;  </div><div class="line">        &lt;tr&gt;  </div><div class="line">            &lt;td&gt;李四&lt;/td&gt;  </div><div class="line">            &lt;td&gt;女&lt;/td&gt;  </div><div class="line">            &lt;td&gt;87&lt;/td&gt;  </div><div class="line">        &lt;/tr&gt;  </div><div class="line">        &lt;tr&gt;  </div><div class="line">            &lt;td&gt;王五&lt;/td&gt;  </div><div class="line">            &lt;td&gt;未知&lt;/td&gt;  </div><div class="line">            &lt;td&gt;50&lt;/td&gt;  </div><div class="line">        &lt;/tr&gt;  </div><div class="line">    &lt;/tbody&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
 <h5 id="CSS代码部分"><a href="#CSS代码部分" class="headerlink" title="CSS代码部分"></a>CSS代码部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div><div class="line">table&#123;</div><div class="line">    border: solid 1px;</div><div class="line">    margin: 60px auto;</div><div class="line">    width: 600px;</div><div class="line">    border-collapse: collapse;    /*为表格设置合并边框模型*/</div><div class="line">    cursor: default;    </div><div class="line">    /*该属性定义了鼠标指针放在一个元素边界范围内时所用的光标形状，default默认光标(通常是一个箭头)*/</div><div class="line">&#125;</div><div class="line">tr&#123;</div><div class="line">    border: solid 1px;</div><div class="line">    height: 26px;</div><div class="line">&#125;</div><div class="line">thead&#123;</div><div class="line">  border: solid 1px;</div><div class="line">  cursor: pointer;</div><div class="line">  /*光标呈现为指示链接的指针(一只手)*/</div><div class="line">&#125;</div><div class="line">td&#123;</div><div class="line">  border: solid 1px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="JavaScript代码部分"><a href="#JavaScript代码部分" class="headerlink" title="JavaScript代码部分"></a>JavaScript代码部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;script type = &quot;text/javascript&quot;&gt;</div><div class="line">    window.onload = function()&#123;</div><div class="line">        var tHead = document.getElementsByTagName(&apos;thead&apos;)[0];</div><div class="line">        var tBody = document.getElementsByTagName(&apos;tbody&apos;)[0];</div><div class="line">        var tHeadTd = tHead.getElementsByTagName(&apos;td&apos;);</div><div class="line">        var rlen = tBody.rows.length;    // 获取tbody中的行数</div><div class="line">        var clen = tBody.rows[0].cells.length;   // 获取tbody中的每行的列数</div><div class="line"></div><div class="line">        var arr = [];</div><div class="line">        for(var  i = 0; i &lt; rlen; i ++)&#123;</div><div class="line">          arr[i] = tBody.rows[i];    // 把tBody中的内容以行的形式放到数组arr中</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        var count= 0;    // 记录点击的次数（第一次点击，升序排列；再次点击，降序排列）</div><div class="line">        // 当点击“成绩”单元格时</div><div class="line">        tHeadTd[2].onclick = function()&#123;</div><div class="line">            if(count == 0)&#123;</div><div class="line">              sortUp(arr,2);</div><div class="line">              count = 1;</div><div class="line">            &#125;else&#123;</div><div class="line">              sortDown(arr,2);</div><div class="line">              count = 0;</div><div class="line">            &#125;</div><div class="line">            var str = &quot;&quot;;</div><div class="line">            var html = &quot;&quot;;</div><div class="line"></div><div class="line">            // 遍历数组arr的每一行</div><div class="line">            for(var j = 0; j &lt; arr.length; j ++)&#123;</div><div class="line">                // 遍历数组arr每一行的长度</div><div class="line">                for(var k = 0; k &lt; clen; k ++)&#123;</div><div class="line">                    // 获取排序后每行每个单元格的内容</div><div class="line">                    str += &quot;&lt;td&gt;&quot; + arr[j].children[k].innerText + &quot;&lt;/td&gt;&quot;;</div><div class="line">                &#125;</div><div class="line">                // 把每个单元格放到行内，并把每行&lt;tr&gt;赋给html</div><div class="line">                html = &quot;&lt;tr&gt;&quot; + str + &quot;&lt;/tr&gt;&quot;;</div><div class="line">                str = &quot;&quot;;</div><div class="line">            &#125;</div><div class="line">            tBody.innerHTML = html;     // 把html内容添加到表格tbody中</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // 数字升序</div><div class="line">        function sortUp(arr,n)&#123;</div><div class="line">            arr.sort(function(a,b)&#123;</div><div class="line">                return a.children[n].innerText - b.children[n].innerText;  </div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // 数字降序</div><div class="line">        function sortDown(arr,n)&#123;</div><div class="line">            arr.sort(function(a,b)&#123;</div><div class="line">                return b.children[n].innerText - a.children[n].innerText;  </div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
