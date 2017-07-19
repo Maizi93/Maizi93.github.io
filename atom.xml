@@ -243,7 +243,7 @@
     <link href="http://yoursite.com/2017/07/19/%E8%A1%A8%E6%A0%BC%E6%8E%92%E5%BA%8F-JavaScript/"/>
     <id>http://yoursite.com/2017/07/19/表格排序-JavaScript/</id>
     <published>2017-07-19T03:50:45.000Z</published>
-    <updated>2017-07-19T05:14:12.169Z</updated>
+    <updated>2017-07-19T10:02:08.107Z</updated>
     
     <content type="html"><![CDATA[<p>笔试做到一个表格排序的题，当时没有完全实现，本文记录了用JavavScript进行表格排序的实现过程。</p>
 <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>在页面上有如下表格，当点击成绩的时候，所有行数据根据成绩从低到高排序，再点击时成绩则变为从高到低排序。</p>
