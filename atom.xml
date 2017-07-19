@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T08:41:07.854Z</updated>
+  <updated>2017-07-19T08:44:49.279Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>word转pdf时存在的一些问题</title>
+    <link href="http://yoursite.com/2017/07/19/word%E8%BD%ACpdf%E6%97%B6%E5%AD%98%E5%9C%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2017/07/19/word转pdf时存在的一些问题/</id>
+    <published>2017-07-19T08:44:49.000Z</published>
+    <updated>2017-07-19T08:44:49.279Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>单选框和复选框</title>
