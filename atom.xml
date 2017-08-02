@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T09:17:07.140Z</updated>
+  <updated>2017-08-02T15:44:19.685Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Hexo + Github搭建个人博客】——环境搭建</title>
+    <link href="http://yoursite.com/2017/08/02/%E3%80%90Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E3%80%91%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2017/08/02/【Hexo-Github搭建个人博客】——环境搭建/</id>
+    <published>2017-08-02T14:45:51.000Z</published>
+    <updated>2017-08-02T15:44:19.685Z</updated>
+    
+    <content type="html"><![CDATA[<p>【写在前面】<br>写这一系列文章的目的有两个：</p>
+<ol>
+<li>为了记录Hexo+Github搭建博客的全过程，巩固其中的知识点</li>
+<li>跟大家分享一些过程中遇到过的坑，以免再踩（当然还有一些没有解决的，有知道的还请不吝赐教~）</li>
+</ol>
+<p>首先，大致了解一下Hexo和Github。</p>
+<p>####Git简介<br>Github 和 Git 是两回事。<br>Git 是目前世界上最先进的分布式版本控制系统（没有之一）；<br>Github 是在线的基于Git的代码托管服务。<br>参考：<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001373962845513aefd77a99f4145f0a2c7a7ca057e7570000" target="_blank" rel="external">廖雪峰的官方网站——Git简介</a>，<a href="https://www.baidu.com/s?wd=git%E5%92%8Cgithub%E7%AE%80%E4%BB%8B&amp;rsv_spt=1&amp;rsv_iqid=0xb351df750002e2fe&amp;issp=1&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;rqlang=cn&amp;tn=baiduhome_pg&amp;rsv_enter=1&amp;oq=Github%25E7%25AE%2580%25E4%25BB%258B&amp;rsv_t=cc8cXQDXbGqLD2SmPHOfOaSAO3ST6bnjKIIWMtRhLUR%2FOmmJooK6kyHd5BWrVflwnFYh&amp;inputT=763&amp;rsv_pq=e5b12abc000264e8&amp;rsv_sug3=9&amp;rsv_sug1=6&amp;rsv_sug7=100&amp;bs=Github%E7%AE%80%E4%BB%8B" target="_blank" rel="external">git和github简介</a></p>
+<p>####Hexo简介<br>官网是这么说的……<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo官网</a><br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<p>简略地说，使用Hexo+Github搭建博客，就是利用Markdown进行博客的编写，通过Hexo框架解析生成靓丽的静态页面，然后不熟到Github上供大家浏览。</p>
+<p>####使用Hexo+Github搭建博客的好处</p>
+<ul>
+<li>免费方便，不需要服务器，不需要后台，无限流量</li>
+<li>都是静态文件，访问速度快</li>
+<li>数据绝对安全，基于Github的版本管理，可以恢复到任意版本</li>
+<li>博客内容可以轻松打包、转义、发布到其他平台</li>
+<li>可以随意绑定自己的域名</li>
+</ul>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>在开始搭建博客之前，你必须做好以下准备：</p>
+<ul>
+<li>安装Git客户端</li>
+<li>有Github账号（没有的话，到Github官网申请一个）</li>
+<li>安装node.js、npm，并了解相关基础知识</li>
+</ul>
+<p>本次博客搭建使用的环境：</p>
+<ul>
+<li>Window7 X64</li>
+<li>git版本：2.11.0.windows.1</li>
+<li>node.js版本：v6.11.1</li>
+<li>vpm版本：3.10.10</li>
+<li>Hexo版本：3.3.7</li>
+</ul>
+<p>####安装Git<br>安装Git的详细步骤已经在<a href="http://blog.csdn.net/jzooo/article/details/46781805" target="_blank" rel="external">如何向github提交代码？</a>一文中详细给出，这里就不再重复了。</p>
+<p>####安装Node.js<br>Node.js的安装过程很简单，一直点击 <strong>Next</strong> ，然后等待安装完成即可。<br><img src="/img/2017-08-02_001.png" alt="Node.js安装"><br><img src="/img/2017-08-02_002.png" alt="Node.js安装"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      博客搭建的前期准备工作
+    
+    </summary>
+    
+      <category term="博客搭建" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
+    
+      <category term="Node.js" scheme="http://yoursite.com/tags/Node-js/"/>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+  </entry>
   
   <entry>
     <title>word转pdf时存在的一些问题</title>
