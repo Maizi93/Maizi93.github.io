@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-03T02:52:58.504Z</updated>
+  <updated>2017-08-03T03:35:44.831Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,21 @@
     <link href="http://yoursite.com/2017/08/03/%E3%80%90Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E3%80%91%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8Hexo/"/>
     <id>http://yoursite.com/2017/08/03/【Hexo-Github搭建个人博客】——使用Hexo/</id>
     <published>2017-08-03T02:52:11.000Z</published>
-    <updated>2017-08-03T02:52:58.504Z</updated>
+    <updated>2017-08-03T03:35:44.831Z</updated>
+    
+    <content type="html"><![CDATA[<p>在前一篇文章<a href="https://maizi93.github.io/2017/08/02/%E3%80%90Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E3%80%91%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#more" target="_blank" rel="external">环境搭建</a>中已经介绍过什么是Hexo，这里不再重复，直接进入主题。</p>
+<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo官方使用文档</a></p>
+<p>本文中提到的命令行都是使用 <strong>git bash</strong> 来执行。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h4><p>确保你的电脑上已经安装了 <strong>Git</strong> 和 <strong>Node.js</strong> （必备），如果没有安装，则参考<a href="https://maizi93.github.io/2017/08/02/%E3%80%90Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E3%80%91%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#more" target="_blank" rel="external">环境搭建</a>进行安装；如果已经安装了，接下来只需使用 <strong>npm</strong> 即可完成Hexo的安装。</p>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h4 id="创建文件夹，并初始化"><a href="#创建文件夹，并初始化" class="headerlink" title="创建文件夹，并初始化"></a>创建文件夹，并初始化</h4><p>创建一个文件夹，用于放置博客内容，路径自己选择。比如我的是：<code>E:\WEB\hexo</code>（名字可以随便取）。创建好之后，进入该目录。<br><img src="img/2017-08-03_101.png" alt="进入目录"><br>接着输入以下命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure></p>
+<p>hexo会自动下载一些文件到该目录，包括node_modules，目录结构如下图：<br><img src="img/2017-08-03_102.png" alt="目录结构"></p>
+<h4 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h4><p>在hexo目录下，执行以下命令，你会发现<code>E:\WEB\hexo</code> 目录下多了好多文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;在前一篇文章&lt;a href=&quot;https://maizi93.github.io/2017/08/02/%E3%80%90Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E3%80%91%E
     
     </summary>
     
@@ -30,6 +42,8 @@
     
     
       <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="Next" scheme="http://yoursite.com/tags/Next/"/>
     
   </entry>
   
