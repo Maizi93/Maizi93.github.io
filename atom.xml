@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-03T02:45:32.056Z</updated>
+  <updated>2017-08-03T02:52:58.504Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【Hexo + Github搭建个人博客】——使用Hexo</title>
+    <link href="http://yoursite.com/2017/08/03/%E3%80%90Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E3%80%91%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8Hexo/"/>
+    <id>http://yoursite.com/2017/08/03/【Hexo-Github搭建个人博客】——使用Hexo/</id>
+    <published>2017-08-03T02:52:11.000Z</published>
+    <updated>2017-08-03T02:52:58.504Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="博客搭建" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【Hexo + Github搭建个人博客】——环境搭建</title>
     <link href="http://yoursite.com/2017/08/02/%E3%80%90Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E3%80%91%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://yoursite.com/2017/08/02/【Hexo-Github搭建个人博客】——环境搭建/</id>
     <published>2017-08-02T14:45:51.000Z</published>
-    <updated>2017-08-03T02:45:32.056Z</updated>
+    <updated>2017-08-03T02:52:58.488Z</updated>
     
     <content type="html"><![CDATA[<h3 id="【写在前面】"><a href="#【写在前面】" class="headerlink" title="【写在前面】"></a>【写在前面】</h3><p>写这一系列文章的目的有两个：</p>
 <ol>
@@ -66,7 +84,9 @@
     
     <summary type="html">
     
-      博客搭建的前期准备工作
+      &lt;h3 id=&quot;【写在前面】&quot;&gt;&lt;a href=&quot;#【写在前面】&quot; class=&quot;headerlink&quot; title=&quot;【写在前面】&quot;&gt;&lt;/a&gt;【写在前面】&lt;/h3&gt;&lt;p&gt;写这一系列文章的目的有两个：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为了记录Hexo+Github搭建博客的全过程，巩固
     
     </summary>
     
