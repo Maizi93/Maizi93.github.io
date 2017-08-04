@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="麦 田">
 <meta property="og:description" content="本文转自微信公众号【前端大全】，作者：Leechikit 此文研究页面中的图片资源的加载和渲染时机，使得我们能更好的管理图片资源，避免不必要的流量和提高用户体验。 浏览器的工作流程首先了解一下浏览器的工作原理（以 Webkit引擎 为例）浏览器加载一个HTML页面后进行如下操作：  解析HTML —&amp;gt; 构建DOM树 加载样式 —&amp;gt; 解析样式 —&amp;gt; 构建样式规则树 加载javasc">
 <meta property="og:image" content="http://yoursite.com/img/2017-08-04_001.png">
-<meta property="og:updated_time" content="2017-08-04T05:24:31.917Z">
+<meta property="og:updated_time" content="2017-08-04T05:27:43.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【转】Web图片加载与渲染时机">
 <meta name="twitter:description" content="本文转自微信公众号【前端大全】，作者：Leechikit 此文研究页面中的图片资源的加载和渲染时机，使得我们能更好的管理图片资源，避免不必要的流量和提高用户体验。 浏览器的工作流程首先了解一下浏览器的工作原理（以 Webkit引擎 为例）浏览器加载一个HTML页面后进行如下操作：  解析HTML —&amp;gt; 构建DOM树 加载样式 —&amp;gt; 解析样式 —&amp;gt; 构建样式规则树 加载javasc">
@@ -448,7 +448,7 @@
 </ul>
 <p>上面无法很直观的判断图片资源什么时候开始加载，下面标出何时加载和渲染图片：</p>
 <ul>
-<li>解析HTML <strong>【遇到<img>标签加载图片】</strong> —&gt; 构建DOM树</li>
+<li>解析HTML <strong>【遇到 <code>&lt;img&gt;</code> 标签加载图片】</strong> —&gt; 构建DOM树</li>
 <li>加载样式 —&gt; 解析样式 <strong>【遇到背景图片链接不加载】</strong> —&gt; 构建样式规则树</li>
 <li>加载javascript —&gt; 执行javascript代码</li>
 <li>把DOM树和样式规则树匹配构建渲染树 <strong>【加载渲染树上的背景图片】</strong></li>
@@ -461,7 +461,9 @@
 <p>把DOM树和样式规则树匹配构建渲染树时，会把可渲染元素上的所有属性（如 <code>display:none</code> 属性和 <code>background-image</code> 属性）结合一起产出到渲染树。 <del>当解析渲染树时会加载 <code>&lt;img&gt;</code> 标签元素上的图片</del> <font color="red">（ <code>&lt;img&gt;</code> 标签元素上的图片是在解析HTML时加载的，而不是在解析渲染树时加载）</font>，发现元素上有 <code>background-image</code> 属性时会加载背景图片。当绘制时发现元素上有 <code>display:none</code> 属性，则不计算该元素位置，也不会绘制该元素。</p>
 <p>b.设置了 <code>display:none</code> 属性元素的子元素，样式表中的背景图片不会渲染出来，也不会加载；而 <code>&lt;img&gt;</code> 标签的图片不会渲染出来，但会加载。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.img-yellow &#123;</div><div class="line">    background-image: url(../image/yellow.png);</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;div style=&quot;display:none&quot;&gt;</div><div class="line">    &lt;img src=&quot;../image/red.png&quot;&gt;</div><div class="line">    &lt;div class=&quot;img-yellow&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>构建渲染树时，只会把可渲染元素产出到渲染树。这就意味有不可渲染元素，当匹配DOM树和样式规则树时，若发现一个元素的属性上有 <code>display:none</code> ，浏览器会认为 <strong>该元素的子元素</strong> 是不可渲染的，因此不会把 <strong>该元素的子元素</strong> 产出到渲染树上。<br>当解析渲染树时渲染树上没有设置了 <code>display:none</code> 属性元素的子元素，因此不会加载该元素中子元素的背景图片。<br>当绘制时也因为渲染树上没有设置了 <code>display:none</code> 属性元素的子元素，因此该元素中子元素的背景图片不会渲染出来。</p>
+<p>构建渲染树时，只会把可渲染元素产出到渲染树。这就意味有不可渲染元素，当匹配DOM树和样式规则树时，若发现一个元素的属性上有 <code>display:none</code> ，浏览器会认为 <strong>该元素的子元素</strong> 是不可渲染的，因此不会把 <strong>该元素的子元素</strong> 产出到渲染树上。</p>
+<p>当解析渲染树时渲染树上没有设置了 <code>display:none</code> 属性元素的子元素，因此不会加载该元素中子元素的背景图片。</p>
+<p>当绘制时也因为渲染树上没有设置了 <code>display:none</code> 属性元素的子元素，因此该元素中子元素的背景图片不会渲染出来。</p>
 <h4 id="2、重复图片"><a href="#2、重复图片" class="headerlink" title="2、重复图片"></a>2、重复图片</h4><p>页面中多个 <code>&lt;img&gt;</code> 标签或样式表中的背景图片路径是同一个，图片只加载一次。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">﻿.img-blue &#123;</div><div class="line">    background-image: url(../image/blue.png);</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;div class=&quot;img-blue&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;img src=&quot;../image/blue.png&quot;&gt;</div><div class="line">&lt;img src=&quot;../image/blue.png&quot;&gt;</div></pre></td></tr></table></figure>
 <p>浏览器请求资源时，都会先判断是否有缓存，若有缓存且未过期则会从缓存中读取，不会再次请求。先加载的图片会存储到浏览器缓存中，后面再次请求同路径图片时会直接读取缓存中的图片。</p>
