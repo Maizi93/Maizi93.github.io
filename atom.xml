@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-04T09:13:26.238Z</updated>
+  <updated>2017-08-04T15:35:03.681Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数据结构 —— 排序算法总结</title>
+    <link href="http://yoursite.com/2017/08/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E2%80%94%E2%80%94-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2017/08/04/数据结构-——-排序算法总结/</id>
+    <published>2017-08-04T14:42:23.000Z</published>
+    <updated>2017-08-04T15:35:03.681Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文记录了几种经典的排序算法，并对排序算法的性能进行了总结，如果有哪里写的不妥的，还请大家指正批评。同时，也欢迎大家提供更简单有效的算法。</p>
+<h3 id="排序算法的性能评估"><a href="#排序算法的性能评估" class="headerlink" title="排序算法的性能评估"></a>排序算法的性能评估</h3><ul>
+<li>稳定性（假设记录 <code>a</code> 和记录 <code>b</code> 都位于待排序的序列中）<br>（1）稳定：如果 <code>a</code> 本来就在 <code>b</code> 前面，且 <code>a = b</code>，排序之后 <code>a</code> 仍然在 <code>b</code> 前面；<br>（2）不稳定：如果 <code>a</code> 本来就在 <code>b</code> 前面，且 <code>a = b</code>，排序之后 <code>a</code> 可能出现在 <code>b</code> 后面；</li>
+<li>待排序的记录是否全部被放置在内存中<br>（1）内排序：在整个排序过程中，待排序的所有记录全部被放置在内存中；<br>（2）外排序：由于排序的记录个数太多，不能同时放置在内存，整个排序过程需要在内外存之间多次交换数据才能进行；</li>
+<li>时间复杂度：排序算法的时间开销</li>
+<li>空间复杂度：排序算法所需的存储空间</li>
+<li>算法本身的复杂度</li>
+</ul>
+<h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><p>下面，将根据 <strong>程杰的《大话数据结构》</strong> ，从易到难对7种排序算法进行整理归纳</p>
+<h4 id="1、冒泡排序（Bubble-Sort）"><a href="#1、冒泡排序（Bubble-Sort）" class="headerlink" title="1、冒泡排序（Bubble Sort）"></a>1、冒泡排序（Bubble Sort）</h4><p><strong>基本思想：</strong> 两两比较相邻记录的关键字，如果反序则交换，直到没有反序的记录为止。<br><strong>（1）初级版</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function bubbleSort0(arr)&#123;</div><div class="line">	console.time(&quot;冒泡排序初级版&quot;);</div><div class="line">    var len = arr.length;</div><div class="line">    for(var i = 0; i &lt; len; i ++)&#123;</div><div class="line">        for(var j = i + 1; j &lt; len; j ++)&#123;</div><div class="line">            if(arr[i] &gt; arr[j])&#123;</div><div class="line">                swap(arr,i,j);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    console.timeEnd(&quot;冒泡排序初级版&quot;);</div><div class="line">    return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 交换两个元素</div><div class="line">function swap(arr,i,j)&#123;</div><div class="line">    var temp = arr[i];</div><div class="line">    arr[i] = arr[j];</div><div class="line">    arr[j] = temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(BubbleSort0(arr));        // [2, 4, 7, 9, 11, 12, 16, 21, 34, 56]</div></pre></td></tr></table></figure>
+<p>上面代码中，每一次外循环，都是将第 <code>i</code> 个位置的记录， 与它后面的记录进行比较。如果大，则进行交换，这样一次大循环之后，第 <code>i</code> 个位置的记录与后面位置的记录相比就是最小的。</p>
+<p><strong>（2）正宗版</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function bubbleSort1(arr)&#123;</div><div class="line">    console.time(&apos;冒泡排序正宗版耗时&apos;);</div><div class="line">    var len = arr.length;</div><div class="line">    for(var i = 0; i &lt; len; i ++)&#123;</div><div class="line">        // j 从后往前循环</div><div class="line">        for(var j = len - 1; j &gt;= i; j --)&#123;</div><div class="line">            if(arr[j-1] &gt; arr[j])&#123;     // 进行两两相邻比较</div><div class="line">                swap(arr, j-1, j);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    console.timeEnd(&apos;冒泡排序正宗版耗时&apos;);</div><div class="line">    return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 交换元素</div><div class="line">function swap(arr,i,j)&#123;</div><div class="line">    var tmp = arr[i];</div><div class="line">    arr[i] = arr[j];</div><div class="line">    arr[j] = tmp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(bubbleSort1(arr));    // [2, 4, 7, 9, 11, 12, 16, 21, 34, 56]</div></pre></td></tr></table></figure></p>
+<p>每执行一次外循环，会从排序数组末尾开始两两比较，把较小的记录交换到前面，知道找到最小值放在第 <code>i</code> 个位置。这样在寻找最小值的过程中，也会把较小值移到排序数组的前面，显然这一点要由于冒泡排序初级版。</p>
+<p><strong>（3）优化版</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">console.time(&apos;冒泡排序优化版耗时&apos;);</div><div class="line">	var len = arr.length;</div><div class="line">	var flag = true;    // flag用来作为标记</div><div class="line">	for(var i = 0; i &lt; len &amp;&amp; flag; i ++)&#123;    // 当flag = false时，退出循环</div><div class="line">		flag = false;    // flag初始化为false</div><div class="line">		for(var j = len - 1; j &gt;= i; j --)&#123;</div><div class="line">			if(arr[j-1] &gt; arr[j])&#123;</div><div class="line">				swap(arr, j-1, j);</div><div class="line">				flag = true;     // 如果发生数据交换，则flag = true</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;冒泡排序优化版耗时&apos;);</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 交换元素</div><div class="line">function swap(arr, i, j)&#123;</div><div class="line">	var tmp = arr[i];</div><div class="line">	arr[i] = arr[j];</div><div class="line">	arr[j] = tmp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(bubbleSort2(arr));      // [2, 4, 7, 9, 11, 12, 16, 21, 34, 56]</div></pre></td></tr></table></figure>
+<p>假设待排序的序列为 <code>{2,1,3,4,5,6,7,8,9}</code> ， 除了第一和第二个记录需要交换外，其他都已经是正确的顺序了。也就是说，后面的记录其实不需要进行交换，也不需要进行比较。这里设置 <code>flag</code> 变量作为标记，每次外循环的时候判断前一次循环中的内循环是否进行数据交换。如果没有进行数据交换，则退出外循环，说明后面已经是有序的了，不需要再进行比较。</p>
+<p>经过这样的改进，冒泡排序在性能上就有了一定的提升，可以避免因已经有序的情况下的无意义循环判断。</p>
+<p>这只是冒泡排序算法的一种改进，网上还有很多其他的改进算法，可以参考<font color="blue"><a href="http://mp.weixin.qq.com/s/OH0xlFbeMn_tiiiW_5EetQ" target="_blank" rel="external">十大经典排序算法的JS 版</a></font>。</p>
+<p><strong>冒泡排序性能评估</strong></p>
+<ul>
+<li>稳定性：不稳定；</li>
+<li>待排序的记录是否全部被放置在内存中：内排序；</li>
+<li>时间复杂度<br>（1）最好的情况：O(n)——已经是正序的；<br>（2）最坏的情况：O(n2)——正好是逆序的；<br>（3）平均的情况：O(n);</li>
+<li>空间复杂度：O(1)</li>
+<li>算法本身的复杂度：简单</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文记录了几种经典的排序算法，并对排序算法的性能进行了总结，如果有哪里写的不妥的，还请大家指正批评。同时，也欢迎大家提供更简单有效的算法。&lt;/p&gt;
+&lt;h3 id=&quot;排序算法的性能评估&quot;&gt;&lt;a href=&quot;#排序算法的性能评估&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+      <category term="数据结构" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="排序" scheme="http://yoursite.com/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ES6学习 —— let命令</title>
     <link href="http://yoursite.com/2017/08/04/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-let%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/08/04/ES6学习-——-let命令/</id>
     <published>2017-08-04T08:09:06.000Z</published>
-    <updated>2017-08-04T09:13:26.238Z</updated>
+    <updated>2017-08-04T09:51:52.374Z</updated>
     
     <content type="html"><![CDATA[<p>本文是学习<font color="blue"><a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 <code>let</code> 命令</a></font>部分的笔记。</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p> <code>let</code> 命令，用来声明变量，用法类似于 <code>var</code> ，但是所声明的变量，只在 <code>let</code> 命令所在的代码快内有效；</p>
