@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-04T08:26:23.127Z</updated>
+  <updated>2017-08-04T09:13:26.238Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/08/04/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-let%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/08/04/ES6学习-——-let命令/</id>
     <published>2017-08-04T08:09:06.000Z</published>
-    <updated>2017-08-04T08:26:23.127Z</updated>
+    <updated>2017-08-04T09:13:26.238Z</updated>
     
-    <content type="html"><![CDATA[<p>本文是学习阮一峰《ECMAScript 6 入门》 <code>let</code> 命令部分的笔记。</p>
+    <content type="html"><![CDATA[<p>本文是学习<font color="blue"><a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 <code>let</code> 命令</a></font>部分的笔记。</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p> <code>let</code> 命令，用来声明变量，用法类似于 <code>var</code> ，但是所声明的变量，只在 <code>let</code> 命令所在的代码快内有效；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let a = 10;</div><div class="line">    var b = 2;</div><div class="line">&#125;</div><div class="line">a  // ReferenceError: a is not defined</div><div class="line">b  // 2</div></pre></td></tr></table></figure>
 <h4 id="let命令在for循环中的应用"><a href="#let命令在for循环中的应用" class="headerlink" title="let命令在for循环中的应用"></a>let命令在for循环中的应用</h4><p>a. for循环的计数器</p>
@@ -59,8 +59,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文是学习阮一峰《ECMAScript 6 入门》 &lt;code&gt;let&lt;/code&gt; 命令部分的笔记。&lt;/p&gt;
-&lt;h3 id=&quot;基本用法&quot;&gt;&lt;a href=&quot;#基本用法&quot; class=&quot;headerlink&quot; title=&quot;基本用法&quot;&gt;&lt;/a&gt;基本用法&lt;/h3&gt;&lt;p&gt; &lt;c
+      &lt;p&gt;本文是学习&lt;font color=&quot;blue&quot;&gt;&lt;a href=&quot;http://es6.ruanyifeng.com/#docs/let&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;阮一峰《ECMAScript 6 入门》 &lt;code&gt;let&lt;/code
     
     </summary>
     
