@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="集成环境," />
+  <meta name="keywords" content="ES6 const," />
 
 
 
@@ -95,22 +95,20 @@
 
 
 
-<meta name="description" content="WampServer介绍首先解读一下Wamp这四个字母分别代表什么：  w: Windows a: Apache m: Mysql p: PHPWamp就是WindowsApacheMyqlPHP集成安装环境，即在windows下的apache、php和mysql的服务器软件；而WampServer呢就是Apache Web服务器、PHP解释器以及MySQL数据库的整合软件包。这样一来，开发人员就">
-<meta name="keywords" content="集成环境">
+<meta name="description" content="本文是学习 阮一峰《ECMAScript 6 入门》 const 命令 部分的笔记。 基本用法 const 声明一个只读的常量，一旦声明，常量的值就不能改变； const 一旦声明变量，就必须立即初始化，不能留到以后赋值； const 的作用域：只在声明所在的块级作用域内有效； const 声明的常量不提升，同样也存在暂时性死区，必须先声明再使用； const 声明的常量，不能重复声明；（后面三条">
+<meta name="keywords" content="ES6 const">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WampServer的安装和配置">
-<meta property="og:url" content="http://yoursite.com/2017/07/19/Wampserver的安装和配置/index.html">
+<meta property="og:title" content="ES6学习 —— const命令">
+<meta property="og:url" content="http://yoursite.com/2017/08/05/ES6学习-——-const命令/index.html">
 <meta property="og:site_name" content="麦 田">
-<meta property="og:description" content="WampServer介绍首先解读一下Wamp这四个字母分别代表什么：  w: Windows a: Apache m: Mysql p: PHPWamp就是WindowsApacheMyqlPHP集成安装环境，即在windows下的apache、php和mysql的服务器软件；而WampServer呢就是Apache Web服务器、PHP解释器以及MySQL数据库的整合软件包。这样一来，开发人员就">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-19_201.jpg">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-19_202.jpg">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-19_203.jpg">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-19_204.jpg">
-<meta property="og:updated_time" content="2017-07-19T08:18:42.846Z">
+<meta property="og:description" content="本文是学习 阮一峰《ECMAScript 6 入门》 const 命令 部分的笔记。 基本用法 const 声明一个只读的常量，一旦声明，常量的值就不能改变； const 一旦声明变量，就必须立即初始化，不能留到以后赋值； const 的作用域：只在声明所在的块级作用域内有效； const 声明的常量不提升，同样也存在暂时性死区，必须先声明再使用； const 声明的常量，不能重复声明；（后面三条">
+<meta property="og:image" content="http://yoursite.com/img/2017-08-05_001.jpg">
+<meta property="og:image" content="http://yoursite.com/img/2017-08-05_002.jpg">
+<meta property="og:updated_time" content="2017-08-05T02:55:33.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WampServer的安装和配置">
-<meta name="twitter:description" content="WampServer介绍首先解读一下Wamp这四个字母分别代表什么：  w: Windows a: Apache m: Mysql p: PHPWamp就是WindowsApacheMyqlPHP集成安装环境，即在windows下的apache、php和mysql的服务器软件；而WampServer呢就是Apache Web服务器、PHP解释器以及MySQL数据库的整合软件包。这样一来，开发人员就">
-<meta name="twitter:image" content="http://yoursite.com/img/2017-07-19_201.jpg">
+<meta name="twitter:title" content="ES6学习 —— const命令">
+<meta name="twitter:description" content="本文是学习 阮一峰《ECMAScript 6 入门》 const 命令 部分的笔记。 基本用法 const 声明一个只读的常量，一旦声明，常量的值就不能改变； const 一旦声明变量，就必须立即初始化，不能留到以后赋值； const 的作用域：只在声明所在的块级作用域内有效； const 声明的常量不提升，同样也存在暂时性死区，必须先声明再使用； const 声明的常量，不能重复声明；（后面三条">
+<meta name="twitter:image" content="http://yoursite.com/img/2017-08-05_001.jpg">
 
 
 
@@ -138,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/19/Wampserver的安装和配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/05/ES6学习-——-const命令/"/>
 
 
 
 
 
-  <title>WampServer的安装和配置 | 麦 田</title>
+  <title>ES6学习 —— const命令 | 麦 田</title>
   
 
 
@@ -341,7 +339,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/19/Wampserver的安装和配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/05/ES6学习-——-const命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Maizi">
@@ -358,7 +356,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">WampServer的安装和配置</h1>
+          <h1 class="post-title" itemprop="name headline">ES6学习 —— const命令</h1>
         
 
         <div class="post-meta">
@@ -370,8 +368,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-19T15:43:24+08:00">
-                2017-07-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-05T10:43:58+08:00">
+                2017-08-05
               </time>
             
 
@@ -393,8 +391,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端工具/" itemprop="url" rel="index">
-                    <span itemprop="name">前端工具</span>
+                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6学习</span>
                   </a>
                 </span>
 
@@ -410,7 +408,7 @@
 
           
           
-             <span id="/2017/07/19/Wampserver的安装和配置/" class="leancloud_visitors" data-flag-title="WampServer的安装和配置">
+             <span id="/2017/08/05/ES6学习-——-const命令/" class="leancloud_visitors" data-flag-title="ES6学习 —— const命令">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -438,19 +436,30 @@
       
 
       
-        <h4 id="WampServer介绍"><a href="#WampServer介绍" class="headerlink" title="WampServer介绍"></a>WampServer介绍</h4><p>首先解读一下Wamp这四个字母分别代表什么：</p>
-<ul>
-<li>w: Windows</li>
-<li>a: Apache</li>
-<li>m: Mysql</li>
-<li>p: PHP<br>Wamp就是WindowsApacheMyqlPHP集成安装环境，即在windows下的apache、php和mysql的服务器软件；而WampServer呢就是Apache Web服务器、PHP解释器以及MySQL数据库的整合软件包。这样一来，开发人员就不必花大量时间在繁琐的环境配置中，可腾出更多精力去做开发。<h5 id="WampServer的特点"><a href="#WampServer的特点" class="headerlink" title="WampServer的特点"></a>WampServer的特点</h5>1.支持中文，一键安装，省时省力，任何人都可以轻松搭建；<br>2.集成Apache/MySQL/PHP/PhpMyadmin；支持PHP扩展，Apache的mod_rewrite；<br>3.一键启动、重启、停止所有服务，一键切换到离线状态等等。</li>
+        <p>本文是学习 <a href="http://es6.ruanyifeng.com/#docs/let#const-命令" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 <code>const</code> 命令</a> 部分的笔记。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
+<li><code>const</code> 声明一个只读的常量，一旦声明，常量的值就不能改变；</li>
+<li><code>const</code> 一旦声明变量，就必须立即初始化，不能留到以后赋值；</li>
+<li><code>const</code> 的作用域：只在声明所在的块级作用域内有效；</li>
+<li><code>const</code> 声明的常量不提升，同样也存在暂时性死区，必须先声明再使用；</li>
+<li><code>const</code> 声明的常量，不能重复声明；<br>（后面三条用法与 <code>let</code> 命令一致）</li>
 </ul>
-<h4 id="WampServer的安装和配置"><a href="#WampServer的安装和配置" class="headerlink" title="WampServer的安装和配置"></a>WampServer的安装和配置</h4><p>本文中记录了我在安装使用WampServer过程中遇到的一些问题，在网上查阅了很多资料，在这里稍作整理。（主要针对Window7）</p>
-<h5 id="WampServer的安装"><a href="#WampServer的安装" class="headerlink" title="WampServer的安装"></a>WampServer的安装</h5><p>自行百度进行安装，根据自己的电脑选择合适的版本（x86/x64）；安装过程很简单，基本就是直接点击下一步去就可以，有两点需要注意一下：<br>1.选择默认浏览工具，默认为explorer.exe，直接点击打开杰克，如下图所示：<br><img src="/img/2017-07-19_201.jpg" alt="默认浏览工具"><br>2.输入管理员邮箱以及邮箱SMTP的服务器（这个窗口有的版本会出现，有的不会出现），如果你愿意填写就写一下，一般直接点击next也不会影响安装。</p>
-<h5 id="安装结束，打开WampServer"><a href="#安装结束，打开WampServer" class="headerlink" title="安装结束，打开WampServer"></a>安装结束，打开WampServer</h5><p>1.打开WampServer时需要注意的是，尽量把电脑上的浏览器和一些媒体播放器先关闭，以免占用 <strong>80端口</strong>；<br>2.在保证80端口没有被占用的情况下打开WampServer，可能会出现提示窗口： <strong>提示MSVCR110.dll丢失</strong>；<br>解决办法：首先卸载已经安装好的WampServer，对于 <strong>32位</strong> 的系统，安装 <strong>vcredist_x86.exe</strong> 之后，重新安装Wampserver；而对于 <strong>64位</strong> 的系统，则安装 <strong>vcredist_x64.exe</strong>，再重新安装Wampserver即可。<br><strong>vcredist_x86.exe</strong> 和 <strong>vcredist_x64.exe</strong> 的下载地址：<a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=30679" target="_blank" rel="external">http://www.microsoft.com/zh-cn/download/details.aspx?id=30679</a></p>
-<h5 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h5><p>安装完并成功启动后，突变显示为绿色，右击突变，然后依次选择 <strong>Language</strong> —— <strong>chinese</strong> 进行语言设置；</p>
-<h5 id="访问WampServer页面"><a href="#访问WampServer页面" class="headerlink" title="访问WampServer页面"></a>访问WampServer页面</h5><p>鼠标左键点击绿色图标，再点击 <strong>localhost</strong> 即可访问该页面，默认为 <strong>Server Configuration</strong><br><img src="/img/2017-07-19_202.jpg" alt=""><br><img src="/img/2017-07-19_203.jpg" alt="Server Configuration页面"></p>
-<h5 id="进入phpmyadmin管理页面"><a href="#进入phpmyadmin管理页面" class="headerlink" title="进入phpmyadmin管理页面"></a>进入phpmyadmin管理页面</h5><p>点击Tools下的phpmyadmin，即可进入phpmyadmin管理页面，首先会出现一个登陆页面，一般用户名为root，密码为空，点击右下角的执行即可进入。<br><img src="/img/2017-07-19_204.jpg" alt="进入phpmyadmin管理页面"></p>
+<p>下面来看代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">const M = 10；</div><div class="line">M = 2；    // Uncaught TypeError: Assignment to constant variable.</div><div class="line"></div><div class="line">const P;   // Uncaught SyntaxError: Missing initializer in const declaration</div><div class="line"></div><div class="line">if(true)&#123;</div><div class="line">    const Q = 20;</div><div class="line">&#125;</div><div class="line">console.log(Q);    // Uncaught ReferenceError: Q is not defined</div><div class="line"></div><div class="line">if(true)&#123;</div><div class="line">    console.log(K);   // Uncaught ReferenceError: K is not defined</div><div class="line">    const K = 30;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var name = &quot;Bob&quot;;</div><div class="line">let age = 25;</div><div class="line"></div><div class="line">const name = &quot;Alice&quot;;    // Uncaught SyntaxError: Identifier &apos;name&apos; has already been declared</div><div class="line">const age = 18;    // Uncaught SyntaxError: Identifier &apos;age&apos; has already been declared</div></pre></td></tr></table></figure></p>
+<h3 id="const-命令的本质"><a href="#const-命令的本质" class="headerlink" title="const 命令的本质"></a><code>const</code> 命令的本质</h3><p><code>const</code> 实际上保证的，并不是变量的值不能改变，而是变量指向的那个内存地址不能改变。</p>
+<p>对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于变量的值不能改变；</p>
+<p>而对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指针，<code>const</code> 命令只能保证这个指针是固定的，而不能保证指针指向的数据结构也是不变的。</p>
+<p> 下面分别是这两种类型数据的存储形式：<br> <img src="/img/2017-08-05_001.jpg" alt="基本类型数据"><br> <img src="/img/2017-08-05_002.jpg" alt="引用类型数据"><br> （图片来源于网络）</p>
+<font color="red"> 因此，将对象或者数组声明为常量必须非常小心！</font>
+
+<p>下面就对象和数组分别举例进行说明：</p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const person = &#123;&#125;;   // 将 person 对象声明为一个常量</div><div class="line"></div><div class="line">person.name = &quot;Bob&quot;;   // 为 person 添加一个属性</div><div class="line">console.log(person.name);   // Bob</div><div class="line"></div><div class="line">person = &#123;&#125;;     // Uncaught TypeError: Assignment to constant variable.</div></pre></td></tr></table></figure>
+<p>上面代码中，常量 <code>person</code> 存储的是一个地址，这个地址指向一个对象。而根据前面的分析，不可改变的是这个地址，也就是说不能把 <code>person</code> 指向另一个地址， 但对象本身是可以改变的。因此，给 <code>person</code> 添加新的属性不会报错。</p>
+<p>但是如果将 <code>person</code> 指向另一个地址（对象），就会报错。</p>
+<p>那有没有办法可以让对象本身也不能改变呢？</p>
+<p>可以使用 <code>Object.freeze</code> 方法将对象冻结，从而无法改变对象本身。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const person = Object.freeze(&#123;&#125;);</div><div class="line"></div><div class="line">person.name = &quot;Alice&quot;;</div><div class="line">// 常规模式下，上面一行不起作用</div><div class="line">// 严格模式下， 会报错！</div></pre></td></tr></table></figure></p>
+<p>除了将对象本身冻结之外，对象的属性也应该冻结。下面是一个将对象彻底冻结的函数：（没太看懂）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var constantize = (obj) =&gt; &#123;</div><div class="line">	Object.freeze(obj);</div><div class="line">	Object.keys(obj).forEach((key,i) =&gt; &#123;</div><div class="line">		if(typeof obj[key] === &apos;object&apos;)&#123;   // 如果对象的属性不是“对象”，就不冻结吗？</div><div class="line">			constantize(obj[key]);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const a = [];</div><div class="line">a.push(&apos;hello&apos;);</div><div class="line">a.length = 10;</div><div class="line"></div><div class="line">a = [&apos;world&apos;];    // Uncaught TypeError: Assignment to constant variable.</div></pre></td></tr></table></figure>
+<p>常量 <code>a</code> 是一个数组，而数组本身是可以改变的，但是如果将一个新的数组赋值给 <code>a</code> ，就会报错。因此上面代码中，设置数组 <code>a</code> 的属性以及给数组<code>a</code> 添加元素，都是可执行的，而最后将新数组 <code>[&quot;world&quot;]</code> 赋值给数组 <code>a</code> ，就报错了。</p>
 
       
     </div>
@@ -501,7 +510,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/集成环境/" rel="tag"># 集成环境</a>
+            <a href="/tags/ES6-const/" rel="tag"># ES6 const</a>
           
         </div>
       
@@ -514,8 +523,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/19/关于MATLAB画图/" rel="next" title="关于MATLAB画图">
-                <i class="fa fa-chevron-left"></i> 关于MATLAB画图
+              <a href="/2017/08/04/数据结构-——-排序算法总结/" rel="next" title="数据结构 —— 排序算法总结">
+                <i class="fa fa-chevron-left"></i> 数据结构 —— 排序算法总结
               </a>
             
           </div>
@@ -523,10 +532,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/19/单选框和复选框/" rel="prev" title="单选框和复选框">
-                单选框和复选框 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -691,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#WampServer介绍"><span class="nav-number">1.</span> <span class="nav-text">WampServer介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#WampServer的特点"><span class="nav-number">1.1.</span> <span class="nav-text">WampServer的特点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WampServer的安装和配置"><span class="nav-number">2.</span> <span class="nav-text">WampServer的安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#WampServer的安装"><span class="nav-number">2.1.</span> <span class="nav-text">WampServer的安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装结束，打开WampServer"><span class="nav-number">2.2.</span> <span class="nav-text">安装结束，打开WampServer</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置语言"><span class="nav-number">2.3.</span> <span class="nav-text">设置语言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访问WampServer页面"><span class="nav-number">2.4.</span> <span class="nav-text">访问WampServer页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#进入phpmyadmin管理页面"><span class="nav-number">2.5.</span> <span class="nav-text">进入phpmyadmin管理页面</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-命令的本质"><span class="nav-number">2.</span> <span class="nav-text">const 命令的本质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象"><span class="nav-number">2.1.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">2.2.</span> <span class="nav-text">数组</span></a></li></ol></li></ol></div>
             
 
           </div>
