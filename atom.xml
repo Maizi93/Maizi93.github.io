@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-06T13:58:34.628Z</updated>
+  <updated>2017-08-06T14:01:36.784Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,15 +20,22 @@
     <link href="http://yoursite.com/2017/08/06/JS%E7%9A%84%E5%85%AD%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     <id>http://yoursite.com/2017/08/06/JS的六种数据类型/</id>
     <published>2017-08-06T13:44:24.000Z</published>
-    <updated>2017-08-06T13:58:34.628Z</updated>
+    <updated>2017-08-06T14:01:36.784Z</updated>
     
     <content type="html"><![CDATA[<p>JS有六种数据类型，可以大致分为以下两类：</p>
 <ul>
 <li><strong>基本数据类型：</strong> Number、String、Boolean、Undefined、Null；</li>
 <li><strong>复杂（引用）数据类型：</strong> Object(Array、Date、RegExp…)；</li>
 </ul>
-<h3 id="Null-和-Undefined"><a href="#Null-和-Undefined" class="headerlink" title="Null 和 Undefined"></a>Null 和 Undefined</h3><h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><p>Null 表示“无”的对象，转换为数值时为0<br>典型用法：a. 作为函数的参数，表示该函数的参数不是对象；<br>         b. 作为对象原型链的终点。</p>
-<h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><p>Undefined 表示一个“无”的原始值，转换为数值时为NaN<br>典型用法：a. 变量被声明，但未赋值；<br>         b. 调用函数时，应该提供的参数没有提供，该参数=undefined；<br>         c. 对象没有赋值的属性，该属性的值=undefined；<br>         d. 函数没有返回值，默认返回undefined。</p>
+<h3 id="Null-和-Undefined"><a href="#Null-和-Undefined" class="headerlink" title="Null 和 Undefined"></a>Null 和 Undefined</h3><h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><p>Null 表示“无”的对象，转换为数值时为0<br>典型用法：</p>
+<ul>
+<li>作为函数的参数，表示该函数的参数不是对象；</li>
+<li>作为对象原型链的终点。<h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4>Undefined 表示一个“无”的原始值，转换为数值时为NaN<br>典型用法：</li>
+<li>变量被声明，但未赋值；</li>
+<li>调用函数时，应该提供的参数没有提供，该参数=undefined；</li>
+<li>对象没有赋值的属性，该属性的值=undefined；</li>
+<li>函数没有返回值，默认返回undefined。</li>
+</ul>
 <h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h3><p>只有两个值：true 和 false；</p>
 <h4 id="转换函数-Boolean"><a href="#转换函数-Boolean" class="headerlink" title="转换函数 Boolean()"></a>转换函数 Boolean()</h4><p>JS 所有类型的值都有与这两个Boolean值等价的值，具体的转换关系见下表：</p>
 <table>
