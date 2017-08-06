@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-06T04:11:30.508Z</updated>
+  <updated>2017-08-06T11:17:55.238Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,64 +16,147 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于 Ajax</title>
+    <link href="http://yoursite.com/2017/08/06/%E5%85%B3%E4%BA%8E-Ajax/"/>
+    <id>http://yoursite.com/2017/08/06/关于-Ajax/</id>
+    <published>2017-08-06T10:16:10.000Z</published>
+    <updated>2017-08-06T11:17:55.238Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文罗列了一些与 Ajax 相关的知识点。</p>
+<h3 id="Ajax-是什么？"><a href="#Ajax-是什么？" class="headerlink" title="Ajax 是什么？"></a>Ajax 是什么？</h3><p>首先来说一说什么是Ajax？<br>Ajax 全称为 “Asynchronous JavaScript and XML” （异步 <code>JavaScript</code> 和 <code>XML</code> ），<code>JavaScript</code> 通过异步的形式去操作 <code>XML</code> 文档;</p>
+<h4 id="一个-Ajax-程序"><a href="#一个-Ajax-程序" class="headerlink" title="一个 Ajax 程序"></a>一个 Ajax 程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var xhr = new XMLHttpRequest();           // 创建XHR对象——打开浏览器</div><div class="line">    xhr.open(&apos;get&apos;,&apos;1.txt&apos;,true);         // 启动一个请求以备用——在地址栏中输入地址</div><div class="line">    xhr.send();                           // 发送请求——提交，敲回车</div><div class="line">    // 检测XHR对象的readyState属性——等待服务器返回内容</div><div class="line">    xhr.onreadystatechange = function()&#123;</div><div class="line">        if(xhr.readyState == 4)&#123;</div><div class="line">            alert(xhr.responseText);</div><div class="line">        &#125;</div><div class="line">   &#125;;</div></pre></td></tr></table></figure>
+<h4 id="Ajax通信的步骤"><a href="#Ajax通信的步骤" class="headerlink" title="Ajax通信的步骤"></a>Ajax通信的步骤</h4><ol>
+<li>新建一个 <code>XMLHttpRequest（XHR）</code> 对象。</li>
+<li><code>open</code> 方法表示初始化请求，此时并没有发送。</li>
+<li>定义数据返回后的回调函数，里面的代码在 <code>readystatechange</code> 值改变的时候执行。</li>
+<li>发送请求。</li>
+</ol>
+<h3 id="Ajax的交互模型"><a href="#Ajax的交互模型" class="headerlink" title="Ajax的交互模型"></a>Ajax的交互模型</h3><p><img src="/img/2017-08-06_001.jpg" alt="Ajax交互模型"></p>
+<h3 id="Ajax传输数据的格式"><a href="#Ajax传输数据的格式" class="headerlink" title="Ajax传输数据的格式"></a>Ajax传输数据的格式</h3><ol>
+<li>文本</li>
+<li><strong>XML(可扩展标记语言)</strong><br>步骤：读取 <code>XML</code> 文档 —&gt; 使用 <code>XML DOM</code> 来循环遍历文档 —&gt; 读取值并存储在变量中<br>优势：<ul>
+<li>格式统一， 符合标准；</li>
+<li>容易与其他系统进行远程交互， 数据共享比较方便；<br>缺点：</li>
+<li><code>XML</code> 文件格式文件庞大，格式复杂， 传输占用带宽；</li>
+<li>服务器端和客户端都需要花费大量代码来解析 <code>XML</code> ， 不论服务器端和客户端代码变的异常复杂和不容易维护；</li>
+<li>客户端不同浏览器之间解析 <code>XML</code> 的方式不一致， 需要重复编写很多代码；</li>
+<li>服务器端和客户端解析 <code>XML</code> 花费资源和时间；</li>
+</ul>
+</li>
+<li><strong>JSON(JavaScript Object Notation，一种轻量级的数据交换格式)</strong><br> 步骤：读取 <code>JSON</code> 字符串 —&gt; 用 <code>eval()</code> 处理 <code>JSON</code> 字符串<br> 优势：<ul>
+<li>数据格式比较简单， 易于读写，格式都是压缩的， 占用带宽小；</li>
+<li>易于解析这种语言， 客户端 <code>JavaScript</code> 可以简单的通过 <code>eval()</code> 进行 <code>JSON</code> 数据的读取；</li>
+<li>支持多种语言， 包括 <code>ActionScript, C, C#, ColdFusion, Java, JavaScript, Perl, PHP, Python, Ruby</code> 等语言服务器端语言， 便于服务器端的解析；</li>
+<li>在 <code>PHP</code> 世界, 已经有 <code>PHP-JSON</code> 和 <code>JSON-PHP</code> 出现了， 便于 <code>PHP</code> 序列化后的程序直接调用 <code>. PHP</code> 服务器端的对象、数组等能够直接生 <code>JSON</code> 格式, 便于客户端的访问提取；</li>
+<li>因为 <code>JSON</code> 格式能够直接为服务器端代码使用， 大大简化了服务器端和客户端的代码开发量， 但是完成的任务不变， 且易于维护；<br>缺点：</li>
+<li>没有 <code>XML</code> 格式这么推广的深入人心和使用广泛, 没有 <code>XML</code> 那么通用性;</li>
+<li><code>JSON</code> 格式目前在 <code>Web Service</code> 中推广还属于初级阶段；</li>
+</ul>
+</li>
+</ol>
+<h3 id="同步和异步的区别"><a href="#同步和异步的区别" class="headerlink" title="同步和异步的区别"></a>同步和异步的区别</h3><ul>
+<li><strong>同步：</strong> 必须等待，这个请求如果没有执行结束，那么就会形成阻塞；</li>
+<li><strong>异步：</strong> 发出请求后，仍然可以做其他的事，结果返回时接收响应；</li>
+</ul>
+<h3 id="如何解决跨域问题？"><a href="#如何解决跨域问题？" class="headerlink" title="如何解决跨域问题？"></a>如何解决跨域问题？</h3><ol>
+<li><p>通过修改 <code>document.domain</code> 和隐藏的 <code>IFrame</code> 来实现跨域请求。<br>这种方案可能是最简单的一种跨域请求的方案，但是它同样是一种限制最大的方案。首先，它只能实现在同一个顶级域名下的跨域请求；另外，当在一个页面中还包含有其它的 <code>IFrame</code> 时，可能还会产生安全性异常，拒绝访问。</p>
+</li>
+<li><p><code>CROS</code> 技术：使用自定义的 <code>HTTP</code> 头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是应该失败。</p>
+<p><code>IE</code> 对 <code>CROS</code> 的实现：<code>XDR</code> 类型（异步执行）；</p>
+</li>
+</ol>
+<p>其他浏览器对 <code>CROS</code> 的实现：<code>XHR</code> 对象——要请求位于另一个域中的资源，使用标准的 <code>XHR</code> 对象并在 <code>open()</code> 方法中传入绝对 <code>URL</code> 即可；<br>既支持同步执行，也支持异步执行；（最好本地资源使用相对 <code>URL</code> ，远程资源使用绝对 <code>URL</code>）</p>
+<ol>
+<li>图像 <code>Ping</code> —— 使用 <code>&lt;img&gt;</code> 标签（只能用于浏览器用于服务器之间的单向通信）<br>请求的数据通过查询字符串形式发送；<br>缺点：</li>
+</ol>
+<ul>
+<li>只能发送 <code>GET</code> 请求；</li>
+<li>无法访问服务器的响应文本；</li>
+</ul>
+<ol>
+<li><code>JSONP</code>（填充/参数式 <code>JSON</code> ）<br>通过动态 <code>&lt;script&gt;</code> 元素使用，使用时可以为 <code>src</code> 属性指定一个跨域 <code>URL</code>；<br>优点：能够直接访问响应文本，支持在浏览器与服务器之间的双向通信；<br>缺点：</li>
+</ol>
+<ul>
+<li>从其他域中加载代码执行，可能存在安全隐患；</li>
+<li>要确定 <code>JSONP</code> 请求是否失败并不容易；</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文罗列了一些与 Ajax 相关的知识点。&lt;/p&gt;
+&lt;h3 id=&quot;Ajax-是什么？&quot;&gt;&lt;a href=&quot;#Ajax-是什么？&quot; class=&quot;headerlink&quot; title=&quot;Ajax 是什么？&quot;&gt;&lt;/a&gt;Ajax 是什么？&lt;/h3&gt;&lt;p&gt;首先来说一说什么是Ajax
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="Ajax" scheme="http://yoursite.com/tags/Ajax/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ES6学习 —— 变量的解构赋值</title>
     <link href="http://yoursite.com/2017/08/06/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
     <id>http://yoursite.com/2017/08/06/ES6学习-——-变量的解构赋值/</id>
     <published>2017-08-06T02:13:34.000Z</published>
-    <updated>2017-08-06T04:11:30.508Z</updated>
+    <updated>2017-08-06T11:21:16.554Z</updated>
     
     <content type="html"><![CDATA[<p>本文是学习 <a href="http://es6.ruanyifeng.com/#docs/destructing" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 变量的解构赋值</a> 部分的笔记。</p>
-<p><strong>解构（Destructing）：</strong> ES6按照一定的模式，从数组和对象中提取值，对变量进行赋值，这被称为 “解构” 。</p>
+<p><strong>解构（Destructing）：</strong> <code>ES6</code> 按照一定的模式，从数组和对象中提取值，对变量进行赋值，这被称为 “解构” 。</p>
 <h3 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h3><h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p>可以从数组中提取值，按照对应的位置，对变量赋值；</p>
 <p><strong>“模式匹配”：</strong> 只要等号两边的模式相同，左边的变量就会被赋予对应的值；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [a, b, c] = [1, 2, 3];</div><div class="line">console.log(a);        // 1</div><div class="line">console.log(b);        // 2</div><div class="line">console.log(c);        // 3</div></pre></td></tr></table></figure>
 <p><strong>1、使用嵌套数组进行解构</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let [a, [[b], c]] = [1, [[2], 3]];</div><div class="line">console.log(a);        // 1</div><div class="line">console.log(b);        // 2</div><div class="line">console.log(c);        // 3</div><div class="line"></div><div class="line">let [ , , third] = [1, 2, 3];</div><div class="line">console.log(third);    // 3</div><div class="line"></div><div class="line">let [first, ...last] = [1,2,3,4];</div><div class="line">console.log(first);   // 1</div><div class="line">console.log(last);    // [2,3,4]</div></pre></td></tr></table></figure>
-<p> <strong>2、解构不成功</strong><br> 如果解构不成功，变量的值就等于 undefined（等号右边的模式，只匹配等号左边的一部分）</p>
+<p> <strong>2、解构不成功</strong><br> 如果解构不成功，变量的值就等于 <code>undefined</code>（等号右边的模式，只匹配等号左边的一部分）</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> let [x,y, ...z] = [1];</div><div class="line">console.log(y);    // undefined</div><div class="line">console.log(z);</div></pre></td></tr></table></figure>
 <p> <strong>3、不完全解构</strong><br> 等号左边的模式，只匹配等号右边一部分的数组，这种情况下依然可以解构成功，但是不完全解构。</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let [a,b] = [1,2,3];</div><div class="line">console.log(a);    // 1</div><div class="line">console.log(b);    // 2</div><div class="line"></div><div class="line">let [x,[y],z] = [1,[2,3],4];</div><div class="line">console.log(x);    // 1</div><div class="line">console.log(y);    // 2</div><div class="line">cosnole.log(z);    // 4</div></pre></td></tr></table></figure>
 <p> <strong>4、等号右边不是数组：报错！</strong><br> 严格的说，应该是不可遍历的解构</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> let [a] = 1;</div><div class="line">let [b] = false;</div><div class="line">let [c] = NaN;</div><div class="line">let [d] = undefined;</div><div class="line">let [e] = null;</div><div class="line">let [f] = &#123;&#125;;</div><div class="line">// 以上代码均会报错</div><div class="line">// 原因：等号右边的值，要么转为对象以后不具备Iterator接口（前五个），要么本身就不具备Iterator接口（最后一个）。</div></pre></td></tr></table></figure>
-<p> 对于 Set 结构（后面内容），也可以使用数组的解构赋值；</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> let [a] = 1;</div><div class="line">let [b] = false;</div><div class="line">let [c] = NaN;</div><div class="line">let [d] = undefined;</div><div class="line">let [e] = null;</div><div class="line">let [f] = &#123;&#125;;</div><div class="line">// 以上代码均会报错</div><div class="line">// 原因：等号右边的值，要么转为对象以后不具备 Iterator 接口（前五个），要么本身就不具备 Iterator 接口（最后一个）。</div></pre></td></tr></table></figure>
+<p> 对于 <code>Set</code> 结构（后面内容），也可以使用数组的解构赋值；</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [x,y,z] = new Set([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]);</div><div class="line">console.log(x);    // &apos;a&apos;</div></pre></td></tr></table></figure>
- <font color="red">只要某种数据结构具有Iterator接口，都可以采用数组形式的解构赋值；</font>
+ <font color="red">只要某种数据结构具有 <code>Iterator 接口</code>，都可以采用数组形式的解构赋值；</font>
 
 <h4 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h4><p>解构赋值允许指定默认值；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [a = true] = [];</div><div class="line">console.log(a);    // true;</div><div class="line">let[x,y = 2] = [1];    // x=1, y=2</div><div class="line">let[x,y = 2] = [1,undefined]   // x=1, y=2</div></pre></td></tr></table></figure>
-<p><strong>1、不生效</strong><br>ES6内部使用严格相等运算符（===）来判断一个位置是否有值。所以一个数组成员不严格等于 undefined ，默认值是不会生效的。</p>
+<p><strong>1、不生效</strong><br><code>ES6</code> 内部使用严格相等运算符<code>（===）</code>来判断一个位置是否有值。所以一个数组成员不严格等于 <code>undefined</code> ，默认值是不会生效的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [a = 1] = [undefined];    // 生效，a = 1</div><div class="line">let [b = 2] = [null];         // 不生效，b = null</div></pre></td></tr></table></figure>
 <p><strong>2、表达式</strong><br>如果默认值是一个表达式，则这个表达式是惰性求值的，即只有在用到的时候，才会求值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function f()&#123;</div><div class="line">    console.log(&apos;a&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">let [x = f()] = [1];    // x=1</div></pre></td></tr></table></figure>
-<p>上面代码中，x 能取到值 （1），所以函数 f() 不会执行。</p>
+<p>上面代码中，<code>x</code> 能取到值 <code>（1）</code>，所以函数 <code>f()</code> 不会执行。</p>
 <p><strong>3、引用解构赋值的其他变量</strong></p>
 <p>默认值可以引用结构赋值的其他变量，但是该变量必须已经声明。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [x = 1, y = x] = [];         // x=1, y=1</div><div class="line">let [x = 1, y = x] = [2];        // x=2, y=2</div><div class="line">let [x = 1, y = x] = [1, 2];     // x=1, y=2</div><div class="line">let [x = y, y = 1] = [];         // Uncaught ReferenceError: y is not defined</div></pre></td></tr></table></figure></p>
 <h3 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h3><h4 id="1、与数组的不同"><a href="#1、与数组的不同" class="headerlink" title="1、与数组的不同"></a><font color="red">1、与数组的不同</font></h4><p>数组的元素是按次序排列的，变量的取值由它们的位置决定；</p>
 <p>而对象的属性没有次序，变量必须与属性同名，才能取到正确的值；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let &#123;name, age, hobby&#125; = &#123;age: 23, name:&quot;Bob&quot;, interest: &quot;running&quot;&#125;;</div><div class="line">console.log(name);    // Bob</div><div class="line">console.log(age);     // 23</div><div class="line">console.log(hobby);   // undefined</div><div class="line"></div><div class="line">let&#123;name:name, age:age, hobby:interest&#125; = &#123;age:23, hobby:&quot;running&quot;, name:&quot;Bob&quot;&#125;;</div><div class="line">console.log(name);    // Bob</div><div class="line">console.log(age);     // 23</div><div class="line">console.log(hobby);   // running</div></pre></td></tr></table></figure>
-<p>第一个例子：前两个变量（name 和 age），虽然和等号右边的顺序不一样，但是因为等号右边有两个同名属性，所以依然可以取到值；而最后一个变量（hobby），等号右边不存在同名属性，所以取不到值。</p>
-<p>第二个例子：这是对象解构赋值最完整的写法，即等号左边（hobby：interest），其中 hobby 是匹配的模式， interest 才是变量。</p>
-<p>等号右边（interest：“running”）， hobby 是变量的同名属性（其实是属性与匹配模式同名），“running” 是值。</p>
+<p>第一个例子：前两个变量（<code>name</code> 和 <code>age</code>），虽然和等号右边的顺序不一样，但是因为等号右边有两个同名属性，所以依然可以取到值；而最后一个变量（<code>hobby</code>），等号右边不存在同名属性，所以取不到值。</p>
+<p>第二个例子：这是对象解构赋值最完整的写法，即等号左边（<code>hobby：interest</code>），其中 <code>hobby</code> 是匹配的模式， <code>interest</code> 才是变量。</p>
+<p>等号右边（<code>interest：“running”</code>）， <code>hobby</code> 是变量的同名属性（其实是属性与匹配模式同名），<code>“running”</code> 是值。</p>
 <p>看下面两个例子，更好的理解同名属性具体指的是什么。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let &#123;name:who, age: how&#125; = &#123;name:&quot;Bob&quot;, age:25&#125;;</div><div class="line">console.log(who);      // Bob</div><div class="line">console.log(how);      // 25</div><div class="line"></div><div class="line">let &#123;name:who, age: how&#125; = &#123;who:&quot;Bob&quot;, how:25&#125;;</div><div class="line">console.log(who);      // undefined</div><div class="line">console.log(how);      // undefined</div></pre></td></tr></table></figure>
-<p>概括一下：对象的解构赋值，首先要找到变量的同名属性，然后再赋值给对应的变量，真正被赋值的是后者，而不是前者。（比如name：name，真正被赋值的是后面的 name ，而不是前面的 name）。</p>
+<p>概括一下：对象的解构赋值，首先要找到变量的同名属性，然后再赋值给对应的变量，真正被赋值的是后者，而不是前者。（比如 <code>name：name</code>，真正被赋值的是后面的 <code>name</code> ，而不是前面的 <code>name</code>）。</p>
 <h4 id="2、嵌套解构赋值"><a href="#2、嵌套解构赋值" class="headerlink" title="2、嵌套解构赋值"></a>2、嵌套解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;</div><div class="line">    country:&#123;</div><div class="line">        person:&#123;</div><div class="line">            name: &quot;Bob&quot;,</div><div class="line">            age: 25</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">let &#123;country, country:&#123;person&#125;, country:&#123;person:&#123;age&#125;&#125;&#125; = obj;</div><div class="line">console.log(country);    // Object &#123;person: Object&#125;</div><div class="line">console.log(person);     // Object &#123;name: &quot;Bob&quot;, age: 25&#125;</div><div class="line">console.log(age);        // 25</div></pre></td></tr></table></figure>
-<p>上面代码中，一共有三次解构赋值，先看最后一次 country:{person:{age}} ，country 和 person 在这里都是模式，不是变量，所以只有变量 age 能取到值；如果想要让模式 country 和 person 也要作为变量取到值，就要像前面两次一样。</p>
+<p>上面代码中，一共有三次解构赋值，先看最后一次 <code>country:{person:{age}}</code> ，<code>country</code> 和 <code>person</code> 在这里都是模式，不是变量，所以只有变量 <code>age</code> 能取到值；如果想要让模式 <code>country</code> 和 <code>person</code> 也要作为变量取到值，就要像前面两次一样。</p>
 <p><strong>嵌套赋值</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;&#125;;</div><div class="line">let arr = [];</div><div class="line"></div><div class="line">(&#123;foo: obj.prop, bar: arr[0]&#125; = &#123;foo: 123, bar: true&#125;);</div><div class="line">console.log(obj);       // Object &#123;prop: 123&#125;</div><div class="line">console.log(arr);       // [true]</div></pre></td></tr></table></figure>
-<h4 id="3、指定默认值"><a href="#3、指定默认值" class="headerlink" title="3、指定默认值"></a>3、指定默认值</h4><p>与数组一样，默认值生效的条件是，对象的属性值严格等于 undefined。</p>
+<h4 id="3、指定默认值"><a href="#3、指定默认值" class="headerlink" title="3、指定默认值"></a>3、指定默认值</h4><p>与数组一样，默认值生效的条件是，对象的属性值严格等于 <code>undefined</code>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var &#123;x = 3&#125; = &#123;x: undefined&#125;;</div><div class="line">console.log(x);        // 3</div><div class="line">var &#123;x = 3&#125; = &#123;x: null&#125;;</div><div class="line">console.log(x);        // null</div><div class="line"></div><div class="line">var &#123;x, y=2&#125; = &#123;x:1&#125;;     </div><div class="line">console.log(x);        // 1</div><div class="line">console.log(y);        // 2</div><div class="line"></div><div class="line">var &#123;x: y=3&#125; = &#123;&#125;;</div><div class="line">console.log(y);       // 3</div><div class="line"></div><div class="line">var &#123;x: y=3&#125; = &#123;x:1&#125;;</div><div class="line">console.log(y);       // 1</div></pre></td></tr></table></figure>
-<h4 id="4、解构失败"><a href="#4、解构失败" class="headerlink" title="4、解构失败"></a>4、解构失败</h4><p>如果解构失败，变量的值等于 undefined。</p>
+<h4 id="4、解构失败"><a href="#4、解构失败" class="headerlink" title="4、解构失败"></a>4、解构失败</h4><p>如果解构失败，变量的值等于 <code>undefined</code>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let &#123;name&#125; = &#123;age:25&#125;;</div><div class="line">console.log(name);   // undefined</div><div class="line"></div><div class="line">let &#123;person: &#123;name&#125;&#125; = &#123;age:25&#125;;     //报错</div></pre></td></tr></table></figure>
-<p>上面第二个例子，等号左边对象 person 模式对应的变量还是一个对象，进行解构赋值时， person 等于 undefined，再去子属性就会报错。</p>
+<p>上面第二个例子，等号左边对象 <code>person</code> 模式对应的变量还是一个对象，进行解构赋值时， <code>person</code> 等于 <code>undefined</code>，再去子属性就会报错。</p>
 <p>因此，如果解构模式是嵌套的对象，而且子对象所在的父属性不存在，就会报错。</p>
 <h4 id="5、已经声明的变量用于解构赋值（Be-careful！）"><a href="#5、已经声明的变量用于解构赋值（Be-careful！）" class="headerlink" title="5、已经声明的变量用于解构赋值（Be careful！）"></a>5、已经声明的变量用于解构赋值<font color="red">（Be careful！）</font></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 错误的写法</div><div class="line">let x;</div><div class="line">&#123;x&#125; = &#123;x:1&#125;;     // Uncaught SyntaxError: Unexpected token =</div><div class="line"></div><div class="line">// 正确的写法</div><div class="line">let x;</div><div class="line">(&#123;x&#125; = &#123;x:1&#125;);</div></pre></td></tr></table></figure>
-<p>如果是已经声明的一个变量，用于解构赋值时，{x} 会被理解为代码块，从而发生语法错误。此时，应该要避免 {x} 被理解为代码块，可以在最外面加上一个圆括号，如第二个例子，就不会报错。</p>
+<p>如果是已经声明的一个变量，用于解构赋值时，<code>{x}</code> 会被理解为代码块，从而发生语法错误。此时，应该要避免 <code>{x}</code> 被理解为代码块，可以在最外面加上一个圆括号，如第二个例子，就不会报错。</p>
 <h4 id="6、其他"><a href="#6、其他" class="headerlink" title="6、其他"></a>6、其他</h4><p>解构赋值允许等号左边的模式之中，不放置任何变量名，虽然语法是合理的，但是毫无意义；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(&#123;&#125; = [true, false]);</div><div class="line">(&#123;&#125; = &apos;abc&apos;);</div><div class="line">(&#123;&#125; = []);</div></pre></td></tr></table></figure>
 <p>对象的解构赋值，可以很方便的将现有对象的方法，赋值给某个变量；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let &#123;log, sin, cos&#125; = Math;</div></pre></td></tr></table></figure>
-<p>这样每次使用Math对象的对数、正弦、余弦方法时，只要直接调用 log，sin，cos 即可。</p>
+<p>这样每次使用Math对象的对数、正弦、余弦方法时，只要直接调用 <code>log</code>，<code>sin</code>，<code>cos</code> 即可。</p>
 <p>可以数组进行对象属性的解构，因为数组本质是特殊的对象；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let arr = [1,2,3];</div><div class="line">let &#123;0:first, [arr.length -1]:last&#125; = arr;</div><div class="line">console.log(first);    // 1</div><div class="line">console.log(last);     // 3</div></pre></td></tr></table></figure>
 <p>上面第二行代码扩展开来其实就是：</p>
