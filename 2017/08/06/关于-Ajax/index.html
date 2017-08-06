@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="麦 田">
 <meta property="og:description" content="本文罗列了一些与 Ajax 相关的知识点。 Ajax 是什么？首先来说一说什么是Ajax？Ajax 全称为 “Asynchronous JavaScript and XML” （异步 JavaScript 和 XML ），JavaScript 通过异步的形式去操作 XML 文档; 一个 Ajax 程序123456789var xhr = new XMLHttpRequest();">
 <meta property="og:image" content="http://yoursite.com/img/2017-08-06_001.jpg">
-<meta property="og:updated_time" content="2017-08-06T11:17:55.238Z">
+<meta property="og:updated_time" content="2017-08-06T11:24:49.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 Ajax">
 <meta name="twitter:description" content="本文罗列了一些与 Ajax 相关的知识点。 Ajax 是什么？首先来说一说什么是Ajax？Ajax 全称为 “Asynchronous JavaScript and XML” （异步 JavaScript 和 XML ），JavaScript 通过异步的形式去操作 XML 文档; 一个 Ajax 程序123456789var xhr = new XMLHttpRequest();">
@@ -447,21 +447,28 @@
 <h3 id="Ajax的交互模型"><a href="#Ajax的交互模型" class="headerlink" title="Ajax的交互模型"></a>Ajax的交互模型</h3><p><img src="/img/2017-08-06_001.jpg" alt="Ajax交互模型"></p>
 <h3 id="Ajax传输数据的格式"><a href="#Ajax传输数据的格式" class="headerlink" title="Ajax传输数据的格式"></a>Ajax传输数据的格式</h3><ol>
 <li>文本</li>
-<li><strong>XML(可扩展标记语言)</strong><br>步骤：读取 <code>XML</code> 文档 —&gt; 使用 <code>XML DOM</code> 来循环遍历文档 —&gt; 读取值并存储在变量中<br>优势：<ul>
+<li><p><strong>XML(可扩展标记语言)</strong><br>步骤：读取 <code>XML</code> 文档 —&gt; 使用 <code>XML DOM</code> 来循环遍历文档 —&gt; 读取值并存储在变量中<br>优势：</p>
+<ul>
 <li>格式统一， 符合标准；</li>
-<li>容易与其他系统进行远程交互， 数据共享比较方便；<br>缺点：</li>
+<li>容易与其他系统进行远程交互， 数据共享比较方便；</li>
+</ul>
+<p>缺点：</p>
+<ul>
 <li><code>XML</code> 文件格式文件庞大，格式复杂， 传输占用带宽；</li>
 <li>服务器端和客户端都需要花费大量代码来解析 <code>XML</code> ， 不论服务器端和客户端代码变的异常复杂和不容易维护；</li>
 <li>客户端不同浏览器之间解析 <code>XML</code> 的方式不一致， 需要重复编写很多代码；</li>
 <li>服务器端和客户端解析 <code>XML</code> 花费资源和时间；</li>
 </ul>
 </li>
-<li><strong>JSON(JavaScript Object Notation，一种轻量级的数据交换格式)</strong><br> 步骤：读取 <code>JSON</code> 字符串 —&gt; 用 <code>eval()</code> 处理 <code>JSON</code> 字符串<br> 优势：<ul>
+<li><p><strong>JSON(JavaScript Object Notation，一种轻量级的数据交换格式)</strong><br> 步骤：读取 <code>JSON</code> 字符串 —&gt; 用 <code>eval()</code> 处理 <code>JSON</code> 字符串<br> 优势：</p>
+<ul>
 <li>数据格式比较简单， 易于读写，格式都是压缩的， 占用带宽小；</li>
 <li>易于解析这种语言， 客户端 <code>JavaScript</code> 可以简单的通过 <code>eval()</code> 进行 <code>JSON</code> 数据的读取；</li>
 <li>支持多种语言， 包括 <code>ActionScript, C, C#, ColdFusion, Java, JavaScript, Perl, PHP, Python, Ruby</code> 等语言服务器端语言， 便于服务器端的解析；</li>
 <li>在 <code>PHP</code> 世界, 已经有 <code>PHP-JSON</code> 和 <code>JSON-PHP</code> 出现了， 便于 <code>PHP</code> 序列化后的程序直接调用 <code>. PHP</code> 服务器端的对象、数组等能够直接生 <code>JSON</code> 格式, 便于客户端的访问提取；</li>
-<li>因为 <code>JSON</code> 格式能够直接为服务器端代码使用， 大大简化了服务器端和客户端的代码开发量， 但是完成的任务不变， 且易于维护；<br>缺点：</li>
+<li><p>因为 <code>JSON</code> 格式能够直接为服务器端代码使用， 大大简化了服务器端和客户端的代码开发量， 但是完成的任务不变， 且易于维护；</p>
+<p>缺点：</p>
+</li>
 <li>没有 <code>XML</code> 格式这么推广的深入人心和使用广泛, 没有 <code>XML</code> 那么通用性;</li>
 <li><code>JSON</code> 格式目前在 <code>Web Service</code> 中推广还属于初级阶段；</li>
 </ul>
@@ -475,12 +482,10 @@
 <li><p>通过修改 <code>document.domain</code> 和隐藏的 <code>IFrame</code> 来实现跨域请求。<br>这种方案可能是最简单的一种跨域请求的方案，但是它同样是一种限制最大的方案。首先，它只能实现在同一个顶级域名下的跨域请求；另外，当在一个页面中还包含有其它的 <code>IFrame</code> 时，可能还会产生安全性异常，拒绝访问。</p>
 </li>
 <li><p><code>CROS</code> 技术：使用自定义的 <code>HTTP</code> 头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是应该失败。</p>
-<p><code>IE</code> 对 <code>CROS</code> 的实现：<code>XDR</code> 类型（异步执行）；</p>
+<p><code>IE</code> 对 <code>CROS</code> 的实现：<code>XDR</code> 类型（异步执行）；<br>其他浏览器对 <code>CROS</code> 的实现：<code>XHR</code> 对象——要请求位于另一个域中的资源，使用标准的 <code>XHR</code> 对象并在 <code>open()</code> 方法中传入绝对 <code>URL</code> 即可；<br>既支持同步执行，也支持异步执行；（最好本地资源使用相对 <code>URL</code> ，远程资源使用绝对 <code>URL</code>)；</p>
 </li>
-</ol>
-<p>其他浏览器对 <code>CROS</code> 的实现：<code>XHR</code> 对象——要请求位于另一个域中的资源，使用标准的 <code>XHR</code> 对象并在 <code>open()</code> 方法中传入绝对 <code>URL</code> 即可；<br>既支持同步执行，也支持异步执行；（最好本地资源使用相对 <code>URL</code> ，远程资源使用绝对 <code>URL</code>）</p>
-<ol>
-<li>图像 <code>Ping</code> —— 使用 <code>&lt;img&gt;</code> 标签（只能用于浏览器用于服务器之间的单向通信）<br>请求的数据通过查询字符串形式发送；<br>缺点：</li>
+<li><p>图像 <code>Ping</code> —— 使用 <code>&lt;img&gt;</code> 标签（只能用于浏览器用于服务器之间的单向通信）<br>请求的数据通过查询字符串形式发送；<br>缺点：</p>
+</li>
 </ol>
 <ul>
 <li>只能发送 <code>GET</code> 请求；</li>
