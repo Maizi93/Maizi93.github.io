@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-06T11:29:18.516Z</updated>
+  <updated>2017-08-06T11:30:46.492Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/08/06/%E5%85%B3%E4%BA%8E-Ajax/"/>
     <id>http://yoursite.com/2017/08/06/关于-Ajax/</id>
     <published>2017-08-06T10:16:10.000Z</published>
-    <updated>2017-08-06T11:29:18.516Z</updated>
+    <updated>2017-08-06T11:30:46.492Z</updated>
     
-    <content type="html"><![CDATA[<p>本文罗列了一些与 Ajax 相关的知识点。</p>
+    <content type="html"><![CDATA[<p>本文罗列了一些与 Ajax 相关的知识点。<br>参考文章：【<a href="http://www.cnblogs.com/aure/p/4632825.html" target="_blank" rel="external">Ajax中XML和JSON格式的优劣比较</a>】</p>
 <h3 id="Ajax-是什么？"><a href="#Ajax-是什么？" class="headerlink" title="Ajax 是什么？"></a>Ajax 是什么？</h3><p>首先来说一说什么是Ajax？<br>Ajax 全称为 “Asynchronous JavaScript and XML” （异步 <code>JavaScript</code> 和 <code>XML</code> ），<code>JavaScript</code> 通过异步的形式去操作 <code>XML</code> 文档;</p>
 <h4 id="一个-Ajax-程序"><a href="#一个-Ajax-程序" class="headerlink" title="一个 Ajax 程序"></a>一个 Ajax 程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var xhr = new XMLHttpRequest();           // 创建XHR对象——打开浏览器</div><div class="line">    xhr.open(&apos;get&apos;,&apos;1.txt&apos;,true);         // 启动一个请求以备用——在地址栏中输入地址</div><div class="line">    xhr.send();                           // 发送请求——提交，敲回车</div><div class="line">    // 检测XHR对象的readyState属性——等待服务器返回内容</div><div class="line">    xhr.onreadystatechange = function()&#123;</div><div class="line">        if(xhr.readyState == 4)&#123;</div><div class="line">            alert(xhr.responseText);</div><div class="line">        &#125;</div><div class="line">   &#125;;</div></pre></td></tr></table></figure>
 <h4 id="Ajax通信的步骤"><a href="#Ajax通信的步骤" class="headerlink" title="Ajax通信的步骤"></a>Ajax通信的步骤</h4><ol>
@@ -31,7 +31,7 @@
 <li>定义数据返回后的回调函数，里面的代码在 <code>readystatechange</code> 值改变的时候执行。</li>
 <li>发送请求。</li>
 </ol>
-<h3 id="Ajax的交互模型"><a href="#Ajax的交互模型" class="headerlink" title="Ajax的交互模型"></a>Ajax的交互模型</h3><p><img src="/img/2017-08-06_001.jpg" alt="Ajax交互模型"></p>
+<h3 id="Ajax的交互模型"><a href="#Ajax的交互模型" class="headerlink" title="Ajax的交互模型"></a>Ajax的交互模型</h3><p><img src="/img/2017-08-06_001.jpg" alt="Ajax交互模型"><br>（图片来源于网络）</p>
 <h3 id="Ajax传输数据的格式"><a href="#Ajax传输数据的格式" class="headerlink" title="Ajax传输数据的格式"></a>Ajax传输数据的格式</h3><ol>
 <li>文本</li>
 <li><p><strong>XML(可扩展标记语言)</strong><br>步骤：读取 <code>XML</code> 文档 —&gt; 使用 <code>XML DOM</code> 来循环遍历文档 —&gt; 读取值并存储在变量中<br>优势：</p>
@@ -89,8 +89,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文罗列了一些与 Ajax 相关的知识点。&lt;/p&gt;
-&lt;h3 id=&quot;Ajax-是什么？&quot;&gt;&lt;a href=&quot;#Ajax-是什么？&quot; class=&quot;headerlink&quot; title=&quot;Ajax 是什么？&quot;&gt;&lt;/a&gt;Ajax 是什么？&lt;/h3&gt;&lt;p&gt;首先来说一说什么是Ajax
+      &lt;p&gt;本文罗列了一些与 Ajax 相关的知识点。&lt;br&gt;参考文章：【&lt;a href=&quot;http://www.cnblogs.com/aure/p/4632825.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ajax中XML和JSON格式的优劣比较&lt;/
     
     </summary>
     
