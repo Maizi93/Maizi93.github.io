@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-05T02:59:21.348Z</updated>
+  <updated>2017-08-06T02:23:20.042Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,64 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ES6学习 —— 变量的解构赋值</title>
+    <link href="http://yoursite.com/2017/08/06/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
+    <id>http://yoursite.com/2017/08/06/ES6学习-——-变量的解构赋值/</id>
+    <published>2017-08-06T02:13:34.000Z</published>
+    <updated>2017-08-06T02:23:20.042Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文是学习 <a href="http://es6.ruanyifeng.com/#docs/destructing" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 变量的解构赋值</a> 部分的笔记。</p>
+<p><strong>解构（Destructing）：</strong> ES6按照一定的模式，从数组和对象中提取值，对变量进行赋值，这被称为 “解构” 。</p>
+<h3 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h3><h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p>可以从数组中提取值，按照对应的位置，对变量赋值；</p>
+<p><strong>“模式匹配”：</strong> 只要等号两边的模式相同，左边的变量就会被赋予对应的值；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [a, b, c] = [1, 2, 3];</div><div class="line">console.log(a);        // 1</div><div class="line">console.log(b);        // 2</div><div class="line">console.log(c);        // 3</div></pre></td></tr></table></figure>
+<p><strong>1、使用嵌套数组进行解构</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let [a, [[b], c]] = [1, [[2], 3]];</div><div class="line">console.log(a);        // 1</div><div class="line">console.log(b);        // 2</div><div class="line">console.log(c);        // 3</div><div class="line"></div><div class="line">let [ , , third] = [1, 2, 3];</div><div class="line">console.log(third);    // 3</div><div class="line"></div><div class="line">let [first, ...last] = [1,2,3,4];</div><div class="line">console.log(first);   // 1</div><div class="line">console.log(last);    // [2,3,4]</div></pre></td></tr></table></figure>
+<p> <strong>2、解构不成功</strong><br> 如果解构不成功，变量的值就等于 undefined（等号右边的模式，只匹配等号左边的一部分）</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> let [x,y, ...z] = [1];</div><div class="line">console.log(y);    // undefined</div><div class="line">console.log(z);</div></pre></td></tr></table></figure>
+<p> <strong>3、不完全解构</strong><br> 等号左边的模式，只匹配等号右边一部分的数组，这种情况下依然可以解构成功，但是不完全解构。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let [a,b] = [1,2,3];</div><div class="line">console.log(a);    // 1</div><div class="line">console.log(b);    // 2</div><div class="line"></div><div class="line">let [x,[y],z] = [1,[2,3],4];</div><div class="line">console.log(x);    // 1</div><div class="line">console.log(y);    // 2</div><div class="line">cosnole.log(z);    // 4</div></pre></td></tr></table></figure>
+<p> <strong>4、等号右边不是数组：报错！</strong><br> 严格的说，应该是不可遍历的解构</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> let [a] = 1;</div><div class="line">let [b] = false;</div><div class="line">let [c] = NaN;</div><div class="line">let [d] = undefined;</div><div class="line">let [e] = null;</div><div class="line">let [f] = &#123;&#125;;</div><div class="line">// 以上代码均会报错</div><div class="line">// 原因：等号右边的值，要么转为对象以后不具备Iterator接口（前五个），要么本身就不具备Iterator接口（最后一个）。</div></pre></td></tr></table></figure>
+<p> 对于 Set 结构（后面内容），也可以使用数组的解构赋值；</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [x,y,z] = new Set([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]);</div><div class="line">console.log(x);    // &apos;a&apos;</div></pre></td></tr></table></figure>
+ <font color="red">只要某种数据结构具有Iterator接口，都可以采用数组形式的解构赋值；</font>
+
+<h4 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h4><p>解构赋值允许指定默认值；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [a = true] = [];</div><div class="line">console.log(a);    // true;</div><div class="line">let[x,y = 2] = [1];    // x=1, y=2</div><div class="line">let[x,y = 2] = [1,undefined]   // x=1, y=2</div></pre></td></tr></table></figure>
+<p><strong>1、不生效</strong><br>ES6内部使用严格相等运算符（===）来判断一个位置是否有值。所以一个数组成员不严格等于 undefined ，默认值是不会生效的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [a = 1] = [undefined];    // 生效，a = 1</div><div class="line">let [b = 2] = [null];         // 不生效，b = null</div></pre></td></tr></table></figure>
+<p><strong>2、表达式</strong><br>如果默认值是一个表达式，则这个表达式是惰性求值的，即只有在用到的时候，才会求值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function f()&#123;</div><div class="line">    console.log(&apos;a&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">let [x = f()] = [1];    // x=1</div></pre></td></tr></table></figure>
+<p>上面代码中，x 能取到值 （1），所以函数 f() 不会执行。</p>
+<p><strong>3、引用解构赋值的其他变量</strong></p>
+<p>默认值可以引用结构赋值的其他变量，但是该变量必须已经声明。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [x = 1, y = x] = [];         // x=1, y=1</div><div class="line">let [x = 1, y = x] = [2];        // x=2, y=2</div><div class="line">let [x = 1, y = x] = [1, 2];     // x=1, y=2</div><div class="line">let [x = y, y = 1] = [];         // Uncaught ReferenceError: y is not defined</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文是学习 &lt;a href=&quot;http://es6.ruanyifeng.com/#docs/destructing&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;阮一峰《ECMAScript 6 入门》 变量的解构赋值&lt;/a&gt; 部分的笔记。&lt;/p&gt;
+&lt;p
+    
+    </summary>
+    
+      <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
+    
+    
+      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
+    
+      <category term="解构赋值" scheme="http://yoursite.com/tags/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ES6学习 —— const命令</title>
     <link href="http://yoursite.com/2017/08/05/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-const%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/08/05/ES6学习-——-const命令/</id>
     <published>2017-08-05T02:43:58.000Z</published>
-    <updated>2017-08-05T02:59:21.348Z</updated>
+    <updated>2017-08-06T02:14:35.249Z</updated>
     
-    <content type="html"><![CDATA[<p>本文是学习 <a href="http://es6.ruanyifeng.com/#docs/let#const-命令" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 <code>const</code> 命令</a> 部分的笔记。</p>
+    <content type="html"><![CDATA[<p>本文是学习 <a href="http://es6.ruanyifeng.com/#docs/let#const-命令" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 const 命令</a> 部分的笔记。</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
 <li><code>const</code> 声明一个只读的常量，一旦声明，常量的值就不能改变；</li>
 <li><code>const</code> 一旦声明变量，就必须立即初始化，不能留到以后赋值；</li>
@@ -50,7 +101,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文是学习 &lt;a href=&quot;http://es6.ruanyifeng.com/#docs/let#const-命令&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;阮一峰《ECMAScript 6 入门》 &lt;code&gt;const&lt;/code&gt; 命令&lt;/a
+      &lt;p&gt;本文是学习 &lt;a href=&quot;http://es6.ruanyifeng.com/#docs/let#const-命令&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;阮一峰《ECMAScript 6 入门》 const 命令&lt;/a&gt; 部分的笔记。&lt;/p&gt;
+
     
     </summary>
     
@@ -116,9 +168,9 @@
     <link href="http://yoursite.com/2017/08/04/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-let%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/08/04/ES6学习-——-let命令/</id>
     <published>2017-08-04T08:09:06.000Z</published>
-    <updated>2017-08-05T02:47:20.328Z</updated>
+    <updated>2017-08-06T02:14:32.958Z</updated>
     
-    <content type="html"><![CDATA[<p>本文是学习<a href="http://es6.ruanyifeng.com/#docs/let#let-命令" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 <code>let</code> 命令</a>部分的笔记。</p>
+    <content type="html"><![CDATA[<p>本文是学习<a href="http://es6.ruanyifeng.com/#docs/let#let-命令" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 let 命令</a>部分的笔记。</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p> <code>let</code> 命令，用来声明变量，用法类似于 <code>var</code> ，但是所声明的变量，只在 <code>let</code> 命令所在的代码快内有效；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let a = 10;</div><div class="line">    var b = 2;</div><div class="line">&#125;</div><div class="line">a  // ReferenceError: a is not defined</div><div class="line">b  // 2</div></pre></td></tr></table></figure>
 <h4 id="let命令在for循环中的应用"><a href="#let命令在for循环中的应用" class="headerlink" title="let命令在for循环中的应用"></a>let命令在for循环中的应用</h4><p>a. for循环的计数器</p>
@@ -155,7 +207,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文是学习&lt;a href=&quot;http://es6.ruanyifeng.com/#docs/let#let-命令&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;阮一峰《ECMAScript 6 入门》 &lt;code&gt;let&lt;/code&gt; 命令&lt;/a&gt;部分的笔
+      &lt;p&gt;本文是学习&lt;a href=&quot;http://es6.ruanyifeng.com/#docs/let#let-命令&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;阮一峰《ECMAScript 6 入门》 let 命令&lt;/a&gt;部分的笔记。&lt;/p&gt;
+&lt;h3 id
     
     </summary>
     
