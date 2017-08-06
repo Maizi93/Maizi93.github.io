@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-06T11:28:18.425Z</updated>
+  <updated>2017-08-06T11:29:18.516Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/06/%E5%85%B3%E4%BA%8E-Ajax/"/>
     <id>http://yoursite.com/2017/08/06/关于-Ajax/</id>
     <published>2017-08-06T10:16:10.000Z</published>
-    <updated>2017-08-06T11:28:18.425Z</updated>
+    <updated>2017-08-06T11:29:18.516Z</updated>
     
     <content type="html"><![CDATA[<p>本文罗列了一些与 Ajax 相关的知识点。</p>
 <h3 id="Ajax-是什么？"><a href="#Ajax-是什么？" class="headerlink" title="Ajax 是什么？"></a>Ajax 是什么？</h3><p>首先来说一说什么是Ajax？<br>Ajax 全称为 “Asynchronous JavaScript and XML” （异步 <code>JavaScript</code> 和 <code>XML</code> ），<code>JavaScript</code> 通过异步的形式去操作 <code>XML</code> 文档;</p>
@@ -33,8 +33,7 @@
 </ol>
 <h3 id="Ajax的交互模型"><a href="#Ajax的交互模型" class="headerlink" title="Ajax的交互模型"></a>Ajax的交互模型</h3><p><img src="/img/2017-08-06_001.jpg" alt="Ajax交互模型"></p>
 <h3 id="Ajax传输数据的格式"><a href="#Ajax传输数据的格式" class="headerlink" title="Ajax传输数据的格式"></a>Ajax传输数据的格式</h3><ol>
-<li><p>文本</p>
-</li>
+<li>文本</li>
 <li><p><strong>XML(可扩展标记语言)</strong><br>步骤：读取 <code>XML</code> 文档 —&gt; 使用 <code>XML DOM</code> 来循环遍历文档 —&gt; 读取值并存储在变量中<br>优势：</p>
 <ul>
 <li>格式统一， 符合标准；</li>
@@ -48,8 +47,6 @@
 <li>服务器端和客户端解析 <code>XML</code> 花费资源和时间；</li>
 </ul>
 </li>
-</ol>
-<ol>
 <li><p><strong>JSON(JavaScript Object Notation，一种轻量级的数据交换格式)</strong><br> 步骤：读取 <code>JSON</code> 字符串 —&gt; 用 <code>eval()</code> 处理 <code>JSON</code> 字符串<br> 优势：</p>
 <ul>
 <li>数据格式比较简单， 易于读写，格式都是压缩的， 占用带宽小；</li>
