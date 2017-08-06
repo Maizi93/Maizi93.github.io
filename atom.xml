@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-06T11:30:46.492Z</updated>
+  <updated>2017-08-06T13:58:34.628Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS的六种数据类型</title>
+    <link href="http://yoursite.com/2017/08/06/JS%E7%9A%84%E5%85%AD%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://yoursite.com/2017/08/06/JS的六种数据类型/</id>
+    <published>2017-08-06T13:44:24.000Z</published>
+    <updated>2017-08-06T13:58:34.628Z</updated>
+    
+    <content type="html"><![CDATA[<p>JS有六种数据类型，可以大致分为以下两类：</p>
+<ul>
+<li><strong>基本数据类型：</strong> Number、String、Boolean、Undefined、Null；</li>
+<li><strong>复杂（引用）数据类型：</strong> Object(Array、Date、RegExp…)；</li>
+</ul>
+<h3 id="Null-和-Undefined"><a href="#Null-和-Undefined" class="headerlink" title="Null 和 Undefined"></a>Null 和 Undefined</h3><h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><p>Null 表示“无”的对象，转换为数值时为0<br>典型用法：a. 作为函数的参数，表示该函数的参数不是对象；<br>         b. 作为对象原型链的终点。</p>
+<h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><p>Undefined 表示一个“无”的原始值，转换为数值时为NaN<br>典型用法：a. 变量被声明，但未赋值；<br>         b. 调用函数时，应该提供的参数没有提供，该参数=undefined；<br>         c. 对象没有赋值的属性，该属性的值=undefined；<br>         d. 函数没有返回值，默认返回undefined。</p>
+<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h3><p>只有两个值：true 和 false；</p>
+<h4 id="转换函数-Boolean"><a href="#转换函数-Boolean" class="headerlink" title="转换函数 Boolean()"></a>转换函数 Boolean()</h4><p>JS 所有类型的值都有与这两个Boolean值等价的值，具体的转换关系见下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">转换为true的值</th>
+<th style="text-align:left">转换为flase的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Boolean</td>
+<td style="text-align:left">true</td>
+<td style="text-align:left">flase</td>
+</tr>
+<tr>
+<td style="text-align:left">String</td>
+<td style="text-align:left">任何非空的字符串</td>
+<td style="text-align:left">“”(空字符串)</td>
+</tr>
+<tr>
+<td style="text-align:left">Number</td>
+<td style="text-align:left">任何非0数值（包括无穷大）</td>
+<td style="text-align:left">0 和 NaN</td>
+</tr>
+<tr>
+<td style="text-align:left">Object</td>
+<td style="text-align:left">任何对象</td>
+<td style="text-align:left">null</td>
+</tr>
+<tr>
+<td style="text-align:left">Undefined</td>
+<td style="text-align:left">不使用</td>
+<td style="text-align:left">undefined</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><p>JS 中 Number 可以表示： 整数和浮点数值，以及二进制，八进制（0开头），十六进制（0x开头）的数。</p>
+<h4 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h4><p>最大/最小值：Number.MAX_VALUE，Number.MIN_VALUE；<br>无穷大/无穷小：infinity， -infinity；<br>isFinity()函数：确定一个数是不是有穷的。</p>
+<h4 id="NaN（Not-a-Number，一个特殊的数值）"><a href="#NaN（Not-a-Number，一个特殊的数值）" class="headerlink" title="NaN（Not a Number，一个特殊的数值）"></a>NaN（Not a Number，一个特殊的数值）</h4><p>用于表示本来要返回数值的操作数未返回数值的情况（这样就不会抛出错误了），在ECMAScript中，任何数除以0会返回NaN（实际上只有0除以0才会返回NaN，正数除以0返回Infinity，负数除以0返回-Infinity）；</p>
+<p>任何涉及NaN的操作都会返回NaN；</p>
+<p>NaN与任何值都不相等，包括NaN本身；</p>
+<p>isNaN()函数：判断接收到的参数能否转换为数值，如果不能返回true，如果能则返回false，该参数可以是任何类型。<br>数值转换：Number()、parseInt()、parseFloat()</p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>可以由双引号（” “）或单引号（’ ‘）表示；</p>
+<h4 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a>length属性</h4><p>每个字符串都有一个length属性，返回字符串的长度；</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>字符串是不可变的（字符串值的内容是不可改变的）：要改变某个变量保存的字符串，首先要销毁原来的字符串，然后再用另一个包含新值的字符串填充该变量；</p>
+<h4 id="转换为字符串两种方法"><a href="#转换为字符串两种方法" class="headerlink" title="转换为字符串两种方法"></a>转换为字符串两种方法</h4><p><strong>toString()</strong></p>
+<ul>
+<li>除了 null 和 undefined （数值，对象、布尔值和字符串）都有这个方法；</li>
+<li>在调用数值的toString()方法时，可以传递一个参数，作为输出数值的基数；（比如：二进制、八进制、十六进制等）；<br><strong>String()：</strong> 在不知道要转换的值是否为 null 和 undefined 时，可以使用</li>
+<li>null，返回“null”，undefined，返回“undefined”，其他返回值与 toString() 方法一样；</li>
+<li>如果要转换的值有 toString() 方法，则调用该方法（没有参数）并返回相应的结果；</li>
+</ul>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>JS 中对象是一组数据和功能的集合；</p>
+<p>对象也可看做属性的容器，每个属性都是一个名/值对；属性的名字可以是包括空字符串在内的任意字符串。属性值可以是除undefined值之外的任何值。</p>
+<p>对象最常见的用法是创建（create）、设置（set）、查找（query）、删除（delete）、检测（test）和枚举（enumerate）它的属性。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JS有六种数据类型，可以大致分为以下两类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;基本数据类型：&lt;/strong&gt; Number、String、Boolean、Undefined、Null；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;复杂（引用）数据类型：&lt;/strong&gt; O
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="数据类型" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>关于 Ajax</title>
