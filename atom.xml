@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-06T02:23:20.042Z</updated>
+  <updated>2017-08-06T04:11:30.508Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/06/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
     <id>http://yoursite.com/2017/08/06/ES6学习-——-变量的解构赋值/</id>
     <published>2017-08-06T02:13:34.000Z</published>
-    <updated>2017-08-06T02:23:20.042Z</updated>
+    <updated>2017-08-06T04:11:30.508Z</updated>
     
     <content type="html"><![CDATA[<p>本文是学习 <a href="http://es6.ruanyifeng.com/#docs/destructing" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 变量的解构赋值</a> 部分的笔记。</p>
 <p><strong>解构（Destructing）：</strong> ES6按照一定的模式，从数组和对象中提取值，对变量进行赋值，这被称为 “解构” 。</p>
@@ -48,6 +48,37 @@
 <p>上面代码中，x 能取到值 （1），所以函数 f() 不会执行。</p>
 <p><strong>3、引用解构赋值的其他变量</strong></p>
 <p>默认值可以引用结构赋值的其他变量，但是该变量必须已经声明。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [x = 1, y = x] = [];         // x=1, y=1</div><div class="line">let [x = 1, y = x] = [2];        // x=2, y=2</div><div class="line">let [x = 1, y = x] = [1, 2];     // x=1, y=2</div><div class="line">let [x = y, y = 1] = [];         // Uncaught ReferenceError: y is not defined</div></pre></td></tr></table></figure></p>
+<h3 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h3><h4 id="1、与数组的不同"><a href="#1、与数组的不同" class="headerlink" title="1、与数组的不同"></a><font color="red">1、与数组的不同</font></h4><p>数组的元素是按次序排列的，变量的取值由它们的位置决定；</p>
+<p>而对象的属性没有次序，变量必须与属性同名，才能取到正确的值；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let &#123;name, age, hobby&#125; = &#123;age: 23, name:&quot;Bob&quot;, interest: &quot;running&quot;&#125;;</div><div class="line">console.log(name);    // Bob</div><div class="line">console.log(age);     // 23</div><div class="line">console.log(hobby);   // undefined</div><div class="line"></div><div class="line">let&#123;name:name, age:age, hobby:interest&#125; = &#123;age:23, hobby:&quot;running&quot;, name:&quot;Bob&quot;&#125;;</div><div class="line">console.log(name);    // Bob</div><div class="line">console.log(age);     // 23</div><div class="line">console.log(hobby);   // running</div></pre></td></tr></table></figure>
+<p>第一个例子：前两个变量（name 和 age），虽然和等号右边的顺序不一样，但是因为等号右边有两个同名属性，所以依然可以取到值；而最后一个变量（hobby），等号右边不存在同名属性，所以取不到值。</p>
+<p>第二个例子：这是对象解构赋值最完整的写法，即等号左边（hobby：interest），其中 hobby 是匹配的模式， interest 才是变量。</p>
+<p>等号右边（interest：“running”）， hobby 是变量的同名属性（其实是属性与匹配模式同名），“running” 是值。</p>
+<p>看下面两个例子，更好的理解同名属性具体指的是什么。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let &#123;name:who, age: how&#125; = &#123;name:&quot;Bob&quot;, age:25&#125;;</div><div class="line">console.log(who);      // Bob</div><div class="line">console.log(how);      // 25</div><div class="line"></div><div class="line">let &#123;name:who, age: how&#125; = &#123;who:&quot;Bob&quot;, how:25&#125;;</div><div class="line">console.log(who);      // undefined</div><div class="line">console.log(how);      // undefined</div></pre></td></tr></table></figure>
+<p>概括一下：对象的解构赋值，首先要找到变量的同名属性，然后再赋值给对应的变量，真正被赋值的是后者，而不是前者。（比如name：name，真正被赋值的是后面的 name ，而不是前面的 name）。</p>
+<h4 id="2、嵌套解构赋值"><a href="#2、嵌套解构赋值" class="headerlink" title="2、嵌套解构赋值"></a>2、嵌套解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;</div><div class="line">    country:&#123;</div><div class="line">        person:&#123;</div><div class="line">            name: &quot;Bob&quot;,</div><div class="line">            age: 25</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">let &#123;country, country:&#123;person&#125;, country:&#123;person:&#123;age&#125;&#125;&#125; = obj;</div><div class="line">console.log(country);    // Object &#123;person: Object&#125;</div><div class="line">console.log(person);     // Object &#123;name: &quot;Bob&quot;, age: 25&#125;</div><div class="line">console.log(age);        // 25</div></pre></td></tr></table></figure>
+<p>上面代码中，一共有三次解构赋值，先看最后一次 country:{person:{age}} ，country 和 person 在这里都是模式，不是变量，所以只有变量 age 能取到值；如果想要让模式 country 和 person 也要作为变量取到值，就要像前面两次一样。</p>
+<p><strong>嵌套赋值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;&#125;;</div><div class="line">let arr = [];</div><div class="line"></div><div class="line">(&#123;foo: obj.prop, bar: arr[0]&#125; = &#123;foo: 123, bar: true&#125;);</div><div class="line">console.log(obj);       // Object &#123;prop: 123&#125;</div><div class="line">console.log(arr);       // [true]</div></pre></td></tr></table></figure>
+<h4 id="3、指定默认值"><a href="#3、指定默认值" class="headerlink" title="3、指定默认值"></a>3、指定默认值</h4><p>与数组一样，默认值生效的条件是，对象的属性值严格等于 undefined。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var &#123;x = 3&#125; = &#123;x: undefined&#125;;</div><div class="line">console.log(x);        // 3</div><div class="line">var &#123;x = 3&#125; = &#123;x: null&#125;;</div><div class="line">console.log(x);        // null</div><div class="line"></div><div class="line">var &#123;x, y=2&#125; = &#123;x:1&#125;;     </div><div class="line">console.log(x);        // 1</div><div class="line">console.log(y);        // 2</div><div class="line"></div><div class="line">var &#123;x: y=3&#125; = &#123;&#125;;</div><div class="line">console.log(y);       // 3</div><div class="line"></div><div class="line">var &#123;x: y=3&#125; = &#123;x:1&#125;;</div><div class="line">console.log(y);       // 1</div></pre></td></tr></table></figure>
+<h4 id="4、解构失败"><a href="#4、解构失败" class="headerlink" title="4、解构失败"></a>4、解构失败</h4><p>如果解构失败，变量的值等于 undefined。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let &#123;name&#125; = &#123;age:25&#125;;</div><div class="line">console.log(name);   // undefined</div><div class="line"></div><div class="line">let &#123;person: &#123;name&#125;&#125; = &#123;age:25&#125;;     //报错</div></pre></td></tr></table></figure>
+<p>上面第二个例子，等号左边对象 person 模式对应的变量还是一个对象，进行解构赋值时， person 等于 undefined，再去子属性就会报错。</p>
+<p>因此，如果解构模式是嵌套的对象，而且子对象所在的父属性不存在，就会报错。</p>
+<h4 id="5、已经声明的变量用于解构赋值（Be-careful！）"><a href="#5、已经声明的变量用于解构赋值（Be-careful！）" class="headerlink" title="5、已经声明的变量用于解构赋值（Be careful！）"></a>5、已经声明的变量用于解构赋值<font color="red">（Be careful！）</font></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 错误的写法</div><div class="line">let x;</div><div class="line">&#123;x&#125; = &#123;x:1&#125;;     // Uncaught SyntaxError: Unexpected token =</div><div class="line"></div><div class="line">// 正确的写法</div><div class="line">let x;</div><div class="line">(&#123;x&#125; = &#123;x:1&#125;);</div></pre></td></tr></table></figure>
+<p>如果是已经声明的一个变量，用于解构赋值时，{x} 会被理解为代码块，从而发生语法错误。此时，应该要避免 {x} 被理解为代码块，可以在最外面加上一个圆括号，如第二个例子，就不会报错。</p>
+<h4 id="6、其他"><a href="#6、其他" class="headerlink" title="6、其他"></a>6、其他</h4><p>解构赋值允许等号左边的模式之中，不放置任何变量名，虽然语法是合理的，但是毫无意义；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(&#123;&#125; = [true, false]);</div><div class="line">(&#123;&#125; = &apos;abc&apos;);</div><div class="line">(&#123;&#125; = []);</div></pre></td></tr></table></figure>
+<p>对象的解构赋值，可以很方便的将现有对象的方法，赋值给某个变量；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let &#123;log, sin, cos&#125; = Math;</div></pre></td></tr></table></figure>
+<p>这样每次使用Math对象的对数、正弦、余弦方法时，只要直接调用 log，sin，cos 即可。</p>
+<p>可以数组进行对象属性的解构，因为数组本质是特殊的对象；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let arr = [1,2,3];</div><div class="line">let &#123;0:first, [arr.length -1]:last&#125; = arr;</div><div class="line">console.log(first);    // 1</div><div class="line">console.log(last);     // 3</div></pre></td></tr></table></figure>
+<p>上面第二行代码扩展开来其实就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let &#123;0:first, [arr.length -1]:last&#125; = &#123;0:1, 1:2, 2:3&#125;;</div></pre></td></tr></table></figure>
+<p>等号右边，每一项冒号的左边其实就是数组的索引值。</p>
 ]]></content>
     
     <summary type="html">
