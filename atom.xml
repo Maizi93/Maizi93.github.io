@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-06T14:01:36.784Z</updated>
+  <updated>2017-08-07T07:37:53.960Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/06/JS%E7%9A%84%E5%85%AD%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     <id>http://yoursite.com/2017/08/06/JS的六种数据类型/</id>
     <published>2017-08-06T13:44:24.000Z</published>
-    <updated>2017-08-06T14:01:36.784Z</updated>
+    <updated>2017-08-07T07:37:53.960Z</updated>
     
     <content type="html"><![CDATA[<p>JS有六种数据类型，可以大致分为以下两类：</p>
 <ul>
@@ -30,7 +30,10 @@
 <h3 id="Null-和-Undefined"><a href="#Null-和-Undefined" class="headerlink" title="Null 和 Undefined"></a>Null 和 Undefined</h3><h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><p>Null 表示“无”的对象，转换为数值时为0<br>典型用法：</p>
 <ul>
 <li>作为函数的参数，表示该函数的参数不是对象；</li>
-<li>作为对象原型链的终点。<h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4>Undefined 表示一个“无”的原始值，转换为数值时为NaN<br>典型用法：</li>
+<li>作为对象原型链的终点。</li>
+</ul>
+<h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><p>Undefined 表示一个“无”的原始值，转换为数值时为NaN<br>典型用法：</p>
+<ul>
 <li>变量被声明，但未赋值；</li>
 <li>调用函数时，应该提供的参数没有提供，该参数=undefined；</li>
 <li>对象没有赋值的属性，该属性的值=undefined；</li>
@@ -1100,21 +1103,22 @@
   </entry>
   
   <entry>
-    <title>position的四个属性</title>
+    <title>position属性的取值</title>
     <link href="http://yoursite.com/2017/07/19/position%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%B1%9E%E6%80%A7/"/>
     <id>http://yoursite.com/2017/07/19/position的四个属性/</id>
     <published>2017-07-19T02:18:31.000Z</published>
-    <updated>2017-07-19T10:00:16.799Z</updated>
+    <updated>2017-08-07T07:36:27.994Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="position的四个属性"><a href="#position的四个属性" class="headerlink" title="position的四个属性"></a>position的四个属性</h4><h5 id="static"><a href="#static" class="headerlink" title="static"></a>static</h5><p>默认值，没有定位，元素出现在正常文档流当中；</p>
-<h5 id="absolute"><a href="#absolute" class="headerlink" title="absolute:"></a>absolute:</h5><p>绝对定位，相对于其最近一个具有定位属性的父包含块进行定位，如果不存在这样的包含块，则相对于body元素；<br>可以用left、right、top、bottom来确定元素的位置；<br>不在z-index保留占位符，脱离文档流；<br>会隐性改变display属性值为inline-block；</p>
-<h5 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h5><p>相对定位，相对于以前的位置进行定位，不脱离文档流；</p>
-<h5 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h5><p>固定定位，相对于浏览器窗口进行定位，不随滚动条的移动而改变位置；脱离文档流；</p>
+    <content type="html"><![CDATA[<h3 id="position属性的值"><a href="#position属性的值" class="headerlink" title="position属性的值"></a>position属性的值</h3><h4 id="static"><a href="#static" class="headerlink" title="static"></a>static</h4><p>默认值，没有定位，元素出现在正常文档流中（忽略 <code>top, bottom, left, right</code> 或者 <code>z-index</code> 声明）；</p>
+<h4 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h4><p>相对定位，不脱离文档流，相对于元素原本在文档流中的位置进行定位（ <code>left、right、top、bottom</code> 起作用）；</p>
+<h4 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h4><p>绝对定位，脱离文档流，相对于元素最近的，已定位的父级元素进行定位（不能是static）；<br>如果不存在这样的父级元素，就相对于 body 元素进行定位；<br>可以使用 left、right、top、bottom 来确定元素的位置；<br>会隐性的改变 display 的值为 inline-block；</p>
+<h4 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h4><p>固定定位，脱离文档流；<br>相对于浏览器窗口进行定位，不随滚动条的移动而改变位置；<br>可以使用 left、right、top、bottom 来确定元素的位置；</p>
+<h4 id="inherit"><a href="#inherit" class="headerlink" title="inherit"></a>inherit</h4><p>规定应该从父元素继承 position 属性的值。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;position的四个属性&quot;&gt;&lt;a href=&quot;#position的四个属性&quot; class=&quot;headerlink&quot; title=&quot;position的四个属性&quot;&gt;&lt;/a&gt;position的四个属性&lt;/h4&gt;&lt;h5 id=&quot;static&quot;&gt;&lt;a href=&quot;#sta
+      &lt;h3 id=&quot;position属性的值&quot;&gt;&lt;a href=&quot;#position属性的值&quot; class=&quot;headerlink&quot; title=&quot;position属性的值&quot;&gt;&lt;/a&gt;position属性的值&lt;/h3&gt;&lt;h4 id=&quot;static&quot;&gt;&lt;a href=&quot;#static&quot;
     
     </summary>
     

@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="position的四个属性static默认值，没有定位，元素出现在正常文档流当中； absolute:绝对定位，相对于其最近一个具有定位属性的父包含块进行定位，如果不存在这样的包含块，则相对于body元素；可以用left、right、top、bottom来确定元素的位置；不在z-index保留占位符，脱离文档流；会隐性改变display属性值为inline-block； relative相对定位，">
+<meta name="description" content="position属性的值static默认值，没有定位，元素出现在正常文档流中（忽略 top, bottom, left, right 或者 z-index 声明）； relative相对定位，不脱离文档流，相对于元素原本在文档流中的位置进行定位（ left、right、top、bottom 起作用）； absolute绝对定位，脱离文档流，相对于元素最近的，已定位的父级元素进行定位（不能是stat">
 <meta name="keywords" content="CSS,position">
 <meta property="og:type" content="article">
-<meta property="og:title" content="position的四个属性">
+<meta property="og:title" content="position属性的取值">
 <meta property="og:url" content="http://yoursite.com/2017/07/19/position的四个属性/index.html">
 <meta property="og:site_name" content="麦 田">
-<meta property="og:description" content="position的四个属性static默认值，没有定位，元素出现在正常文档流当中； absolute:绝对定位，相对于其最近一个具有定位属性的父包含块进行定位，如果不存在这样的包含块，则相对于body元素；可以用left、right、top、bottom来确定元素的位置；不在z-index保留占位符，脱离文档流；会隐性改变display属性值为inline-block； relative相对定位，">
-<meta property="og:updated_time" content="2017-07-19T10:00:16.799Z">
+<meta property="og:description" content="position属性的值static默认值，没有定位，元素出现在正常文档流中（忽略 top, bottom, left, right 或者 z-index 声明）； relative相对定位，不脱离文档流，相对于元素原本在文档流中的位置进行定位（ left、right、top、bottom 起作用）； absolute绝对定位，脱离文档流，相对于元素最近的，已定位的父级元素进行定位（不能是stat">
+<meta property="og:updated_time" content="2017-08-07T07:36:27.994Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="position的四个属性">
-<meta name="twitter:description" content="position的四个属性static默认值，没有定位，元素出现在正常文档流当中； absolute:绝对定位，相对于其最近一个具有定位属性的父包含块进行定位，如果不存在这样的包含块，则相对于body元素；可以用left、right、top、bottom来确定元素的位置；不在z-index保留占位符，脱离文档流；会隐性改变display属性值为inline-block； relative相对定位，">
+<meta name="twitter:title" content="position属性的取值">
+<meta name="twitter:description" content="position属性的值static默认值，没有定位，元素出现在正常文档流中（忽略 top, bottom, left, right 或者 z-index 声明）； relative相对定位，不脱离文档流，相对于元素原本在文档流中的位置进行定位（ left、right、top、bottom 起作用）； absolute绝对定位，脱离文档流，相对于元素最近的，已定位的父级元素进行定位（不能是stat">
 
 
 
@@ -139,7 +139,7 @@
 
 
 
-  <title>position的四个属性 | 麦 田</title>
+  <title>position属性的取值 | 麦 田</title>
   
 
 
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">position的四个属性</h1>
+          <h1 class="post-title" itemprop="name headline">position属性的取值</h1>
         
 
         <div class="post-meta">
@@ -405,7 +405,7 @@
 
           
           
-             <span id="/2017/07/19/position的四个属性/" class="leancloud_visitors" data-flag-title="position的四个属性">
+             <span id="/2017/07/19/position的四个属性/" class="leancloud_visitors" data-flag-title="position属性的取值">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,10 +433,11 @@
       
 
       
-        <h4 id="position的四个属性"><a href="#position的四个属性" class="headerlink" title="position的四个属性"></a>position的四个属性</h4><h5 id="static"><a href="#static" class="headerlink" title="static"></a>static</h5><p>默认值，没有定位，元素出现在正常文档流当中；</p>
-<h5 id="absolute"><a href="#absolute" class="headerlink" title="absolute:"></a>absolute:</h5><p>绝对定位，相对于其最近一个具有定位属性的父包含块进行定位，如果不存在这样的包含块，则相对于body元素；<br>可以用left、right、top、bottom来确定元素的位置；<br>不在z-index保留占位符，脱离文档流；<br>会隐性改变display属性值为inline-block；</p>
-<h5 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h5><p>相对定位，相对于以前的位置进行定位，不脱离文档流；</p>
-<h5 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h5><p>固定定位，相对于浏览器窗口进行定位，不随滚动条的移动而改变位置；脱离文档流；</p>
+        <h3 id="position属性的值"><a href="#position属性的值" class="headerlink" title="position属性的值"></a>position属性的值</h3><h4 id="static"><a href="#static" class="headerlink" title="static"></a>static</h4><p>默认值，没有定位，元素出现在正常文档流中（忽略 <code>top, bottom, left, right</code> 或者 <code>z-index</code> 声明）；</p>
+<h4 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h4><p>相对定位，不脱离文档流，相对于元素原本在文档流中的位置进行定位（ <code>left、right、top、bottom</code> 起作用）；</p>
+<h4 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h4><p>绝对定位，脱离文档流，相对于元素最近的，已定位的父级元素进行定位（不能是static）；<br>如果不存在这样的父级元素，就相对于 body 元素进行定位；<br>可以使用 left、right、top、bottom 来确定元素的位置；<br>会隐性的改变 display 的值为 inline-block；</p>
+<h4 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h4><p>固定定位，脱离文档流；<br>相对于浏览器窗口进行定位，不随滚动条的移动而改变位置；<br>可以使用 left、right、top、bottom 来确定元素的位置；</p>
+<h4 id="inherit"><a href="#inherit" class="headerlink" title="inherit"></a>inherit</h4><p>规定应该从父元素继承 position 属性的值。</p>
 
       
     </div>
@@ -679,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#position的四个属性"><span class="nav-number">1.</span> <span class="nav-text">position的四个属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#static"><span class="nav-number">1.1.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#absolute"><span class="nav-number">1.2.</span> <span class="nav-text">absolute:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#relative"><span class="nav-number">1.3.</span> <span class="nav-text">relative</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fixed"><span class="nav-number">1.4.</span> <span class="nav-text">fixed</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#position属性的值"><span class="nav-number">1.</span> <span class="nav-text">position属性的值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#static"><span class="nav-number">1.1.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#relative"><span class="nav-number">1.2.</span> <span class="nav-text">relative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#absolute"><span class="nav-number">1.3.</span> <span class="nav-text">absolute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fixed"><span class="nav-number">1.4.</span> <span class="nav-text">fixed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#inherit"><span class="nav-number">1.5.</span> <span class="nav-text">inherit</span></a></li></ol></li></ol></div>
             
 
           </div>
