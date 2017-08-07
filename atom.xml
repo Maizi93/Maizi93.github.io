@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-07T07:37:53.960Z</updated>
+  <updated>2017-08-07T07:40:59.479Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/06/JS%E7%9A%84%E5%85%AD%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     <id>http://yoursite.com/2017/08/06/JS的六种数据类型/</id>
     <published>2017-08-06T13:44:24.000Z</published>
-    <updated>2017-08-07T07:37:53.960Z</updated>
+    <updated>2017-08-07T07:40:59.479Z</updated>
     
     <content type="html"><![CDATA[<p>JS有六种数据类型，可以大致分为以下两类：</p>
 <ul>
@@ -89,7 +89,10 @@
 <h4 id="转换为字符串两种方法"><a href="#转换为字符串两种方法" class="headerlink" title="转换为字符串两种方法"></a>转换为字符串两种方法</h4><p><strong>toString()</strong></p>
 <ul>
 <li>除了 null 和 undefined （数值，对象、布尔值和字符串）都有这个方法；</li>
-<li>在调用数值的toString()方法时，可以传递一个参数，作为输出数值的基数；（比如：二进制、八进制、十六进制等）；<br><strong>String()：</strong> 在不知道要转换的值是否为 null 和 undefined 时，可以使用</li>
+<li>在调用数值的toString()方法时，可以传递一个参数，作为输出数值的基数；（比如：二进制、八进制、十六进制等）；</li>
+</ul>
+<p><strong>String()：</strong> 在不知道要转换的值是否为 null 和 undefined 时，可以使用</p>
+<ul>
 <li>null，返回“null”，undefined，返回“undefined”，其他返回值与 toString() 方法一样；</li>
 <li>如果要转换的值有 toString() 方法，则调用该方法（没有参数）并返回相应的结果；</li>
 </ul>
@@ -206,7 +209,7 @@
     <link href="http://yoursite.com/2017/08/06/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
     <id>http://yoursite.com/2017/08/06/ES6学习-——-变量的解构赋值/</id>
     <published>2017-08-06T02:13:34.000Z</published>
-    <updated>2017-08-06T11:21:16.554Z</updated>
+    <updated>2017-08-07T07:39:15.615Z</updated>
     
     <content type="html"><![CDATA[<p>本文是学习 <a href="http://es6.ruanyifeng.com/#docs/destructing" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 变量的解构赋值</a> 部分的笔记。</p>
 <p><strong>解构（Destructing）：</strong> <code>ES6</code> 按照一定的模式，从数组和对象中提取值，对变量进行赋值，这被称为 “解构” 。</p>
@@ -288,7 +291,7 @@
     <link href="http://yoursite.com/2017/08/05/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-const%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/08/05/ES6学习-——-const命令/</id>
     <published>2017-08-05T02:43:58.000Z</published>
-    <updated>2017-08-06T02:14:35.249Z</updated>
+    <updated>2017-08-07T07:39:13.359Z</updated>
     
     <content type="html"><![CDATA[<p>本文是学习 <a href="http://es6.ruanyifeng.com/#docs/let#const-命令" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 const 命令</a> 部分的笔记。</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
@@ -323,7 +326,7 @@
     
     </summary>
     
-      <category term="ES6学习" scheme="http://yoursite.com/categories/ES6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
     
     
       <category term="ES6 const" scheme="http://yoursite.com/tags/ES6-const/"/>
@@ -385,7 +388,7 @@
     <link href="http://yoursite.com/2017/08/04/ES6%E5%AD%A6%E4%B9%A0-%E2%80%94%E2%80%94-let%E5%91%BD%E4%BB%A4/"/>
     <id>http://yoursite.com/2017/08/04/ES6学习-——-let命令/</id>
     <published>2017-08-04T08:09:06.000Z</published>
-    <updated>2017-08-06T02:14:32.958Z</updated>
+    <updated>2017-08-07T07:39:11.488Z</updated>
     
     <content type="html"><![CDATA[<p>本文是学习<a href="http://es6.ruanyifeng.com/#docs/let#let-命令" target="_blank" rel="external">阮一峰《ECMAScript 6 入门》 let 命令</a>部分的笔记。</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p> <code>let</code> 命令，用来声明变量，用法类似于 <code>var</code> ，但是所声明的变量，只在 <code>let</code> 命令所在的代码快内有效；</p>
@@ -429,7 +432,7 @@
     
     </summary>
     
-      <category term="ES6学习" scheme="http://yoursite.com/categories/ES6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
     
     
       <category term="ES6 let" scheme="http://yoursite.com/tags/ES6-let/"/>
