@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-07T07:40:59.479Z</updated>
+  <updated>2017-08-09T15:45:55.212Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于闭包</title>
+    <link href="http://yoursite.com/2017/08/09/%E5%85%B3%E4%BA%8E%E9%97%AD%E5%8C%85/"/>
+    <id>http://yoursite.com/2017/08/09/关于闭包/</id>
+    <published>2017-08-09T15:01:54.000Z</published>
+    <updated>2017-08-09T15:45:55.212Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文是关于闭包的一些知识点总结</p>
+<h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包?"></a>什么是闭包?</h3><p>闭包就是指有权访问另一个函数作用域中的变量的函数</p>
+<h3 id="闭包的创建方式"><a href="#闭包的创建方式" class="headerlink" title="闭包的创建方式"></a>闭包的创建方式</h3><p>创建闭包的常见方式：在一个函数内部创建另一个函数。</p>
+<p>内部函数的作用域链包含外部函数的作用域，因此可以访问外部函数作用域中的变量</p>
+<h4 id="什么是作用域链？"><a href="#什么是作用域链？" class="headerlink" title="什么是作用域链？"></a>什么是作用域链？</h4><p>本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。</p>
+<h3 id="闭包的副作用"><a href="#闭包的副作用" class="headerlink" title="闭包的副作用"></a>闭包的副作用</h3><p>（其中 1 和 2 由作用域链的配置机制引起）</p>
+<ol>
+<li>由于闭包会携带包含他的函数的作用域，因此会比其他函数占用更多的内存；</li>
+<li>只能取得包含函数中任何变量的最后一个值；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function createFunctions()&#123;</div><div class="line">    var result = [];</div><div class="line"></div><div class="line">    for(var i = 0; i &lt; 10; i ++)&#123;</div><div class="line">        result[i] = function()&#123;</div><div class="line">            return i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">&#125;</div><div class="line">creatFunctions();     // [10,10,10,10,10,10,10,10,10,10]</div></pre></td></tr></table></figure>
+<p>原因：<br>每个函数的作用域链中都保存着 createFunctions() 函数的活动对象，所以他们引用的都是同一个变量 i 。<br>闭包保存的是变量对象，而不是某个特殊的变量；</p>
+<p>解决办法：<br>通过创建另一个匿名函数，强制让闭包的行为符合预期；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function createFunctions()&#123;</div><div class="line">    var result = [];</div><div class="line"></div><div class="line">    for(var i = 0; i &lt; 10; i ++)&#123;</div><div class="line">        result[i] = function(num)&#123;</div><div class="line">            return function()&#123;</div><div class="line">                return num;</div><div class="line">            &#125;</div><div class="line">        &#125;(i)</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">&#125;</div><div class="line">// 每个函数都会返回不同的索引值</div></pre></td></tr></table></figure>
+<p>以上代码中，没有直接把闭包赋给数组，而是定义了另一个匿名函数，并将立即执行匿名函数的结果赋给数组。这个匿名函数有一个参数 num ，也就是最终的函数要返回的值。在调用每个匿名函数时，就传入了变量 i。由于函数参数是按值传递的，所以就会将变量 i 的当前值赋值给参数 num。</p>
+<ol>
+<li>在闭包中使用 this对象可能会导致一些问题：没有取得其包含作用域（外部作用域）的 this 对象；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var name = &quot;The Window&quot;;</div><div class="line">var obj = &#123;</div><div class="line">    name: &apos;Bob&apos;,</div><div class="line">    getName: function()&#123;</div><div class="line">        return function()&#123;</div><div class="line">            return this.name;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">alert(obj.getName()());    // &quot;The Window&quot;(在非严格模式下)</div></pre></td></tr></table></figure>
+<p>原因：<br>匿名函数的执行环境具有全局性，因此其 this 对象通常指向 window ；<br>每个函数在被调用时都会自动取得两个特殊变量（this 和 arguments），内部函数在搜索这两个变量时，只会搜索到其活动对象为止，永远不可能直接访问外部函数中的这两个变量；</p>
+<p>解决办法：<br>把外部作用域中的 this 对象保存在一个闭包能够访问到的变量；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var name = &quot;The Window&quot;;</div><div class="line">var obj = &#123;</div><div class="line">    name: &apos;Bob&apos;,</div><div class="line">    getName: function()&#123;</div><div class="line">        var that = this；</div><div class="line">        return function()&#123;</div><div class="line">            return that.name;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">alert(obj.getName()());    // &quot;Bob&quot;</div></pre></td></tr></table></figure>
+<ol>
+<li>内存泄漏：如果闭包的作用域链中保存着一个 HTML 元素，那么就意味着该元素将无法被销毁；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function assignHandler()&#123;</div><div class="line">    var element = document.getElementById(&apos;someElement&apos;);</div><div class="line">    element.onclick = function()&#123;</div><div class="line">        alert(&apos;element.id&apos;);</div><div class="line">    &#125;;</div><div class="line">&#125;       </div><div class="line">// 只要匿名函数存在，element的引用次数至少是1，因此它所占用的内存就永远不会被回收。</div></pre></td></tr></table></figure>
+<p>将代码做如下改进，即可减少引用数，确保正常回收占用的内存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function assignHandler()&#123;</div><div class="line">    var element = document.getElementById(&apos;someElement&apos;);</div><div class="line">    var id = element.id;</div><div class="line">    element.onclick = function()&#123;</div><div class="line">        alert(id);</div><div class="line">    &#125;;</div><div class="line">    element = null;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>解决办法：创建另一个匿名函数强制让闭包的行为符合预期；</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文是关于闭包的一些知识点总结&lt;/p&gt;
+&lt;h3 id=&quot;什么是闭包&quot;&gt;&lt;a href=&quot;#什么是闭包&quot; class=&quot;headerlink&quot; title=&quot;什么是闭包?&quot;&gt;&lt;/a&gt;什么是闭包?&lt;/h3&gt;&lt;p&gt;闭包就是指有权访问另一个函数作用域中的变量的函数&lt;/p&gt;
+&lt;h3 
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="闭包" scheme="http://yoursite.com/tags/%E9%97%AD%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>JS的六种数据类型</title>
@@ -1131,38 +1186,6 @@
       <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
       <category term="position" scheme="http://yoursite.com/tags/position/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何向github提交代码？</title>
-    <link href="http://yoursite.com/2017/07/18/%E5%A6%82%E4%BD%95%E5%90%91github%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%EF%BC%9F/"/>
-    <id>http://yoursite.com/2017/07/18/如何向github提交代码？/</id>
-    <published>2017-07-18T14:31:13.000Z</published>
-    <updated>2017-07-18T15:48:45.121Z</updated>
-    
-    <content type="html"><![CDATA[<p>有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)<br>Github一般都是基于SSH授权的，本文针对 <strong>Windows</strong> 系统，记录了如何向Github提交代码。</p>
-<h4 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h4><p>下载地址：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">点我</a>下载后，一直默认 <strong>next</strong> 安装即可。<br><img src="/img/2017-07-18_001.png" alt="Git工具"></p>
-<h4 id="创建新项目，copy地址"><a href="#创建新项目，copy地址" class="headerlink" title="创建新项目，copy地址"></a>创建新项目，copy地址</h4><p>进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 <strong>Clone or download</strong> 按钮，赋值出现的地址备之后用。<br><img src="/img/2017-07-18_002.png" alt="copy地址"></p>
-<h4 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h4><p>在本地电脑中找到之前安装的git工具，双击里面的 <strong>git-bash.exe</strong> <img src="/img/2017-07-18_003.png" alt="git-bash"><br>输入命令：<strong>ssh</strong>，如果出现如下界面，则表示本电脑已经安装了SSH。<br><img src="/img/2017-07-18_004.png" alt="成功界面"><br>接着输入命令 <strong>ssh-keygen -t rsa</strong>(指定rsa算法生成密钥)，连续敲三个回车，生成两个文件： <strong>id_rsa</strong>(密钥)和 <strong>id_rsa.pub</strong>(公钥)，这两个文件都在c/Users/Administrator/.ssh目录下，可以用Sublime打开(其他也可以，这里请自行百度)。</p>
-<h4 id="在Github上添加SSH-key"><a href="#在Github上添加SSH-key" class="headerlink" title="在Github上添加SSH key"></a>在Github上添加SSH key</h4><p>进入Github的设置页面，点击左侧选项栏中的 <strong>SSH and GPG keys</strong>，再点击 <strong>new SSH key</strong>，把上一步中的 <strong>id_rsa.pub</strong>(公钥)中的内容粘贴到 <strong>Key</strong> 那一栏， <strong>Title</strong> 栏不需要填写，直接点击 <strong>Add SSH key</strong> 即可。<br><img src="/img/2017-07-18_005.png" alt="添加SSH key"><br>这样，本地的id_rsa密钥和Github上的id_rsa.pub公钥就可以进行配对，授权成功才可以提交代码。<br>SSH key添加成功之后，输入命令： <strong>ssh -T git@github.com</strong> 进行测试，如果出现如下提示，则表示添加成功。<br><img src="/img/2017-07-18_006.png" alt="提示"></p>
-<h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><p>首先，右键你要上传的项目，会出现两个选项：Git Gui Here和Git Bash Here，选择 <strong>Git Bash Here</strong> ，进入如下界面：这里Lottery就是我要上传的项目。<br><img src="/img/2017-07-18_007.png" alt="Git Bash Here"></p>
-<h5 id="把Github上面的仓库clone到本地"><a href="#把Github上面的仓库clone到本地" class="headerlink" title="把Github上面的仓库clone到本地"></a>把Github上面的仓库clone到本地</h5><p>输入命令： <strong>git clone <a href="https://github.com/Maizi93/test.git" target="_blank" rel="external">https://github.com/Maizi93/test.git</a></strong> (这个地址就是之前复制备用的地址)，此时你会发现本地文件夹中会多出一个文件夹(test)，把项目文件夹中的其余所有，都赋值到这个多出来的文件夹(test)中。<br><img src="/img/2017-07-18_008.png" alt="clone到本地">  <img src="/img/2017-07-18_009.png" alt="本地文件夹"></p>
-<h5 id="提交并push到github上"><a href="#提交并push到github上" class="headerlink" title="提交并push到github上"></a>提交并push到github上</h5><p>依次输入以下命令：<br><strong>cd test</strong> ———— 进入test文件夹<br><strong>git add .</strong> ———— 把test文件夹下面的文件都添加进来， <em>注意：add后面还有一个点（.），千万别忘记了！</em><br><strong>git commit -m “提交信息”</strong> ———— “提交信息”里面换成你需要的，如”first commit”<br><strong>git push -u origin master</strong> ———— 把本地仓库push到github上面， <em>注意：这里需要你输入Github的账号和密码</em><br><img src="/img/2017-07-18_010.png" alt="相关命令行"></p>
-<h5 id="完成代码提交"><a href="#完成代码提交" class="headerlink" title="完成代码提交"></a>完成代码提交</h5><p>到Github上test这个repository下面，就可以看到已经提交了你的项目相关内容。<br><img src="/img/2017-07-18_011.png" alt="完成提交"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)&lt;br&gt;Github一般都是基于SSH授权的，本文针对 &lt;strong&gt;Windows&lt;/strong&gt; 系统，记录了如何向Github提交代码。&lt;/p&gt;
-&lt;h4 id=&quot;安装Git工具&quot;&gt;&lt;a href=&quot;
-    
-    </summary>
-    
-      <category term="前端工具" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
   </entry>
   
