@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-09T15:54:01.210Z</updated>
+  <updated>2017-08-10T14:27:00.713Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/09/%E5%85%B3%E4%BA%8E%E9%97%AD%E5%8C%85/"/>
     <id>http://yoursite.com/2017/08/09/关于闭包/</id>
     <published>2017-08-09T15:01:54.000Z</published>
-    <updated>2017-08-09T15:54:01.210Z</updated>
+    <updated>2017-08-10T14:27:00.713Z</updated>
     
     <content type="html"><![CDATA[<p>本文是关于闭包的一些知识点总结</p>
 <h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包?"></a>什么是闭包?</h3><p>闭包就是指有权访问另一个函数作用域中的变量的函数</p>
@@ -42,7 +42,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function assignHandler()&#123;</div><div class="line">    var element = document.getElementById(&apos;someElement&apos;);</div><div class="line">    element.onclick = function()&#123;</div><div class="line">        alert(&apos;element.id&apos;);</div><div class="line">    &#125;;</div><div class="line">&#125;       </div><div class="line">// 只要匿名函数存在，element的引用次数至少是1，因此它所占用的内存就永远不会被回收。</div></pre></td></tr></table></figure>
 <p>将代码做如下改进，即可减少引用数，确保正常回收占用的内存：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function assignHandler()&#123;</div><div class="line">    var element = document.getElementById(&apos;someElement&apos;);</div><div class="line">    var id = element.id;</div><div class="line">    element.onclick = function()&#123;</div><div class="line">        alert(id);</div><div class="line">    &#125;;</div><div class="line">    element = null;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>解决办法：创建另一个匿名函数强制让闭包的行为符合预期；</p>
+<h3 id="闭包的应用场景"><a href="#闭包的应用场景" class="headerlink" title="闭包的应用场景"></a>闭包的应用场景</h3><p>参考博文【<img src="http://www.cnblogs.com/star-studio/archive/2011/06/22/2086493.html" alt="http://www.cnblogs.com/star-studio/archive/2011/06/22/2086493.html">】</p>
 ]]></content>
     
     <summary type="html">
