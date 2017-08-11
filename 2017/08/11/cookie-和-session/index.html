@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="github," />
+  <meta name="keywords" content="JavaScript,cookie,session," />
 
 
 
@@ -95,29 +95,19 @@
 
 
 
-<meta name="description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 Clone or downloa">
-<meta name="keywords" content="github">
+<meta name="description" content="首先简要得说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源用于知乎上的回答，作者：郭无心，，个人觉得这段原理解释非常通俗易懂，故在此引用。 保存用户名密码当我们平时登录网站点击保存用户名和密码时，一般保存的都是 cookie，将用">
+<meta name="keywords" content="JavaScript,cookie,session">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何向github提交代码？">
-<meta property="og:url" content="http://yoursite.com/2017/07/18/如何向github提交代码？/index.html">
+<meta property="og:title" content="cookie 和 session">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/cookie-和-session/index.html">
 <meta property="og:site_name" content="麦 田">
-<meta property="og:description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 Clone or downloa">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_001.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_002.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_003.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_004.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_005.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_006.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_007.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_008.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_009.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_010.png">
-<meta property="og:image" content="http://yoursite.com/img/2017-07-18_011.png">
-<meta property="og:updated_time" content="2017-07-18T15:48:45.121Z">
+<meta property="og:description" content="首先简要得说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源用于知乎上的回答，作者：郭无心，，个人觉得这段原理解释非常通俗易懂，故在此引用。 保存用户名密码当我们平时登录网站点击保存用户名和密码时，一般保存的都是 cookie，将用">
+<meta property="og:image" content="https://www.zhihu.com/question/19786827/answer/66706108">
+<meta property="og:updated_time" content="2017-08-11T10:04:58.538Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何向github提交代码？">
-<meta name="twitter:description" content="有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)Github一般都是基于SSH授权的，本文针对 Windows 系统，记录了如何向Github提交代码。 安装Git工具下载地址：点我下载后，一直默认 next 安装即可。 创建新项目，copy地址进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 Clone or downloa">
-<meta name="twitter:image" content="http://yoursite.com/img/2017-07-18_001.png">
+<meta name="twitter:title" content="cookie 和 session">
+<meta name="twitter:description" content="首先简要得说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源用于知乎上的回答，作者：郭无心，，个人觉得这段原理解释非常通俗易懂，故在此引用。 保存用户名密码当我们平时登录网站点击保存用户名和密码时，一般保存的都是 cookie，将用">
+<meta name="twitter:image" content="https://www.zhihu.com/question/19786827/answer/66706108">
 
 
 
@@ -145,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/18/如何向github提交代码？/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/11/cookie-和-session/"/>
 
 
 
 
 
-  <title>如何向github提交代码？ | 麦 田</title>
+  <title>cookie 和 session | 麦 田</title>
   
 
 
@@ -348,7 +338,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/18/如何向github提交代码？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/cookie-和-session/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Maizi">
@@ -365,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何向github提交代码？</h1>
+          <h1 class="post-title" itemprop="name headline">cookie 和 session</h1>
         
 
         <div class="post-meta">
@@ -377,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T22:31:13+08:00">
-                2017-07-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T16:11:32+08:00">
+                2017-08-11
               </time>
             
 
@@ -400,8 +390,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端工具/" itemprop="url" rel="index">
-                    <span itemprop="name">前端工具</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -417,7 +407,7 @@
 
           
           
-             <span id="/2017/07/18/如何向github提交代码？/" class="leancloud_visitors" data-flag-title="如何向github提交代码？">
+             <span id="/2017/08/11/cookie-和-session/" class="leancloud_visitors" data-flag-title="cookie 和 session">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -445,15 +435,31 @@
       
 
       
-        <p>有Github账号，就可以提交代码了吗？(一开始我也是这么认为的)<br>Github一般都是基于SSH授权的，本文针对 <strong>Windows</strong> 系统，记录了如何向Github提交代码。</p>
-<h4 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h4><p>下载地址：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">点我</a>下载后，一直默认 <strong>next</strong> 安装即可。<br><img src="/img/2017-07-18_001.png" alt="Git工具"></p>
-<h4 id="创建新项目，copy地址"><a href="#创建新项目，copy地址" class="headerlink" title="创建新项目，copy地址"></a>创建新项目，copy地址</h4><p>进入Github首页，创建一个新的项目(具体教程见Github首页Read the guide)；点击 <strong>Clone or download</strong> 按钮，赋值出现的地址备之后用。<br><img src="/img/2017-07-18_002.png" alt="copy地址"></p>
-<h4 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h4><p>在本地电脑中找到之前安装的git工具，双击里面的 <strong>git-bash.exe</strong> <img src="/img/2017-07-18_003.png" alt="git-bash"><br>输入命令：<strong>ssh</strong>，如果出现如下界面，则表示本电脑已经安装了SSH。<br><img src="/img/2017-07-18_004.png" alt="成功界面"><br>接着输入命令 <strong>ssh-keygen -t rsa</strong>(指定rsa算法生成密钥)，连续敲三个回车，生成两个文件： <strong>id_rsa</strong>(密钥)和 <strong>id_rsa.pub</strong>(公钥)，这两个文件都在c/Users/Administrator/.ssh目录下，可以用Sublime打开(其他也可以，这里请自行百度)。</p>
-<h4 id="在Github上添加SSH-key"><a href="#在Github上添加SSH-key" class="headerlink" title="在Github上添加SSH key"></a>在Github上添加SSH key</h4><p>进入Github的设置页面，点击左侧选项栏中的 <strong>SSH and GPG keys</strong>，再点击 <strong>new SSH key</strong>，把上一步中的 <strong>id_rsa.pub</strong>(公钥)中的内容粘贴到 <strong>Key</strong> 那一栏， <strong>Title</strong> 栏不需要填写，直接点击 <strong>Add SSH key</strong> 即可。<br><img src="/img/2017-07-18_005.png" alt="添加SSH key"><br>这样，本地的id_rsa密钥和Github上的id_rsa.pub公钥就可以进行配对，授权成功才可以提交代码。<br>SSH key添加成功之后，输入命令： <strong>ssh -T git@github.com</strong> 进行测试，如果出现如下提示，则表示添加成功。<br><img src="/img/2017-07-18_006.png" alt="提示"></p>
-<h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><p>首先，右键你要上传的项目，会出现两个选项：Git Gui Here和Git Bash Here，选择 <strong>Git Bash Here</strong> ，进入如下界面：这里Lottery就是我要上传的项目。<br><img src="/img/2017-07-18_007.png" alt="Git Bash Here"></p>
-<h5 id="把Github上面的仓库clone到本地"><a href="#把Github上面的仓库clone到本地" class="headerlink" title="把Github上面的仓库clone到本地"></a>把Github上面的仓库clone到本地</h5><p>输入命令： <strong>git clone <a href="https://github.com/Maizi93/test.git" target="_blank" rel="external">https://github.com/Maizi93/test.git</a></strong> (这个地址就是之前复制备用的地址)，此时你会发现本地文件夹中会多出一个文件夹(test)，把项目文件夹中的其余所有，都赋值到这个多出来的文件夹(test)中。<br><img src="/img/2017-07-18_008.png" alt="clone到本地">  <img src="/img/2017-07-18_009.png" alt="本地文件夹"></p>
-<h5 id="提交并push到github上"><a href="#提交并push到github上" class="headerlink" title="提交并push到github上"></a>提交并push到github上</h5><p>依次输入以下命令：<br><strong>cd test</strong> ———— 进入test文件夹<br><strong>git add .</strong> ———— 把test文件夹下面的文件都添加进来， <em>注意：add后面还有一个点（.），千万别忘记了！</em><br><strong>git commit -m “提交信息”</strong> ———— “提交信息”里面换成你需要的，如”first commit”<br><strong>git push -u origin master</strong> ———— 把本地仓库push到github上面， <em>注意：这里需要你输入Github的账号和密码</em><br><img src="/img/2017-07-18_010.png" alt="相关命令行"></p>
-<h5 id="完成代码提交"><a href="#完成代码提交" class="headerlink" title="完成代码提交"></a>完成代码提交</h5><p>到Github上test这个repository下面，就可以看到已经提交了你的项目相关内容。<br><img src="/img/2017-07-18_011.png" alt="完成提交"></p>
+        <p>首先简要得说一下 <code>cookie</code> 和 <code>session</code> 分别是用来干什么的？<br><strong>cookie</strong><br>可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码；</p>
+<p><strong>session</strong><br>用来跟踪会话；</p>
+<h3 id="cookie-和-session-的原理"><a href="#cookie-和-session-的原理" class="headerlink" title="cookie 和 session 的原理"></a>cookie 和 session 的原理</h3><p>下面内容来源用于知乎上的回答，作者：郭无心，<img src="https://www.zhihu.com/question/19786827/answer/66706108" alt="https://www.zhihu.com/question/19786827/answer/66706108">，个人觉得这段原理解释非常通俗易懂，故在此引用。</p>
+<h4 id="保存用户名密码"><a href="#保存用户名密码" class="headerlink" title="保存用户名密码"></a>保存用户名密码</h4><p>当我们平时登录网站点击保存用户名和密码时，一般保存的都是 <code>cookie</code>，将用户名和密码的 <code>cookie</code> 保存到硬盘中，这样再次登录的时候浏览器直接将 <code>cookie</code> 发送到服务器端验证即可，这样对于用户来说很方便。直接将 <code>uesername</code> 和 <code>password</code> 保存到客户端，这当然是很不安全的，对此浏览器也可以进行加密解密，而每个浏览器都可以有自己的加密解密方式。</p>
+<h4 id="保存用户喜好"><a href="#保存用户喜好" class="headerlink" title="保存用户喜好"></a>保存用户喜好</h4><p>用户喜欢的网页背景色（比如 <code>QQ</code> 空间的背景），这些信息也是可以用个 <code>cookie</code> 保存到客户端的，这样登录之后浏览器就可以直接获取相应的偏好设置。</p>
+<h4 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h4><p>比如某些网站中网页有不同的访问权限，有只能登录的用户访问的网页，或者用户级别不同不能访问的，但 <code>http</code>请求是无状态的，每次访问服务器端是不知道是否是登录用户。这样的话，我们很自然的会想到在 <code>http</code> 请求报文中加入登录标识，而这个登录标识就可以是 <code>cookie</code>。服务器端保存有所有登录用户的 cookie，这样请求报文来了之后，将登录标识 <code>cookie</code> 与服务器端的 <code>cookie</code> 进行比较即可。</p>
+<p>再比如购物网站，多次点击添加商品都购物车，客户端很容易知道哪些物品在购物车中，但是服务器端怎么知道每次添加的物品放到哪个登录用户的购物车中呢？也需要请求报文中带着 <code>cookie</code> 才行（在不登录的情况下，京东也可以不断添加商品，推测应该是登录的时候一并创建 <code>cookie</code> 并且发送物品信息）。</p>
+<p>这些 <code>cookie</code> 都是为了跟踪会话用的，所以客户端有，服务器端也有，并且服务器端有全部的会话 <code>cookie</code>。</p>
+<h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><p>后来衍生出 <code>session</code> 技术，之所以出现 <code>session</code> 技术，主要是为了安全，而 <code>session</code> 技术需要用到 <code>cookie</code>。</p>
+<p>我们都知道，http 是无状态的协议，客户每次读取 web 页面时，服务器都会打开新的会话，而且服务器也不会自动维护客户的上下文信息，那么要怎么才能实现网上商店中的购物车呢？ session 就是一种保存上下文信息的机制，它是针对每一个用户的，变量的值保存在服务器端，通过 SessionID 来区分不同的客户。session 以<br> cookie 或 URL 重写为基础，默认使用 cookie 来实现，系统会创造一个名为 JSESSIONID 的输出 cookie，我们把它称为 session cookie，以区别 persistent cookies（也即我们通常所说的 cookie）。这里需要注意的是，session cookie 是存储于浏览器内存中的，并不是写到硬盘上的，所以通常情况下我们是看不到 JSESSIONID 的，但是当我们把浏览器的 cookie 禁止后，web 服务器会采用 URL 重写的方式传递 SessionID，我们就可以在地址栏看到 sessionid=KWJHUG6JJM65HS2K6 之类的字符串。</p>
+<h4 id="HTTP-请求报文"><a href="#HTTP-请求报文" class="headerlink" title="HTTP 请求报文"></a>HTTP 请求报文</h4><p><a href="/img/2017-08-11_001.png">HTTP 请求报文</a><br>上图中， HTTP 请求报文头的最后一行有 cookie，不过是 JSESSIONID 的 cookie 值。<br>一般 Cookie 形式如下：<br><code>Cookie：$Version=1;Skin=new;jsessionid=5F4771183629C9834F8382E23BE13C4C</code><br>前两个值为偏好设置，最后一个为 jsessionid。</p>
+<p>服务器端是怎么知道客户端的多个请求是属于哪一个 Session 呢？<br>jsessionid，是通过 HTTP 请求报文头的 Cookie 属性的 jsessionid 的值关联起来的。（当然也可以通过重写 URL 的方式来将会话 ID 附带在每个 URL 后面）</p>
+<p>以上，引用内容结束！</p>
+<h3 id="cookie-和-session-的区别"><a href="#cookie-和-session-的区别" class="headerlink" title="cookie 和 session 的区别"></a>cookie 和 session 的区别</h3><h4 id="目的（用途）不同"><a href="#目的（用途）不同" class="headerlink" title="目的（用途）不同"></a>目的（用途）不同</h4><p>cookie 可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码，其主要是为了解决 HTTP 协议无状态的缺陷；<br>session 用来跟踪会话，主要是为了安全；</p>
+<h4 id="隐私策略（存储位置）不同"><a href="#隐私策略（存储位置）不同" class="headerlink" title="隐私策略（存储位置）不同"></a>隐私策略（存储位置）不同</h4><p>cookie 保存在客户端，对客户端是可见的。客户端的一些程序可能会窥探、复制甚至修改 cookie 中的内容，存在安全隐患；<br>session 保存在服务器端，对客户端是透明的，不存在敏感信息泄露的风险；</p>
+<h4 id="有效期不同"><a href="#有效期不同" class="headerlink" title="有效期不同"></a>有效期不同</h4><p>cookie：<br>如果不设置过期时间，则表示这个 cookie 的生命周期为浏览器会话期间，关闭浏览器窗口，cookie 就消失。（会话 cookie，一般不存储在硬盘上，而是保存在内存中）<br>如果设置了过期时间，则只有超过了过期时间，cookie 才会消失。（这种情况下，浏览器会把 cookie 保存到硬盘上，存储在硬盘上的 cookie 可以在不同浏览器进程间共享）因此我们可以完成信息永久有效的效果，即设置 cookie 的过期时间属性为一个很大很大的数字即可。</p>
+<p>session：<br>session 依赖于 JSESSIONID 的cookie，而Cookie JSESSIONID 的过期时间默认为 -1，只要关闭浏览器窗口，该 session 就会失效。因此，它无法完成信息永久有效的效果。</p>
+<h4 id="服务器压力不同"><a href="#服务器压力不同" class="headerlink" title="服务器压力不同"></a>服务器压力不同</h4><p>前面在 <em>存储位置不同</em> 中提到了两者的存储位置。<br>cookie 保存客户端，不占服务器资源；如果并发访问的用户很多，cookie 是不错的选择；<br>session 保存在服务器端，每一个用户都会产生一个 sessionid，如果并发访问的用户很多，就会耗费大量的内存。</p>
+<h4 id="浏览器支持不同"><a href="#浏览器支持不同" class="headerlink" title="浏览器支持不同"></a>浏览器支持不同</h4><p>cookie 需要客户端浏览器的支持。假如客户端禁用了 cookie，或者不支持 cookie，则会话跟踪就会失效。<br>而对于 session 而言，如果客户端浏览器持 cookie，session 可以通过重写 URL 的方式将 ID 附带在每个 URL 后面。</p>
+<p>假如客户端支持 cookie，则 cookie 既能设为本浏览器窗口以及子窗口内有效（把过期时间设为 -1），也能设为一切浏览器窗口内有效（把过期时间设为某个大于 0 的整数）；<br>但 session 只能在本浏览器窗口以及其子窗口内有效。</p>
+<h4 id="跨域支持上的不同"><a href="#跨域支持上的不同" class="headerlink" title="跨域支持上的不同"></a>跨域支持上的不同</h4><p>cookie 支持跨域名访问，例如将 domain 属性设置为 “.biaodianfu.com”，则以 “.biaodianfu.com” 为后缀的一切域名均能够访问该 cookie;<br>session 不支持跨域名访问，尽在它所在的域名内有效；</p>
+<h4 id="存储类型不同"><a href="#存储类型不同" class="headerlink" title="存储类型不同"></a>存储类型不同</h4><p>cookie 中只能保管 ASCII 字符串，如果需要存储 Unicode 字符或者二进制数据，需要先进行编码；也不能存储 java 对象；<br>session 中能够存储任何类型的数据，包括且不仅限于 String、Integer、List、Map等；也能直接保管 Java 类，对象等；</p>
+<h3 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h3><p><strong>【Q1】</strong> 如何设置 cookie？<br>cookie 是以键值对的形式保存的，即 key=value 的格式，各个 cookie 之间一般是以 “;” 分隔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cookie.name = value;</div><div class="line"></div><div class="line">document.cookie = &quot;name&quot; + uesername;</div><div class="line">// 保存变量 username 的值(&apos;jack&apos;)到 cookie 中，key 值为 name</div></pre></td></tr></table></figure></p>
+<p><strong>【Q2】</strong> 如何改变/设置 session 的有效期？<br>方法一<br>在主页面中写入下面两句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpSession session = request.getSession(true);</div><div class="line">session.setMaxInactiveInterval(3600);  // 3600秒（服务器端的3600秒，而不是客户端的）</div></pre></td></tr></table></figure></p>
+<p>方法二<br>在项目的 web.xml 中设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;session-config&gt;</div><div class="line">&lt;session-timeout&gt;60&lt;/session-timeout&gt;</div><div class="line">&lt;session-config&gt;</div><div class="line">// 60 指的是 60 分钟</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -504,7 +510,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/github/" rel="tag"># github</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/cookie/" rel="tag"># cookie</a>
+          
+            <a href="/tags/session/" rel="tag"># session</a>
           
         </div>
       
@@ -517,15 +527,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/08/09/关于闭包/" rel="next" title="关于闭包">
+                <i class="fa fa-chevron-left"></i> 关于闭包
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/19/position的四个属性/" rel="prev" title="position属性的取值">
-                position属性的取值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -690,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Git工具"><span class="nav-number">1.</span> <span class="nav-text">安装Git工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建新项目，copy地址"><span class="nav-number">2.</span> <span class="nav-text">创建新项目，copy地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成SSH-key"><span class="nav-number">3.</span> <span class="nav-text">生成SSH key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Github上添加SSH-key"><span class="nav-number">4.</span> <span class="nav-text">在Github上添加SSH key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交代码"><span class="nav-number">5.</span> <span class="nav-text">提交代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#把Github上面的仓库clone到本地"><span class="nav-number">5.1.</span> <span class="nav-text">把Github上面的仓库clone到本地</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提交并push到github上"><span class="nav-number">5.2.</span> <span class="nav-text">提交并push到github上</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#完成代码提交"><span class="nav-number">5.3.</span> <span class="nav-text">完成代码提交</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie-和-session-的原理"><span class="nav-number">1.</span> <span class="nav-text">cookie 和 session 的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#保存用户名密码"><span class="nav-number">1.1.</span> <span class="nav-text">保存用户名密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保存用户喜好"><span class="nav-number">1.2.</span> <span class="nav-text">保存用户喜好</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话跟踪"><span class="nav-number">1.3.</span> <span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#session"><span class="nav-number">1.4.</span> <span class="nav-text">session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-请求报文"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP 请求报文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie-和-session-的区别"><span class="nav-number">2.</span> <span class="nav-text">cookie 和 session 的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目的（用途）不同"><span class="nav-number">2.1.</span> <span class="nav-text">目的（用途）不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐私策略（存储位置）不同"><span class="nav-number">2.2.</span> <span class="nav-text">隐私策略（存储位置）不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有效期不同"><span class="nav-number">2.3.</span> <span class="nav-text">有效期不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器压力不同"><span class="nav-number">2.4.</span> <span class="nav-text">服务器压力不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器支持不同"><span class="nav-number">2.5.</span> <span class="nav-text">浏览器支持不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域支持上的不同"><span class="nav-number">2.6.</span> <span class="nav-text">跨域支持上的不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储类型不同"><span class="nav-number">2.7.</span> <span class="nav-text">存储类型不同</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充内容"><span class="nav-number">3.</span> <span class="nav-text">补充内容</span></a></li></ol></div>
             
 
           </div>
