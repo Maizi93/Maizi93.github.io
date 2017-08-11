@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="首先简要的说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源用于知乎上的回答，作者：郭无心，https://www.zhihu.com/question/19786827/answer/66706108，个人觉得这段原理解释非常通俗">
+<meta name="description" content="首先简要的说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源于知乎上的回答，作者：郭无心，cookie 和 session 的却别，个人觉得这段原理解释非常通俗易懂，故在此引用。 保存用户名密码当我们平时登录网站点击保存用户名和密码">
 <meta name="keywords" content="JavaScript,cookie,session">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cookie 和 session">
 <meta property="og:url" content="http://yoursite.com/2017/08/11/cookie-和-session/index.html">
 <meta property="og:site_name" content="麦 田">
-<meta property="og:description" content="首先简要的说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源用于知乎上的回答，作者：郭无心，https://www.zhihu.com/question/19786827/answer/66706108，个人觉得这段原理解释非常通俗">
+<meta property="og:description" content="首先简要的说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源于知乎上的回答，作者：郭无心，cookie 和 session 的却别，个人觉得这段原理解释非常通俗易懂，故在此引用。 保存用户名密码当我们平时登录网站点击保存用户名和密码">
 <meta property="og:image" content="http://yoursite.com/img/2017-08-11_001.png">
-<meta property="og:updated_time" content="2017-08-11T12:31:07.089Z">
+<meta property="og:updated_time" content="2017-08-11T12:32:09.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cookie 和 session">
-<meta name="twitter:description" content="首先简要的说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源用于知乎上的回答，作者：郭无心，https://www.zhihu.com/question/19786827/answer/66706108，个人觉得这段原理解释非常通俗">
+<meta name="twitter:description" content="首先简要的说一下 cookie 和 session 分别是用来干什么的？cookie可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码； session用来跟踪会话； cookie 和 session 的原理下面内容来源于知乎上的回答，作者：郭无心，cookie 和 session 的却别，个人觉得这段原理解释非常通俗易懂，故在此引用。 保存用户名密码当我们平时登录网站点击保存用户名和密码">
 <meta name="twitter:image" content="http://yoursite.com/img/2017-08-11_001.png">
 
 
@@ -437,7 +437,7 @@
       
         <p>首先简要的说一下 <code>cookie</code> 和 <code>session</code> 分别是用来干什么的？<br><strong>cookie</strong><br>可以用来跟踪会话，也可以用来保存用户喜好或者保存用户名密码；</p>
 <p><strong>session</strong><br>用来跟踪会话；</p>
-<h3 id="cookie-和-session-的原理"><a href="#cookie-和-session-的原理" class="headerlink" title="cookie 和 session 的原理"></a>cookie 和 session 的原理</h3><p>下面内容来源用于知乎上的回答，作者：郭无心，<a href="https://www.zhihu.com/question/19786827/answer/66706108" target="_blank" rel="external">https://www.zhihu.com/question/19786827/answer/66706108</a>，个人觉得这段原理解释非常通俗易懂，故在此引用。</p>
+<h3 id="cookie-和-session-的原理"><a href="#cookie-和-session-的原理" class="headerlink" title="cookie 和 session 的原理"></a>cookie 和 session 的原理</h3><p>下面内容来源于知乎上的回答，作者：郭无心，<a href="https://www.zhihu.com/question/19786827/answer/66706108" target="_blank" rel="external">cookie 和 session 的却别</a>，个人觉得这段原理解释非常通俗易懂，故在此引用。</p>
 <h4 id="保存用户名密码"><a href="#保存用户名密码" class="headerlink" title="保存用户名密码"></a>保存用户名密码</h4><p>当我们平时登录网站点击保存用户名和密码时，一般保存的都是 <code>cookie</code>，将用户名和密码的 <code>cookie</code> 保存到硬盘中，这样再次登录的时候浏览器直接将 <code>cookie</code> 发送到服务器端验证即可，这样对于用户来说很方便。直接将 <code>uesername</code> 和 <code>password</code> 保存到客户端，这当然是很不安全的，对此浏览器也可以进行加密解密，而每个浏览器都可以有自己的加密解密方式。</p>
 <h4 id="保存用户喜好"><a href="#保存用户喜好" class="headerlink" title="保存用户喜好"></a>保存用户喜好</h4><p>用户喜欢的网页背景色（比如 <code>QQ</code> 空间的背景），这些信息也是可以用个 <code>cookie</code> 保存到客户端的，这样登录之后浏览器就可以直接获取相应的偏好设置。</p>
 <h4 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h4><p>比如某些网站中网页有不同的访问权限，有只能登录的用户访问的网页，或者用户级别不同不能访问的，但 <code>http</code>请求是无状态的，每次访问服务器端是不知道是否是登录用户。这样的话，我们很自然的会想到在 <code>http</code> 请求报文中加入登录标识，而这个登录标识就可以是 <code>cookie</code>。服务器端保存有所有登录用户的 cookie，这样请求报文来了之后，将登录标识 <code>cookie</code> 与服务器端的 <code>cookie</code> 进行比较即可。</p>
