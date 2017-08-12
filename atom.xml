@@ -222,7 +222,7 @@
     <link href="http://yoursite.com/2017/08/06/%E5%85%B3%E4%BA%8E-Ajax/"/>
     <id>http://yoursite.com/2017/08/06/关于-Ajax/</id>
     <published>2017-08-06T10:16:10.000Z</published>
-    <updated>2017-08-06T11:30:46.492Z</updated>
+    <updated>2017-08-12T15:14:23.533Z</updated>
     
     <content type="html"><![CDATA[<p>本文罗列了一些与 Ajax 相关的知识点。<br>参考文章：【<a href="http://www.cnblogs.com/aure/p/4632825.html" target="_blank" rel="external">Ajax中XML和JSON格式的优劣比较</a>】</p>
 <h3 id="Ajax-是什么？"><a href="#Ajax-是什么？" class="headerlink" title="Ajax 是什么？"></a>Ajax 是什么？</h3><p>首先来说一说什么是Ajax？<br>Ajax 全称为 “Asynchronous JavaScript and XML” （异步 <code>JavaScript</code> 和 <code>XML</code> ），<code>JavaScript</code> 通过异步的形式去操作 <code>XML</code> 文档;</p>
@@ -287,6 +287,7 @@
 <li>从其他域中加载代码执行，可能存在安全隐患；</li>
 <li>要确定 <code>JSONP</code> 请求是否失败并不容易；</li>
 </ul>
+<h3 id="【补充】"><a href="#【补充】" class="headerlink" title="【补充】"></a>【补充】</h3><p>【Q1】XmlHttpRequest 对象的局限性？<br>默认情况下，XmlHttpRequest 对象只能访问与包含它的页面位于同一个域中的资源，无法实现跨域访问。</p>
 ]]></content>
     
     <summary type="html">
