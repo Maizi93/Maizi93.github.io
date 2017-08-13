@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-13T10:35:11.615Z</updated>
+  <updated>2017-08-13T10:44:56.949Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,17 +20,18 @@
     <link href="http://yoursite.com/2017/08/13/%E5%8E%9F%E5%9E%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%BB%A5%E5%8F%8A%E7%BB%A7%E6%89%BF/"/>
     <id>http://yoursite.com/2017/08/13/原型、原型链以及继承/</id>
     <published>2017-08-13T09:33:39.000Z</published>
-    <updated>2017-08-13T10:35:11.615Z</updated>
+    <updated>2017-08-13T10:44:56.949Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>创建的每一个函数都包含一个 prototype （原型）属性，这个属性是一个指针，指向原型对象。<br><strong>原型对象的用途：</strong> 包含可以有特定类型的所有实例共享的属性和方法；<br><strong>使用原型对象的好处：</strong> 让所有对象实例共享它所包含的属性和方法，不必在构造函数中定义对象实例的信息，而是将这些信息直接添加到原型对象中。</p>
+    <content type="html"><![CDATA[<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>创建的每一个函数都包含一个 <code>prototype</code> （原型）属性，这个属性是一个指针，指向原型对象。<br><strong>原型对象的用途：</strong> 包含可以有特定类型的所有实例共享的属性和方法；<br><strong>使用原型对象的好处：</strong> 让所有对象实例共享它所包含的属性和方法，不必在构造函数中定义对象实例的信息，而是将这些信息直接添加到原型对象中。</p>
 <p>下面，直接上代码和图，说明一下各个对象之间的关系。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.name = &quot;Bob&quot;;</div><div class="line">Person.prototype.age = 29;</div><div class="line">Person.prototype.job = &quot;student&quot;;</div><div class="line">Person.prototype.sayName = function()&#123;</div><div class="line">  alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var person1 = new Person();</div><div class="line">person1.sayName();      // &quot;Bob&quot;</div><div class="line"></div><div class="line">var person2 = new Person();</div><div class="line">person2.sayName();      // &quot;Bob&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 创建函数</div><div class="line">function Person()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 给原型对象添加属性和方法</div><div class="line">Person.prototype.name = &quot;Bob&quot;;</div><div class="line">Person.prototype.age = 29;</div><div class="line">Person.prototype.job = &quot;student&quot;;</div><div class="line">Person.prototype.sayName = function()&#123;</div><div class="line">  alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 创建对象实例，并调用方法</div><div class="line">var person1 = new Person();</div><div class="line">person1.sayName();      // &quot;Bob&quot;</div><div class="line"></div><div class="line">var person2 = new Person();</div><div class="line">person2.sayName();      // &quot;Bob&quot;</div><div class="line"></div><div class="line">alert(person1.sayName == person2.sayName);    // true</div></pre></td></tr></table></figure>
 <p><img src="/img/2017-08-13_001.jpg" alt="各个对象之间的关系"></p>
+<p>上面代码中，首先创建了一个名为 <code>Person</code> 的构造函数，由图可以看出，<code>Person</code> 函数由一个 <code>prototype</code> 属性，它是一个指针，指向该函数的原型对象（<code>Person Prototype</code>）；紧接着，给原型对象添加属性和方法，这些属性和方法可以有对象实例共享；最后，使用构造函数来创建对象实例，并调用方法。这里创建了两个对象实例：<code>person1</code> 和 <code>person2</code>，他们拥有相同的属性和方法，因此最后一句代码弹出的是 <code>true</code>。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;原型模式&quot;&gt;&lt;a href=&quot;#原型模式&quot; class=&quot;headerlink&quot; title=&quot;原型模式&quot;&gt;&lt;/a&gt;原型模式&lt;/h3&gt;&lt;p&gt;创建的每一个函数都包含一个 prototype （原型）属性，这个属性是一个指针，指向原型对象。&lt;br&gt;&lt;strong&gt;原型
+      &lt;h3 id=&quot;原型模式&quot;&gt;&lt;a href=&quot;#原型模式&quot; class=&quot;headerlink&quot; title=&quot;原型模式&quot;&gt;&lt;/a&gt;原型模式&lt;/h3&gt;&lt;p&gt;创建的每一个函数都包含一个 &lt;code&gt;prototype&lt;/code&gt; （原型）属性，这个属性是一个指针，指向原型对象。&lt;
     
     </summary>
     
