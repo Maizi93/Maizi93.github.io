@@ -437,8 +437,7 @@
       
         
           
-          原型模式直接上代码和图，说明一下各个对象之间的关系。
-123456789101112131415function Person()&#123;&#125;Person.prototype.name = &quot;Bob&quot;;Person.prototype.age = 29;Person.
+          原型模式创建的每一个函数都包含一个 prototype （原型）属性，这个属性是一个指针，指向原型对象。原型对象的用途： 包含可以有特定类型的所有实例共享的属性和方法；使用原型对象的好处： 让所有对象实例共享它所包含的属性和方法，不必在构造函数中定义对象实例的信息，而是将这些信息直接添加到原型对象中
           ...
           <!--noindex-->
           <div class="post-button text-center">
