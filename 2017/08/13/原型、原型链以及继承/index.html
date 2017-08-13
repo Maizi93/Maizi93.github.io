@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="麦 田">
 <meta property="og:description" content="原型模式 创建的每一个函数都包含一个 prototype （原型）属性，这个属性是一个指针，指向 原型对象 （即平时所说的 “原型”）； 所有的原型对象都会自动获得一个 constructor （构造函数）属性，这个属性也是一个指针，指向一个包含 prototype 属性所在的函数； 调用构造函数创建实例，每个实例都包含一个 [[prototype]] （_proto_）属性（内部属性），这个属性">
 <meta property="og:image" content="http://yoursite.com/img/2017-08-13_001.jpg">
-<meta property="og:updated_time" content="2017-08-13T13:36:10.093Z">
+<meta property="og:updated_time" content="2017-08-13T13:44:41.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型、原型链以及继承">
 <meta name="twitter:description" content="原型模式 创建的每一个函数都包含一个 prototype （原型）属性，这个属性是一个指针，指向 原型对象 （即平时所说的 “原型”）； 所有的原型对象都会自动获得一个 constructor （构造函数）属性，这个属性也是一个指针，指向一个包含 prototype 属性所在的函数； 调用构造函数创建实例，每个实例都包含一个 [[prototype]] （_proto_）属性（内部属性），这个属性">
@@ -463,7 +463,15 @@
 <p>原型对象最初只包含 constructor 属性，该属性也是共享的，对象实例可以访问到。</p>
 <p>虽然可以通过对象实例访问保存在原型对象中的值，但却不能通过对象实例重写原型对象中的值。（如果实例对象中有一个属性与原型对象中的属性同名，则根据访问顺序，原型对象中的同名属性会被屏蔽；可以通过 delete 删除实例属性，让原型对象中的同名属性重见天日。）</p>
 <h4 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty()"></a>hasOwnProperty()</h4><p>用来判断某个属性是来源于实例对象本身，还是来源于原型对象<br>（只要当该对象来源于实例对象本身的时候，该方法才会返回 true）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.name = &quot;Bob&quot;;</div><div class="line">Person.prototype.age = 29;</div><div class="line"></div><div class="line">var person1 = new Person();</div><div class="line">person1.name = &quot;Alice&quot;;</div><div class="line"></div><div class="line">alert(person1.hasOwnProperty(&quot;name&quot;));   // true</div><div class="line">alert(person1.hasOwnProperty(&quot;age&quot;));   // false</div></pre></td></tr></table></figure></p>
-<h4 id="原型对象与-in-操作符"><a href="#原型对象与-in-操作符" class="headerlink" title="原型对象与 in 操作符"></a>原型对象与 in 操作符</h4>
+<h4 id="原型对象与-in-操作符"><a href="#原型对象与-in-操作符" class="headerlink" title="原型对象与 in 操作符"></a>原型对象与 in 操作符</h4><ul>
+<li><p>单独使用<br>如果通过实例对象能够访问到给定的属性（无论来源于哪里），都会返回 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.name = &quot;Bob&quot;;</div><div class="line">Person.prototype.age = 29;</div><div class="line"></div><div class="line">var person1 = new Person();</div><div class="line">person1.name = &quot;Alice&quot;;</div><div class="line">alert(&quot;name&quot; in person1);    // true</div><div class="line">alert(&quot;age&quot; in person1);    // true</div></pre></td></tr></table></figure>
+</li>
+<li><p>在 for-in 循环中使用<br>返回的是所有能够通过实例对象访问的、可枚举的属性（无论该属性来源于哪里）。</p>
+</li>
+</ul>
+<p><font color="red">注意：</font>如果某个属性在原型对象中是不可枚举的（即该属性的 [[Enumerable]] 被设置为 false），实例对象中有一个同名属性，则该实例属性还是会在 for-in 循环中返回的。（<em>所有开发人员定义的属性都是可枚举额</em>）</p>
+
       
     </div>
 
