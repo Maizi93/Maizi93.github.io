@@ -103,8 +103,8 @@
 <meta property="og:site_name" content="麦 田">
 <meta property="og:description" content="本文主要是对 【小红书】 中原型和继承进行了归纳总结。 原型链许多语言都支持两种继承方式：接口继承和实现继承；而 JavaScript 只支持 实现继承，且其主要是依靠 原型链 来实现的。 利用原型链实现继承的主要思想：让一个引用类型继承另一个引用类型的属性和方法； 什么是原型链？构造函数、原型和实例的关系：每一个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向">
 <meta property="og:image" content="http://yoursite.com/img/2017-08-14_001.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/08/14/原型、原型链以及继承（二）/img/2017-08-14_002.jpg">
-<meta property="og:updated_time" content="2017-08-14T08:25:54.734Z">
+<meta property="og:image" content="http://yoursite.com/img/2017-08-14_002.jpg">
+<meta property="og:updated_time" content="2017-08-14T08:29:14.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型、原型链以及继承（二）">
 <meta name="twitter:description" content="本文主要是对 【小红书】 中原型和继承进行了归纳总结。 原型链许多语言都支持两种继承方式：接口继承和实现继承；而 JavaScript 只支持 实现继承，且其主要是依靠 原型链 来实现的。 利用原型链实现继承的主要思想：让一个引用类型继承另一个引用类型的属性和方法； 什么是原型链？构造函数、原型和实例的关系：每一个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向">
@@ -445,7 +445,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function C()&#123;&#125;</div><div class="line"></div><div class="line">function B()&#123;&#125;</div><div class="line">B.prototype = new C();    // 让 B 的原型对象等于 C 的实例</div><div class="line"></div><div class="line">function A()&#123;&#125;</div><div class="line">A.prototype = new B();    // 让 A 的原型对象等于 B 的实例</div><div class="line">var a = new A();</div></pre></td></tr></table></figure>
 <p>因此，利用原型链实现继承的本质就是重写原型对象，也就是说上面例子中，原来存在于 <code>B</code> 和 <code>C</code> 的实例中的属性和方法，现在也存在于 <code>A Prototype</code> 中。</p>
 <p>在通过原型链实继承的情况下，当以读取模式访问一个属性的时候，搜索过程就得以沿着原型链继续向上。</p>
-<h4 id="默认的原型"><a href="#默认的原型" class="headerlink" title="默认的原型"></a>默认的原型</h4><p>所有引用类型默认都继承了 <code>Object</code>，而这个继承也是通过原型链实现的。所有函数的默认原型都是 <code>Object</code> 的实例，因此默认原型都会包含一个内部指针，指向 <code>Object.prototype</code>。<br><img src="img/2017-08-14_002.jpg" alt="默认的原型"></p>
+<h4 id="默认的原型"><a href="#默认的原型" class="headerlink" title="默认的原型"></a>默认的原型</h4><p>所有引用类型默认都继承了 <code>Object</code>，而这个继承也是通过原型链实现的。所有函数的默认原型都是 <code>Object</code> 的实例，因此默认原型都会包含一个内部指针，指向 <code>Object.prototype</code>。<br><img src="/img/2017-08-14_002.jpg" alt="默认的原型"></p>
 <h4 id="确定原型对象和实例的关系"><a href="#确定原型对象和实例的关系" class="headerlink" title="确定原型对象和实例的关系"></a>确定原型对象和实例的关系</h4><ul>
 <li><p><code>instanceof()</code><br>只要用这个操作符来测试实例与原型链中出现过的构造函数，结果都会返回 <code>true</code>；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alert(a instanceof C);   // true</div></pre></td></tr></table></figure>
