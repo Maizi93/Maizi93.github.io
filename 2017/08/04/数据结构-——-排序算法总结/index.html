@@ -102,10 +102,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/04/数据结构-——-排序算法总结/index.html">
 <meta property="og:site_name" content="麦 田">
 <meta property="og:description" content="本文记录了几种经典的排序算法，并对排序算法的性能进行了总结，如果有哪里写的不妥的，还请大家指正批评。同时，也欢迎大家提供更简单有效的算法。 排序算法的性能评估 稳定性（假设记录 a 和记录 b 都位于待排序的序列中）（1）稳定：如果 a 本来就在 b 前面，且 a = b，排序之后 a 仍然在 b 前面；（2）不稳定：如果 a 本来就在 b 前面，且 a = b，排序之后 a 可能出现在 b 后面">
-<meta property="og:updated_time" content="2017-08-15T15:01:40.793Z">
+<meta property="og:image" content="http://yoursite.com/img/2017-08-16_001.jpg">
+<meta property="og:updated_time" content="2017-08-16T09:45:50.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构 —— 排序算法总结">
 <meta name="twitter:description" content="本文记录了几种经典的排序算法，并对排序算法的性能进行了总结，如果有哪里写的不妥的，还请大家指正批评。同时，也欢迎大家提供更简单有效的算法。 排序算法的性能评估 稳定性（假设记录 a 和记录 b 都位于待排序的序列中）（1）稳定：如果 a 本来就在 b 前面，且 a = b，排序之后 a 仍然在 b 前面；（2）不稳定：如果 a 本来就在 b 前面，且 a = b，排序之后 a 可能出现在 b 后面">
+<meta name="twitter:image" content="http://yoursite.com/img/2017-08-16_001.jpg">
 
 
 
@@ -436,12 +438,12 @@
         <p>本文记录了几种经典的排序算法，并对排序算法的性能进行了总结，如果有哪里写的不妥的，还请大家指正批评。同时，也欢迎大家提供更简单有效的算法。</p>
 <h3 id="排序算法的性能评估"><a href="#排序算法的性能评估" class="headerlink" title="排序算法的性能评估"></a>排序算法的性能评估</h3><ul>
 <li>稳定性（假设记录 <code>a</code> 和记录 <code>b</code> 都位于待排序的序列中）<br>（1）稳定：如果 <code>a</code> 本来就在 <code>b</code> 前面，且 <code>a = b</code>，排序之后 <code>a</code> 仍然在 <code>b</code> 前面；<br>（2）不稳定：如果 <code>a</code> 本来就在 <code>b</code> 前面，且 <code>a = b</code>，排序之后 <code>a</code> 可能出现在 <code>b</code> 后面；</li>
-<li>待排序的记录是否全部被放置在内存中<br>（1）内排序：在整个排序过程中，待排序的所有记录全部被放置在内存中；<br>（2）外排序：由于排序的记录个数太多，不能同时放置在内存，整个排序过程需要在内外存之间多次交换数据才能进行；</li>
+<li>待排序的记录是否全部被放置在内存中<br>（1）内排序：在整个排序过程中，待排序的所有记录全部被放置在内存中；<strong>（文中的所有排序算法都属于内排序）</strong><br>（2）外排序：由于排序的记录个数太多，不能同时放置在内存，整个排序过程需要在内外存之间多次交换数据才能进行；</li>
 <li>时间复杂度：排序算法的时间开销</li>
 <li>空间复杂度：排序算法所需的存储空间</li>
 <li>算法本身的复杂度</li>
 </ul>
-<h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><p>下面，将根据 <strong>程杰的《大话数据结构》</strong> ，从易到难对7种排序算法进行整理归纳</p>
+<h3 id="排序算法（7-种）"><a href="#排序算法（7-种）" class="headerlink" title="排序算法（7 种）"></a>排序算法（7 种）</h3><p>下面，将根据 <strong>程杰的《大话数据结构》</strong> ，从易到难对7种排序算法进行整理归纳</p>
 <h4 id="1、冒泡排序（Bubble-Sort）"><a href="#1、冒泡排序（Bubble-Sort）" class="headerlink" title="1、冒泡排序（Bubble Sort）"></a>1、冒泡排序（Bubble Sort）</h4><p><strong>基本思想：</strong> 两两比较相邻记录的关键字，如果反序则交换，直到没有反序的记录为止。<br><strong>（1）初级版</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function bubbleSort0(arr)&#123;</div><div class="line">	console.time(&quot;冒泡排序初级版&quot;);</div><div class="line">    var len = arr.length;</div><div class="line">    for(var i = 0; i &lt; len; i ++)&#123;</div><div class="line">        for(var j = i + 1; j &lt; len; j ++)&#123;</div><div class="line">            if(arr[i] &gt; arr[j])&#123;</div><div class="line">                swap(arr,i,j);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    console.timeEnd(&quot;冒泡排序初级版&quot;);</div><div class="line">    return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 交换两个元素</div><div class="line">function swap(arr,i,j)&#123;</div><div class="line">    var temp = arr[i];</div><div class="line">    arr[i] = arr[j];</div><div class="line">    arr[j] = temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var num = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(BubbleSort0(num));        // [2, 4, 7, 9, 11, 12, 16, 21, 34, 56]</div></pre></td></tr></table></figure>
 <p>上面代码中，每一次外循环，都是将第 <code>i</code> 个位置的记录， 与它后面的记录进行比较。如果大，则进行交换，这样一次大循环之后，第 <code>i</code> 个位置的记录与后面位置的记录相比就是最小的。</p>
@@ -456,18 +458,18 @@
 <ul>
 <li>稳定性：不稳定；</li>
 <li>待排序的记录是否全部被放置在内存中：内排序；</li>
-<li>时间复杂度<br>（1）最好的情况：O(n)——已经是正序的；<br>（2）最坏的情况：O(n2)——正好是逆序的；<br>（3）平均的情况：O(n);</li>
-<li>空间复杂度：O(1)</li>
-<li>算法本身的复杂度：简单</li>
+<li>时间复杂度<br>（1）最好的情况：O(n)——已经是正序的；<br>（2）最坏的情况：O(n^2)——正好是逆序的；<br>（3）平均的情况：O(n);</li>
+<li>空间复杂度：O(1);</li>
+<li>算法本身的复杂度：简单;</li>
 </ul>
-<h4 id="2、选择排序（Selection-Sort）"><a href="#2、选择排序（Selection-Sort）" class="headerlink" title="2、选择排序（Selection Sort）"></a>2、选择排序（Selection Sort）</h4><p><strong>基本思想：</strong> 每一趟通过 n-i 次关键字之间的比较，从 n-i+1 个记录中选出关键字最小的记录，并和第 i 个记录进行交换；</p>
+<h4 id="2、选择排序（Selection-Sort）"><a href="#2、选择排序（Selection-Sort）" class="headerlink" title="2、选择排序（Selection Sort）"></a>2、选择排序（Selection Sort）</h4><p><strong>基本思想：</strong> 每一趟通过 <code>n-i</code> 次关键字之间的比较，从 <code>n-i+1</code> 个记录中选出关键字最小的记录，并和第 <code>i</code> 个记录进行交换；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function selectionSort(arr)&#123;</div><div class="line">  var len = arr.length;</div><div class="line">  for(var i = 0; i &lt; len; i ++)&#123;</div><div class="line">    var min = i;              // 让最小值的最初索引等于当前的i</div><div class="line">    for(var j = i + 1; j &lt; len; j ++)&#123;      </div><div class="line">      if(arr[j] &lt; arr[min])&#123;      // 如果有小于当前最小值的关键字</div><div class="line">        min = j;              // 将次关键字的索引赋给min</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    if(i != min)&#123;     // 如果min发生改变，则交换元素</div><div class="line">      swap(arr,i,min);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function swap(arr,i,j)&#123;</div><div class="line">  var tmp = arr[i];</div><div class="line">  arr[i] = arr[j];</div><div class="line">  arr[j] = tmp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var num = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(selectionSort(num));</div></pre></td></tr></table></figure>
 <p><strong>选择排序性能评估</strong></p>
 <ul>
-<li>时间复杂度<br>无无论最好最差，都是O（n^2）</li>
-<li>空间复杂度：O（1）</li>
-<li>算法本身复杂度：简单</li>
-<li>性能略优于冒泡排序，因为交换移动次数比较少</li>
+<li>时间复杂度：无论最好最差，都是 O(n^2)；</li>
+<li>空间复杂度：O(1)；</li>
+<li>算法本身复杂度：简单；</li>
+<li>性能略优于冒泡排序，因为交换移动次数比较少；</li>
 </ul>
 <h4 id="3、插入排序（Insertion-Sort）"><a href="#3、插入排序（Insertion-Sort）" class="headerlink" title="3、插入排序（Insertion Sort）"></a>3、插入排序（Insertion Sort）</h4><p><strong>基本思想：</strong> 将未排序的无序表中的一个记录插入到已经排好序的有序表中，从而得到一个新的、记录数增 1 的有序表；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function insertionSort(arr)&#123;</div><div class="line">    var len = arr.length;</div><div class="line">    for(var i = 1; i &lt; len; i ++)&#123;</div><div class="line">    	if(arr[i] &lt; arr[i-1])&#123;</div><div class="line">    		var tmp = arr[i];     // 备份</div><div class="line">    		// 遍历有序列表，满足条件的记录后移</div><div class="line">    		for(var j = i-1; arr[j] &gt; tmp; j --)&#123;</div><div class="line">    			arr[j+1] = arr[j];</div><div class="line">    		&#125;</div><div class="line">    		arr[j+1] = tmp;   // 插入到正确的位置</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">    return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var num = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(insertionSort(num));</div></pre></td></tr></table></figure>
@@ -478,7 +480,138 @@
 <li>算法本身的复杂度：简单</li>
 <li>插入排序比冒泡和选择排序的性能要好一些</li>
 </ul>
-<h4 id="4、希尔排序（Shell-Sort）"><a href="#4、希尔排序（Shell-Sort）" class="headerlink" title="4、希尔排序（Shell Sort）"></a>4、希尔排序（Shell Sort）</h4>
+<h4 id="4、希尔排序（Shell-Sort）"><a href="#4、希尔排序（Shell-Sort）" class="headerlink" title="4、希尔排序（Shell Sort）"></a>4、希尔排序（Shell Sort）</h4><p>—— 基于插入排序进行改进的算法</p>
+<p><strong>基本思想：</strong> 采用跳跃分割策略，将相距某个“增量”的记录组成一个子序列，然后在子序列内分别进行插入排序；</p>
+<p><strong>关键：</strong> “增量”的选取；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">function shellSort(arr)&#123;</div><div class="line">	var len = arr.length;</div><div class="line">	// 对“增量”进行初始化（等于数组的长度）</div><div class="line">	var increment = len;     </div><div class="line"></div><div class="line">	do&#123;</div><div class="line">		increment = Math.floor(increment / 3 + 1);</div><div class="line">		for(var i = increment + 1; i &lt; len; i ++)&#123;</div><div class="line">		    // 进行跳跃式比较</div><div class="line">			if(arr[i] &lt; arr[i - increment])&#123;</div><div class="line">				// 需要将arr[i]插入有序增量子表</div><div class="line">				var tmp = arr[i];   // 备份</div><div class="line">				// 记录跳跃式后移</div><div class="line">				for(var j = i - increment; j &gt; 0 &amp;&amp; arr[j] &gt; tmp; j -= increment)&#123;</div><div class="line">					arr[j + increment] = arr[j];</div><div class="line">				&#125;</div><div class="line">				arr[j + increment] = tmp;    // 插入正确位置</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;while(increment &gt; 1)</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var num = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(shellSort(num));     // [2, 4, 7, 9, 11, 12, 16, 21, 34, 56]</div></pre></td></tr></table></figure>
+<p><strong>希尔排序性能评估</strong></p>
+<ul>
+<li>稳定性：不稳定（跳跃式比较并移动）；</li>
+<li>时间复杂度：O(n^(3/2))，优于插入排序的O(n^2)；</li>
+<li>空间复杂度：O(1)；</li>
+<li>算法本身的复杂度：较前面三种排序算法稍复杂；</li>
+</ul>
+<h4 id="5、堆排序（Heap-Sort）"><a href="#5、堆排序（Heap-Sort）" class="headerlink" title="5、堆排序（Heap Sort）"></a>5、堆排序（Heap Sort）</h4><p>—— 基于选择排序进行改进的算法</p>
+<p><strong>堆是具有下列性质的完全二叉树：</strong> 每个节点的值都大于或等于其左右孩子的节点的值，称为 <strong>大顶堆</strong>；或者每个节点的值都小于或蒸鱼其左右孩子的值，称为 <strong>小顶堆</strong>；</p>
+<p><strong>基本思想：（假设利用大顶堆）</strong> 将待排序的序列构成一个大顶堆。此时，整个序列的最大值就是对顶的根结点，将它移步（其实就是将其与堆数组的末尾元素交换，此时末尾元素就是最大值），然后将剩余的 <code>n-1</code> 个序列重新构造成一个堆，这样就会得到 <code>n</code> 个元素中的次大值。如此反复执行，就能得到一个有序序列了。</p>
+<p><strong>步骤：</strong></p>
+<ul>
+<li>将无序数列构建成一个大顶堆；<strong>（初始构建堆）</strong></li>
+<li>逐步将每个最大值的根结点与末尾元素进行交换，并再次调整其成为大顶堆；<strong>（多次调整堆）</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">// 堆排序函数</div><div class="line">function heapSort(arr)&#123;</div><div class="line">	var len = arr.length;</div><div class="line">	// 由于按层序遍历二叉树得到的序列索引从1开始，所以这里我们手动在数组开头加上一个0元素</div><div class="line">	arr.unshift(0);</div><div class="line">	// 第一步：将无序数列构建成一个大顶堆</div><div class="line">	for(var i = Math.floor(len / 2); i &gt; 0; i --)&#123;</div><div class="line">		heapAdjust(arr,i,len);   </div><div class="line">	&#125;</div><div class="line">	// 第二步：将每个最大值的根结点与末尾元素进行交换，并再次调整其成为大顶堆</div><div class="line">	for(var i = len; i &gt; 1; i --)&#123;</div><div class="line">		swap(arr,1,i);    // 交换</div><div class="line">		heapAdjust(arr,1,i-1);    // 重新调整</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 排好序后，将数组开头的元速度删除</div><div class="line">	arr.shift();</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 堆调整函数：调整arr[s],使arr[s]-arr[m]成为一个大顶堆</div><div class="line">function heapAdjust(arr,s,m)&#123;</div><div class="line">	var tmp = arr[s];   // 备份</div><div class="line">	// 从下到上，从左往右，调整每一个子树</div><div class="line">	for(var j = 2 * s; j &lt;= m; j *= 2)&#123;</div><div class="line">		// 先判断该结点的俩孩子，j为值较大的下标</div><div class="line">		if(j &lt; m &amp;&amp; arr[j] &lt; arr[j + 1])&#123;</div><div class="line">			++ j;</div><div class="line">		&#125;</div><div class="line">		// 再判断该结点与较大孩子的大小</div><div class="line">		// 若大于等于，则无需交换；若小于，则交换两者的位置</div><div class="line">		if(tmp &gt;= arr[j])&#123;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">		arr[s] = arr[j];</div><div class="line">		s = j;</div><div class="line">	&#125;</div><div class="line">	arr[s] = tmp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 交换元素</div><div class="line">function swap(arr,i,j)&#123;</div><div class="line">	var tmp = arr[i];</div><div class="line">	arr[i] = arr[j];</div><div class="line">	arr[j] = tmp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var num = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(heapSort(num));    // [2, 4, 7, 9, 11, 12, 16, 21, 34, 56]</div></pre></td></tr></table></figure>
+<p><strong>堆排序性能评估</strong></p>
+<ul>
+<li>稳定性：不稳定；</li>
+<li>时间复杂度：无论最好、最坏情况，时间复杂度都是：O(nlogn)；</li>
+<li>空间复杂度：O(1)；</li>
+<li>算法本身的复杂度：复杂；</li>
+</ul>
+<h4 id="6、归并排序（Merging-Sort）"><a href="#6、归并排序（Merging-Sort）" class="headerlink" title="6、归并排序（Merging Sort）"></a>6、归并排序（Merging Sort）</h4><p><strong>“归并”：</strong> 在数据结构中，指的是将两个或两个以上的有序表组合成一个新的有序表；</p>
+<p><strong>基本思想：</strong> 假设初始序列含有 <code>n</code> 个记录，则可以看成是 <code>n</code> 个有序的子序列，每个子序列的长度为 <code>1</code>，然后两两归并，得到 <code>x</code> （一个不小于 <code>n/2</code> 的整数）个长度为 <code>2</code> 或 <code>1</code> 的有序子序列，再两两归并，……，如此重复，直至的代一个长度为 <code>n</code> 的有序序列为止；</p>
+<p><strong>（1）递归实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">function mergingSort1(arr)&#123;</div><div class="line">	var len = arr.length;</div><div class="line">	var result = mSort(arr,arr,0,len-1);</div><div class="line">	return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 先拆分，后合并</div><div class="line">function mSort(SR,TR1,s,t)&#123;</div><div class="line">	// 将SR先进行拆分，然后再合并成有序序列</div><div class="line">	var TR2 = [];</div><div class="line">	if(s == t)&#123;</div><div class="line">		TR1[s] = SR[s];</div><div class="line">	&#125;else&#123;</div><div class="line">		var m = Math.floor((s+t)/2);     // 取中间下标</div><div class="line">		// 递归调用</div><div class="line">		mSort(SR,TR2,s,m);    // 对前半段进行操作</div><div class="line">		mSort(SR,TR2,m+1,t);   // 对后半段进行操作</div><div class="line"></div><div class="line">		merge(TR2,TR1,s,m,t);</div><div class="line">	&#125;</div><div class="line">	return TR1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 合并成有序序列</div><div class="line">function merge(SR,TR,i,m,n)&#123;</div><div class="line">	// j为SR后半段的索引，i为SR前半段的索引，k为TR的索引</div><div class="line">	for(var j = m+1, k = i; i &lt;= m &amp;&amp; j &lt;= n; k ++)&#123;</div><div class="line">		// 将前半段和后半段一一进行比较，谁小就添加到TR中，同时索引后移，直到其中一段全部被添加到TR中</div><div class="line">		if(SR[i] &lt; SR[j])&#123;</div><div class="line">			TR[k] = SR[i ++];</div><div class="line">		&#125;else&#123;</div><div class="line">			TR[k] = SR[j ++];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 将另一段剩余部分也添加到TR中</div><div class="line">	if(i &lt;= m)&#123;</div><div class="line">		for(var l = 0; l &lt;= m-i; l ++)&#123;</div><div class="line">			TR[k + l] = SR[i + l];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	if(j &lt;= n)&#123;</div><div class="line">		for(var l = 0; l &lt;= n-j; l ++)&#123;</div><div class="line">			TR[k + l] = SR[j + l];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var num = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(mergingSort1(num));      // [2, 4, 7, 9, 11, 12, 16, 21, 34, 56]</div></pre></td></tr></table></figure>
+<p><strong>归并排序性能分析</strong></p>
+<ul>
+<li>稳定性：两两比较，不存在跳跃，稳定；</li>
+<li>时间复杂度：无论最好、最坏情况，时间复杂度都是：O(nlogn)；</li>
+<li>空间复杂度：O(n+logn)；</li>
+<li>算法本身的复杂度：复杂；</li>
+<li>归并排序是一种比较占内存，但却效率高且稳定的算法；</li>
+</ul>
+<p><strong>（2）非递归实现</strong> （不太明白，后期再加上）</p>
+<h4 id="7、快速排序（Quick-Sort）"><a href="#7、快速排序（Quick-Sort）" class="headerlink" title="7、快速排序（Quick Sort）"></a>7、快速排序（Quick Sort）</h4><p>—— 基于冒泡排序进行改进的算法（增大了记录的比较移动的距离）</p>
+<p><strong>基本思想：</strong> 通过一趟排序，将待排记录分割成独立的两部分，其中一部分记录的关键字均比另一部分记录的关键字小，则分别对这两部分记录继续进行排序，以达到整个序列有序的目的；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">function quickSort(arr)&#123;</div><div class="line">	var len = arr.length;</div><div class="line">	var result = qSort(arr,0,len-1);</div><div class="line">	return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function qSort(arr,low,high)&#123;</div><div class="line">	if(low &lt; high)&#123;</div><div class="line">		// 将 arr 一分为二</div><div class="line">		var pivot = partition(arr,low,high);    // 计算出枢轴值</div><div class="line">		qSort(arr,low,pivot-1);    // 对pivot左边进行递归排序</div><div class="line">		qSort(arr,pivot+1,high);   // 对pivot右边进行递归排序</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 计算枢轴值</div><div class="line">function partition(arr,low,high)&#123;</div><div class="line">	var pivotkey = arr[low];   // 用子表的第一个记录做枢轴记录</div><div class="line">	while(low &lt; high)&#123;</div><div class="line">		// 元素从后往前与枢轴元素进行比较，大的话索引递减；小的话进行交换</div><div class="line">		while(low &lt; high &amp;&amp; arr[high] &gt;= pivotkey)&#123;</div><div class="line">			high --;</div><div class="line">		&#125;</div><div class="line">		swap(arr,low,high);    // 将比枢轴小的记录换到低端</div><div class="line">		// 元素从前往后与枢轴元素进行比较，小的话索引递增；大的话进行交换</div><div class="line">		while(low &lt; high &amp;&amp; arr[low] &lt;= pivotkey)&#123;</div><div class="line">			low ++;</div><div class="line">		&#125;</div><div class="line">		swap(arr,low,high);   // 将比枢轴大的记录换到高端</div><div class="line">	&#125;</div><div class="line">	return low;    // 返回枢轴所在的位置</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 交换元素</div><div class="line">function swap(arr,i,j)&#123;</div><div class="line">	var tmp = arr[i];</div><div class="line">	arr[i] = arr[j];</div><div class="line">	arr[j] = tmp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var num = [2,12,4,56,11,7,21,9,34,16];</div><div class="line">console.log(quickSort(num));    // [2, 4, 7, 9, 11, 12, 16, 21, 34, 56]</div></pre></td></tr></table></figure>
+<p><strong>快速排序性能评估</strong></p>
+<ul>
+<li>稳定性：不稳定（关键字的比较和交换都是跳跃进行的）</li>
+<li>时间复杂度<br>（1）最好的情况：O(nlogn)；<br>（2）最坏的情况：O(n^2)；<br>（3）平均的情况：O(nlogn)；</li>
+<li>空间复杂度：O(nlogn)；</li>
+<li>算法本身的复杂度：复杂；</li>
+</ul>
+<p>以上代码只是最基本的快速排序法，书中还记录了 <code>4</code> 种优化方案，分别为：优化选取枢轴、优化不必要的交换、优化小数组时的排序方案、优化递归操作，这里不一一详细展开，如果有需要，可以查询《大话数据结构》<code>P422 “快速排序优化”</code> 一节。</p>
+<h3 id="排序算法总结"><a href="#排序算法总结" class="headerlink" title="排序算法总结"></a>排序算法总结</h3><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>以上 <code>7</code> 种排序算法均属于内排序，本文不涉及外排序；</p>
+<p>按照借助的主要操作，可以进行如下分类：<br><img src="/img/2017-08-16_001.jpg" alt="排序分类"></p>
+<h4 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">排序方式</th>
+<th style="text-align:left">平均情况</th>
+<th style="text-align:left">最好情况</th>
+<th style="text-align:left">最坏情况</th>
+<th style="text-align:left">辅助空间</th>
+<th style="text-align:left">稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">冒泡排序</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(n)</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">稳定</td>
+</tr>
+<tr>
+<td style="text-align:left">选择排序</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">稳定</td>
+</tr>
+<tr>
+<td style="text-align:left">插入排序</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(n)</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">稳定</td>
+</tr>
+<tr>
+<td style="text-align:left">希尔排序</td>
+<td style="text-align:left">O(nlogn)~O(n^2)</td>
+<td style="text-align:left">O(n^(3/2))</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">不稳定</td>
+</tr>
+<tr>
+<td style="text-align:left">堆排序</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">不稳定</td>
+</tr>
+<tr>
+<td style="text-align:left">归并排序</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(n)</td>
+<td style="text-align:left">稳定</td>
+</tr>
+<tr>
+<td style="text-align:left">快速排序</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(logn)~O(n)</td>
+<td style="text-align:left">不稳定</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>从平均情况来看，最后 <code>3</code> 种改进算法要胜过希尔排序，并远远超过前 <code>3</code> 种简单算法；</li>
+<li>从最好情况来看，冒泡和插入排序算法要比其他算法更胜一筹，也就是说如果待排序的序列基本有序，则可以选择这两种排序算法；</li>
+<li>从最坏情况来看，堆排序和归并排序要由于快速排序以及其他简单排序；</li>
+<li>从空间复杂度来看，除了归并排序和快速排序之外，其余算法对辅助空间的要求一致，都是 <code>O(1)</code>；如果排序过程中，对空间复杂度有要求，则建议选前面的 <code>5</code> 种排序算法；</li>
+<li>从稳定性来看，改进算法中，只有归并排序是稳定的，而简单排序都是稳定的。</li>
+<li>从待排序的记录的个数看，如果待排序的个数 <code>n</code> 越小，则采用简单排序算法比较合适；如果待排序的个数 <code>n</code> 越大，则采用改进排序算法更合适；</li>
+</ul>
+
       
     </div>
 
@@ -718,7 +851,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法的性能评估"><span class="nav-number">1.</span> <span class="nav-text">排序算法的性能评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法"><span class="nav-number">2.</span> <span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、冒泡排序（Bubble-Sort）"><span class="nav-number">2.1.</span> <span class="nav-text">1、冒泡排序（Bubble Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、选择排序（Selection-Sort）"><span class="nav-number">2.2.</span> <span class="nav-text">2、选择排序（Selection Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、插入排序（Insertion-Sort）"><span class="nav-number">2.3.</span> <span class="nav-text">3、插入排序（Insertion Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、希尔排序（Shell-Sort）"><span class="nav-number">2.4.</span> <span class="nav-text">4、希尔排序（Shell Sort）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法的性能评估"><span class="nav-number">1.</span> <span class="nav-text">排序算法的性能评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法（7-种）"><span class="nav-number">2.</span> <span class="nav-text">排序算法（7 种）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、冒泡排序（Bubble-Sort）"><span class="nav-number">2.1.</span> <span class="nav-text">1、冒泡排序（Bubble Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、选择排序（Selection-Sort）"><span class="nav-number">2.2.</span> <span class="nav-text">2、选择排序（Selection Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、插入排序（Insertion-Sort）"><span class="nav-number">2.3.</span> <span class="nav-text">3、插入排序（Insertion Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、希尔排序（Shell-Sort）"><span class="nav-number">2.4.</span> <span class="nav-text">4、希尔排序（Shell Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、堆排序（Heap-Sort）"><span class="nav-number">2.5.</span> <span class="nav-text">5、堆排序（Heap Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、归并排序（Merging-Sort）"><span class="nav-number">2.6.</span> <span class="nav-text">6、归并排序（Merging Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、快速排序（Quick-Sort）"><span class="nav-number">2.7.</span> <span class="nav-text">7、快速排序（Quick Sort）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法总结"><span class="nav-number">3.</span> <span class="nav-text">排序算法总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">3.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能对比"><span class="nav-number">3.2.</span> <span class="nav-text">性能对比</span></a></li></ol></li></ol></div>
             
 
           </div>
