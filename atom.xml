@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-18T09:45:22.519Z</updated>
+  <updated>2017-08-18T09:51:51.035Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://yoursite.com/2017/08/18/MySQL-%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2017/08/18/MySQL-的安装和配置/</id>
     <published>2017-08-18T08:48:19.000Z</published>
-    <updated>2017-08-18T09:45:22.519Z</updated>
+    <updated>2017-08-18T09:51:51.035Z</updated>
     
     <content type="html"><![CDATA[<p>本文针对的是 <code>Win7</code> 系统上安装 <code>5.7.19</code> 的 <code>MySQL</code>。</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>官方下载地址：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL下载地址</a><br>打开上面的地址后，拉到页面的最下方，选择第二个并点击右方的 <code>DOWNLOAD</code> 按钮。<br><img src="/img/2017-08-18_001.png" alt="官网下载"></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>官方下载地址：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/</a><br>打开上面的地址后，拉到页面的最下方，选择第二个并点击右方的 <code>DOWNLOAD</code> 按钮。<br><img src="/img/2017-08-18_001.png" alt="官网下载"></p>
 <p>点击之后，会跳转到一个登录/注册页面。如果已经有账号，则直接登录即可；如果没有账号，则注册一个账号，再登录。<br>登录之后，成功跳转到下载页面，（在这之前有可能会出现一个问卷类的页面，很简单的几个问题，选好后正式进入下载），点击蓝色按钮 <code>DOWNLOAD NOW</code>，选择压缩文件存放的路径即可。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载好之后，由于 <code>ZIP Archieve</code> 版是免安装的，所以只要解压就行了。（是不是很方便！）<br>将刚才下载好的 <code>mysql-5.7.19-winx64.zip</code> 右键解压到你想安装的地方即可。比如我的安装在 <code>D:\Tools\mysql-5.7.19-winx64</code><br><img src="/img/2017-08-18_002.png" alt="安装目录"></p>
 <h3 id="配置默认文件"><a href="#配置默认文件" class="headerlink" title="配置默认文件"></a>配置默认文件</h3><p>在安装目录的 <code>bin</code> 文件夹中，新建一个 <code>my.ini</code> 文件和 <code>data</code> 文件夹，然后将以下的代码复制到 <code>my.ini</code> 文件中，保存即可。<br><img src="/img/2017-08-18_003.png" alt="bin文件夹"><br>上图中的 <code>my.ini</code> 文件和 <code>data</code> 文件夹本来是没有的，是后来需要自己添加的。</p>
