@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-14T09:51:07.047Z</updated>
+  <updated>2017-08-18T09:45:22.519Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL的安装和配置</title>
+    <link href="http://yoursite.com/2017/08/18/MySQL-%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2017/08/18/MySQL-的安装和配置/</id>
+    <published>2017-08-18T08:48:19.000Z</published>
+    <updated>2017-08-18T09:45:22.519Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文针对的是 <code>Win7</code> 系统上安装 <code>5.7.19</code> 的 <code>MySQL</code>。</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>官方下载地址：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL下载地址</a><br>打开上面的地址后，拉到页面的最下方，选择第二个并点击右方的 <code>DOWNLOAD</code> 按钮。<br><img src="/img/2017-08-18_001.png" alt="官网下载"></p>
+<p>点击之后，会跳转到一个登录/注册页面。如果已经有账号，则直接登录即可；如果没有账号，则注册一个账号，再登录。<br>登录之后，成功跳转到下载页面，（在这之前有可能会出现一个问卷类的页面，很简单的几个问题，选好后正式进入下载），点击蓝色按钮 <code>DOWNLOAD NOW</code>，选择压缩文件存放的路径即可。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载好之后，由于 <code>ZIP Archieve</code> 版是免安装的，所以只要解压就行了。（是不是很方便！）<br>将刚才下载好的 <code>mysql-5.7.19-winx64.zip</code> 右键解压到你想安装的地方即可。比如我的安装在 <code>D:\Tools\mysql-5.7.19-winx64</code><br><img src="/img/2017-08-18_002.png" alt="安装目录"></p>
+<h3 id="配置默认文件"><a href="#配置默认文件" class="headerlink" title="配置默认文件"></a>配置默认文件</h3><p>在安装目录的 <code>bin</code> 文件夹中，新建一个 <code>my.ini</code> 文件和 <code>data</code> 文件夹，然后将以下的代码复制到 <code>my.ini</code> 文件中，保存即可。<br><img src="/img/2017-08-18_003.png" alt="bin文件夹"><br>上图中的 <code>my.ini</code> 文件和 <code>data</code> 文件夹本来是没有的，是后来需要自己添加的。</p>
+<p><code>my.ini</code> 文件内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[client]</div><div class="line">port=3306</div><div class="line">default-character-set=utf8</div><div class="line"></div><div class="line">[mysqld]</div><div class="line"># 设置为自己MYSQL的安装目录</div><div class="line">basedir=D:\Tools\mysql-5.7.19-winx64</div><div class="line"># 设置为MYSQL的数据目录</div><div class="line">datadir=D:\Tools\mysql-5.7.19-winx64\data</div><div class="line">port=3306</div><div class="line">character_set_server=utf8</div><div class="line">sql_mode=NO_ENGINE_SUBSTITUTION,NO_AUTO_CREATE_USER</div><div class="line">#开启查询缓存</div><div class="line">explicit_defaults_for_timestamp=true</div><div class="line">skip-grant-tables</div></pre></td></tr></table></figure></p>
+<p><font color="red">注意：</font>上面代码复制之后，一定要根据你的安装目录修改两个地方，一个是 <code>MySQL</code> 的安装目录，一个是 <code>MySQL</code> 的数据目录，不然后面启动服务器的时候会无法正常启动（路径都错了，当然没办法启动了）。</p>
+<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><p><code>右键计算机</code> ——&gt; <code>属性</code> ——&gt; <code>高级系统属性</code> ——&gt; <code>环境变量</code><br><img src="/img/2017-08-18_004.png" alt="设置环境变量"></p>
+<p>选择系统变量中的 <code>Path</code> 变量，点击编辑，然后将 <code>bin</code> 目录的全部路径（比如：<code>D:\Tools\mysql-5.7.19-winx64\bin</code>）放到里面（这里建议放到最前面，然后加一个英文的分号，以免出错），点击确定即可。<br><img src="/img/2017-08-18_005.png" alt="Path变量"></p>
+<h3 id="安装-MySQL-服务"><a href="#安装-MySQL-服务" class="headerlink" title="安装 MySQL 服务"></a>安装 MySQL 服务</h3><p><code>开始</code> ——&gt; 输入 <code>cmd</code>，出现一个 <code>cmd.exe</code>，千万别着急点开，右键选择 <code>管理员的身份运行</code>。运行后，进入到 <code>bin</code> 目录下，输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqld-initialize-insecure</div></pre></td></tr></table></figure></p>
+<p>执行以上命令后，<code>bin</code> 文件夹下的 <code>data</code> 文件夹下就会有正常的 <code>mysql</code> 文件和其他一些相关文件。<br><img src="/img/2017-08-18_006.png" alt="data目录"></p>
+<p>然后执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysqld install    // 安装服务器</div><div class="line">net start mysql   // 启动服务器</div></pre></td></tr></table></figure></p>
+<p>如果服务器启动成功，则会出现以下提示语句。<br><img src="/img/2017-08-18_007.png" alt="服务器启动成功"></p>
+<p>如果需要更改密码，则可以输入以下命令进行更改，括号中为你的密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set password for root@localhost = password(‘123456’);</div></pre></td></tr></table></figure></p>
+<h3 id="打开-MySQL"><a href="#打开-MySQL" class="headerlink" title="打开 MySQL"></a>打开 MySQL</h3><p>正确完成以上所有步骤后，就可以登录 MySQL了，执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p</div></pre></td></tr></table></figure></p>
+<p>回车后会出现 <code>Enter password:</code> ，让你输入密码。如果刚才你设置了密码，则输入你的密码登录即可；如果没有设置密码，则直接回车即可进入。<br>如果出现以下提示语，则说明你已经成功登录：<br><img src="/img/2017-08-18_008.png" alt="成功登录"></p>
+<p>如果要退出，则输入命令 <code>exit</code> 退出即可（直接关闭 <code>cmd</code> 其实并没有退出！）。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文针对的是 &lt;code&gt;Win7&lt;/code&gt; 系统上安装 &lt;code&gt;5.7.19&lt;/code&gt; 的 &lt;code&gt;MySQL&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>原型、原型链以及继承（二）</title>
@@ -604,7 +644,7 @@
     <link href="http://yoursite.com/2017/08/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E2%80%94%E2%80%94-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2017/08/04/数据结构-——-排序算法总结/</id>
     <published>2017-08-04T14:42:23.000Z</published>
-    <updated>2017-08-16T09:45:50.789Z</updated>
+    <updated>2017-08-16T09:54:03.065Z</updated>
     
     <content type="html"><![CDATA[<p>本文记录了几种经典的排序算法，并对排序算法的性能进行了总结，如果有哪里写的不妥的，还请大家指正批评。同时，也欢迎大家提供更简单有效的算法。</p>
 <h3 id="排序算法的性能评估"><a href="#排序算法的性能评估" class="headerlink" title="排序算法的性能评估"></a>排序算法的性能评估</h3><ul>
@@ -779,8 +819,8 @@
 <li>从最好情况来看，冒泡和插入排序算法要比其他算法更胜一筹，也就是说如果待排序的序列基本有序，则可以选择这两种排序算法；</li>
 <li>从最坏情况来看，堆排序和归并排序要由于快速排序以及其他简单排序；</li>
 <li>从空间复杂度来看，除了归并排序和快速排序之外，其余算法对辅助空间的要求一致，都是 <code>O(1)</code>；如果排序过程中，对空间复杂度有要求，则建议选前面的 <code>5</code> 种排序算法；</li>
-<li>从稳定性来看，改进算法中，只有归并排序是稳定的，而简单排序都是稳定的。</li>
-<li>从待排序的记录的个数看，如果待排序的个数 <code>n</code> 越小，则采用简单排序算法比较合适；如果待排序的个数 <code>n</code> 越大，则采用改进排序算法更合适；</li>
+<li>从稳定性来看，改进算法中，只有归并排序是稳定的，而简单排序都是稳定的；</li>
+<li>从待排序的记录的个数看，如果待排序的个数 <code>n</code> 越小，则采用简单排序算法比较合适；如果待排序的个数 <code>n</code> 越大，则采用改进排序算法更合适。</li>
 </ul>
 ]]></content>
     
@@ -1306,114 +1346,6 @@
     
     
       <category term="页面加载" scheme="http://yoursite.com/tags/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>表格排序-JavaScript</title>
-    <link href="http://yoursite.com/2017/07/19/%E8%A1%A8%E6%A0%BC%E6%8E%92%E5%BA%8F-JavaScript/"/>
-    <id>http://yoursite.com/2017/07/19/表格排序-JavaScript/</id>
-    <published>2017-07-19T03:50:45.000Z</published>
-    <updated>2017-07-19T10:02:08.107Z</updated>
-    
-    <content type="html"><![CDATA[<p>笔试做到一个表格排序的题，当时没有完全实现，本文记录了用JavavScript进行表格排序的实现过程。</p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>在页面上有如下表格，当点击成绩的时候，所有行数据根据成绩从低到高排序，再点击时成绩则变为从高到低排序。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">姓名</th>
-<th style="text-align:left">性别</th>
-<th style="text-align:left">成绩</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">张三</td>
-<td style="text-align:left">男</td>
-<td style="text-align:left">77</td>
-</tr>
-<tr>
-<td style="text-align:left">李四</td>
-<td style="text-align:left">女</td>
-<td style="text-align:left">87</td>
-</tr>
-<tr>
-<td style="text-align:left">王五</td>
-<td style="text-align:left">未知</td>
-<td style="text-align:left">50</td>
-</tr>
-</tbody>
-</table>
-<p>第一次点击成绩之后：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">姓名</th>
-<th style="text-align:left">性别</th>
-<th style="text-align:left">成绩</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">王五</td>
-<td style="text-align:left">未知</td>
-<td style="text-align:left">50</td>
-</tr>
-<tr>
-<td style="text-align:left">张三</td>
-<td style="text-align:left">男</td>
-<td style="text-align:left">77</td>
-</tr>
-<tr>
-<td style="text-align:left">李四</td>
-<td style="text-align:left">女</td>
-<td style="text-align:left">87</td>
-</tr>
-</tbody>
-</table>
-<p>再次点击成绩之后：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">姓名</th>
-<th style="text-align:left">性别</th>
-<th style="text-align:left">成绩</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">李四</td>
-<td style="text-align:left">女</td>
-<td style="text-align:left">87</td>
-</tr>
-<tr>
-<td style="text-align:left">张三</td>
-<td style="text-align:left">男</td>
-<td style="text-align:left">77</td>
-</tr>
-<tr>
-<td style="text-align:left">王五</td>
-<td style="text-align:left">未知</td>
-<td style="text-align:left">50</td>
-</tr>
-</tbody>
-</table>
-<h4 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h4><h5 id="html代码部分"><a href="#html代码部分" class="headerlink" title="html代码部分"></a>html代码部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">    &lt;thead&gt;</div><div class="line">        &lt;tr&gt;  </div><div class="line">            &lt;td&gt;姓名&lt;/td&gt;  </div><div class="line">            &lt;td&gt;性别&lt;/td&gt;  </div><div class="line">            &lt;td&gt;成绩&lt;/td&gt;  </div><div class="line">        &lt;/tr&gt;  </div><div class="line">    &lt;/thead&gt;</div><div class="line">    &lt;tbody&gt;</div><div class="line">        &lt;tr&gt;  </div><div class="line">            &lt;td&gt;张三&lt;/td&gt;  </div><div class="line">            &lt;td&gt;男&lt;/td&gt;  </div><div class="line">            &lt;td&gt;77&lt;/td&gt;  </div><div class="line">        &lt;/tr&gt;  </div><div class="line">        &lt;tr&gt;  </div><div class="line">            &lt;td&gt;李四&lt;/td&gt;  </div><div class="line">            &lt;td&gt;女&lt;/td&gt;  </div><div class="line">            &lt;td&gt;87&lt;/td&gt;  </div><div class="line">        &lt;/tr&gt;  </div><div class="line">        &lt;tr&gt;  </div><div class="line">            &lt;td&gt;王五&lt;/td&gt;  </div><div class="line">            &lt;td&gt;未知&lt;/td&gt;  </div><div class="line">            &lt;td&gt;50&lt;/td&gt;  </div><div class="line">        &lt;/tr&gt;  </div><div class="line">    &lt;/tbody&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
-<h5 id="CSS代码部分"><a href="#CSS代码部分" class="headerlink" title="CSS代码部分"></a>CSS代码部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div><div class="line">table&#123;</div><div class="line">    border: solid 1px;</div><div class="line">    margin: 60px auto;</div><div class="line">    width: 600px;</div><div class="line">    border-collapse: collapse;    /*为表格设置合并边框模型*/</div><div class="line">    cursor: default;    </div><div class="line">    /*该属性定义了鼠标指针放在一个元素边界范围内时所用的光标形状，default默认光标(通常是一个箭头)*/</div><div class="line">&#125;</div><div class="line">tr&#123;</div><div class="line">    border: solid 1px;</div><div class="line">    height: 26px;</div><div class="line">&#125;</div><div class="line">thead&#123;</div><div class="line">  border: solid 1px;</div><div class="line">  cursor: pointer;</div><div class="line">  /*光标呈现为指示链接的指针(一只手)*/</div><div class="line">&#125;</div><div class="line">td&#123;</div><div class="line">  border: solid 1px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="JavaScript代码部分"><a href="#JavaScript代码部分" class="headerlink" title="JavaScript代码部分"></a>JavaScript代码部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;script type = &quot;text/javascript&quot;&gt;</div><div class="line">    window.onload = function()&#123;</div><div class="line">        var tHead = document.getElementsByTagName(&apos;thead&apos;)[0];</div><div class="line">        var tBody = document.getElementsByTagName(&apos;tbody&apos;)[0];</div><div class="line">        var tHeadTd = tHead.getElementsByTagName(&apos;td&apos;);</div><div class="line">        var rlen = tBody.rows.length;    // 获取tbody中的行数</div><div class="line">        var clen = tBody.rows[0].cells.length;   // 获取tbody中的每行的列数</div><div class="line"></div><div class="line">        var arr = [];</div><div class="line">        for(var  i = 0; i &lt; rlen; i ++)&#123;</div><div class="line">          arr[i] = tBody.rows[i];    // 把tBody中的内容以行的形式放到数组arr中</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        var count= 0;    // 记录点击的次数（第一次点击，升序排列；再次点击，降序排列）</div><div class="line">        // 当点击“成绩”单元格时</div><div class="line">        tHeadTd[2].onclick = function()&#123;</div><div class="line">            if(count == 0)&#123;</div><div class="line">              sortUp(arr,2);</div><div class="line">              count = 1;</div><div class="line">            &#125;else&#123;</div><div class="line">              sortDown(arr,2);</div><div class="line">              count = 0;</div><div class="line">            &#125;</div><div class="line">            var str = &quot;&quot;;</div><div class="line">            var html = &quot;&quot;;</div><div class="line"></div><div class="line">            // 遍历数组arr的每一行</div><div class="line">            for(var j = 0; j &lt; arr.length; j ++)&#123;</div><div class="line">                // 遍历数组arr每一行的长度</div><div class="line">                for(var k = 0; k &lt; clen; k ++)&#123;</div><div class="line">                    // 获取排序后每行每个单元格的内容</div><div class="line">                    str += &quot;&lt;td&gt;&quot; + arr[j].children[k].innerText + &quot;&lt;/td&gt;&quot;;</div><div class="line">                &#125;</div><div class="line">                // 把每个单元格放到行内，并把每行&lt;tr&gt;赋给html</div><div class="line">                html = &quot;&lt;tr&gt;&quot; + str + &quot;&lt;/tr&gt;&quot;;</div><div class="line">                str = &quot;&quot;;</div><div class="line">            &#125;</div><div class="line">            tBody.innerHTML = html;     // 把html内容添加到表格tbody中</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // 数字升序</div><div class="line">        function sortUp(arr,n)&#123;</div><div class="line">            arr.sort(function(a,b)&#123;</div><div class="line">                return a.children[n].innerText - b.children[n].innerText;  </div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // 数字降序</div><div class="line">        function sortDown(arr,n)&#123;</div><div class="line">            arr.sort(function(a,b)&#123;</div><div class="line">                return b.children[n].innerText - a.children[n].innerText;  </div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;笔试做到一个表格排序的题，当时没有完全实现，本文记录了用JavavScript进行表格排序的实现过程。&lt;/p&gt;
-&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;在页面上有如下表格，当
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-      <category term="表格排序" scheme="http://yoursite.com/tags/%E8%A1%A8%E6%A0%BC%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
